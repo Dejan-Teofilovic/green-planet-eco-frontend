@@ -12,10 +12,8 @@ export default function LandingLayout() {
   return (
     <>
       <div className="min-h-screen flex flex-col">
-        <div className="relative">
-          <Navbar />
-          <AlertMessage className="absolute top-5 w-full" />
-        </div>
+        <Navbar />
+        <AlertMessage className="fixed top-5 w-full" />
         <div className="flex-1">
           <Outlet />
         </div>

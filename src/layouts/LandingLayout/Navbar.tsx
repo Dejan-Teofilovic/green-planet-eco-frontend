@@ -3,73 +3,7 @@ import { Button, IconButton } from '@material-tailwind/react'
 import { Icon } from '@iconify/react'
 import { Link as ScrollLink } from 'react-scroll'
 import useMobileMenu from '../../hooks/useMobileMenu'
-
-// -------------------------------------------------------------------------------
-
-interface ISocialLink {
-  id: number;
-  icon: string;
-  url: string;
-}
-
-interface INavButton {
-  id: number;
-  label: string;
-  sectionId: string;
-}
-
-// -------------------------------------------------------------------------------
-
-const SOCIAL_LINKS: Array<ISocialLink> = [
-  {
-    id: 1,
-    icon: 'ri:facebook-fill',
-    url: '#'
-  },
-  {
-    id: 2,
-    icon: 'mdi:twitter',
-    url: '#'
-  },
-  {
-    id: 3,
-    icon: 'ph:instagram-logo-fill',
-    url: '#'
-  },
-  {
-    id: 4,
-    icon: 'ri:linkedin-fill',
-    url: '#'
-  }
-]
-
-const NAV_BUTTONS: Array<INavButton> = [
-  {
-    id: 1,
-    label: 'Home',
-    sectionId: 'hero'
-  },
-  {
-    id: 2,
-    label: 'About',
-    sectionId: 'about-us'
-  },
-  {
-    id: 3,
-    label: 'Offer',
-    sectionId: 'offer'
-  },
-  {
-    id: 4,
-    label: 'Whitepaper',
-    sectionId: 'whitepaper'
-  },
-  {
-    id: 5,
-    label: 'Testimonials',
-    sectionId: 'testimonials'
-  }
-]
+import { SOCIAL_LINKS, NAV_BUTTONS } from '../../utils/constants'
 
 // -------------------------------------------------------------------------------
 
