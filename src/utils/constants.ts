@@ -32,7 +32,7 @@ export const NAV_BUTTONS: Array<INavButton> = [
   {
     id: 2,
     label: "About",
-    sectionId: "about-us",
+    sectionId: "about",
   },
   {
     id: 3,
