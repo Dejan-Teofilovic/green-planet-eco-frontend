@@ -36,8 +36,8 @@ export const NAV_BUTTONS: Array<INavButton> = [
   },
   {
     id: 3,
-    label: "Offer",
-    sectionId: "offer",
+    label: "Vision",
+    sectionId: "vision",
   },
   {
     id: 4,

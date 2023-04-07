@@ -55,6 +55,7 @@
   overflow-wrap: break-word;
 }
 
+/* --------- About Section --------- */
 .about_hero {
   padding-top: 255px !important;
   padding-bottom: 255px !important;
@@ -80,3 +81,24 @@
     transform: scale(1);
   }
 }
+/* --------------------------------- */
+
+/* -------- Values Section --------- */
+
+.bg_of_values_section {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+    url(/assets/images/solar_panels.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* --------------------------------- */
+
+/* -------- Vision Section --------- */
+.vision_card_triangle {
+  width: 0;
+  height: 0;
+  border-top: 2rem solid rgba(106, 190, 82, 1);
+  border-left: 2rem solid transparent;
+}
+/* --------------------------------- */

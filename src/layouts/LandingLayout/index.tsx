@@ -17,7 +17,7 @@ export default function LandingLayout() {
         <div className="flex-1">
           <Outlet />
         </div>
-        <Footer className="mt-16" />
+        <Footer />
       </div>
       {isLoading && <Loading />}
     </>
