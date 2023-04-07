@@ -51,14 +51,16 @@ const TESTIMONIALS: Array<ITestimonial> = [
 
 export default function TestimonialsSection() {
   return (
-    <div className="bg_testimonials py-36" id="testimonials">
+    <div className="bg_testimonials py-16 md:py-36" id="testimonials">
       <Container>
         <div className="grid grid-cols-7">
-          <div className="col-span-3">
-            <h1 className="text-white text-5xl font-extrabold capitalize">Testimonials</h1>
-            <TinyDashedBar className="mt-8" />
+          <div className="col-span-7 md:col-span-3">
+            <h1 className="text-white text-3xl md:text-5xl font-extrabold capitalize text-center md:text-left">Testimonials</h1>
+            <div className="flex justify-center md:justify-start mt-6 md:mt-8">
+              <TinyDashedBar />
+            </div>
 
-            <div className="mt-16">
+            <div className="mt-8 md:mt-16">
               <Swiper
                 breakpoints={{
                   320: {
