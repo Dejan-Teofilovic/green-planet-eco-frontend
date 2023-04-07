@@ -43,9 +43,9 @@ const VALUES: Array<IValue> = [
 
 export default function ValuesSection() {
   return (
-    <div className="bg_of_values_section py-20">
+    <div className="bg_of_values_section py-10 md:py-20">
       <Container>
-        <div className="grid grid-cols-4 items-center">
+        <div className="hidden md:grid grid-cols-4 items-center">
           {VALUES.map((dataItem, index) => {
             if (index + 1 === VALUES.length) {
               return (
@@ -65,6 +65,20 @@ export default function ValuesSection() {
               )
             }
           })}
+        </div>
+
+        <div className="flex md:hidden justify-center">
+          <div className="w-fit flex flex-col gap-8">
+            {VALUES.map(dataItem => (
+              <div className="flex items-center gap-8" key={dataItem.id}>
+                <div><img src={dataItem.imgSrc} /></div>
+                <div className="flex flex-col">
+                  <span className="text-3xl font-extrabold text-primary">{dataItem.value}</span>
+                  <span className="text-lg font-bold text-gray-500 capitalize">{dataItem.label}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </Container>
     </div>

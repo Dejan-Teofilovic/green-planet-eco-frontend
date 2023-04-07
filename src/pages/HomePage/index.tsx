@@ -16,7 +16,7 @@ export default function HomePage() {
     <div className="flex flex-col gap-36">
       <HeroSection />
       <AboutSection />
-      {/* <ValuesSection /> */}
+      <ValuesSection />
       {/* <VisionSection /> */}
       {/* <WhitepaperSection /> */}
       {/* <TestimonialsSection /> */}
