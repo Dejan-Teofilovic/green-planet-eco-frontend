@@ -17,7 +17,7 @@ export default function HomePage() {
       <HeroSection />
       <AboutSection />
       <ValuesSection />
-      {/* <VisionSection /> */}
+      <VisionSection />
       {/* <WhitepaperSection /> */}
       {/* <TestimonialsSection /> */}
     </div>

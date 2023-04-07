@@ -56,8 +56,8 @@ const CARDS: Array<ICardData> = [
 
 export default function VisionSection() {
   return (
-    <Container id="vision" className="flex flex-col items-center gap-8">
-      <h1 className="text-gray-900 text-5xl text-center font-extrabold capitalize">
+    <Container id="vision" className="flex flex-col items-center gap-6 md:gap-8">
+      <h1 className="text-gray-900 text-3xl md:text-5xl text-center font-extrabold capitalize">
         Vision
       </h1>
       <TinyDashedBar />
@@ -66,7 +66,7 @@ export default function VisionSection() {
           Mauris id enim id purus ornare tincidunt. Aenean vel consequat risus. Proin viverra nisi at nisl imperdiet auctor. Donec ornare, est sed tincidunt placerat.
         </p>
       </div>
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {CARDS.map(dataItem => (
           <div key={dataItem.id} className="bg-white p-8 rounded-xl flex gap-6 relative z-10">
             <div>
