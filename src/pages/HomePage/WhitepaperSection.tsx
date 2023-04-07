@@ -65,11 +65,11 @@ const WHITEPAPER: Array<IWhitepaper> = [
 export default function WhitepaperSection() {
   return (
     <Container id="whitepaper">
-      <h1 className="text-gray-900 text-5xl text-center font-extrabold capitalize">
+      <h1 className="text-gray-900 text-3xl md:text-5xl text-center font-extrabold capitalize">
         Whitepaper
       </h1>
       <div className="flex justify-center">
-        <TinyDashedBar className="mt-8" />
+        <TinyDashedBar className="mt-6 md:mt-8" />
       </div>
 
       <div className="mt-8 flex flex-col gap-4">

@@ -18,7 +18,7 @@ export default function HomePage() {
       <AboutSection />
       <ValuesSection />
       <VisionSection />
-      {/* <WhitepaperSection /> */}
+      <WhitepaperSection />
       {/* <TestimonialsSection /> */}
     </div>
   )
