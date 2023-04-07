@@ -31,7 +31,7 @@
 }
 
 .swiper-pagination-bullet-active {
-  background: #9ec51e;
+  background: rgba(106, 190, 82, 1);
 }
 
 .swiper-pagination {
@@ -100,5 +100,12 @@
   height: 0;
   border-top: 2rem solid rgba(106, 190, 82, 1);
   border-left: 2rem solid transparent;
+}
+/* --------------------------------- */
+
+/* ----- Testimonials Section ------ */
+.bg_testimonials {
+  background: url(/assets/images/bg_testimonials.jpg) no-repeat;
+  background-size: cover;
 }
 /* --------------------------------- */

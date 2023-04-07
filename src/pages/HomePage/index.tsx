@@ -7,6 +7,7 @@ const AboutSection = lazy(() => import('./AboutSection'))
 const ValuesSection = lazy(() => import('./ValuesSection'))
 const VisionSection = lazy(() => import('./VisionSection'))
 const WhitepaperSection = lazy(() => import('./WhitepaperSection'))
+const TestimonialsSection = lazy(() => import('./TestimonialsSection'))
 
 // --------------------------------------------------------------------------
 
@@ -18,6 +19,7 @@ export default function HomePage() {
       <ValuesSection />
       <VisionSection />
       <WhitepaperSection />
+      <TestimonialsSection />
     </div>
   )
 }
