@@ -15,11 +15,11 @@ export default function HomePage() {
   return (
     <div className="flex flex-col gap-36">
       <HeroSection />
-      <AboutSection />
-      <ValuesSection />
-      <VisionSection />
-      <WhitepaperSection />
-      <TestimonialsSection />
+      {/* <AboutSection /> */}
+      {/* <ValuesSection /> */}
+      {/* <VisionSection /> */}
+      {/* <WhitepaperSection /> */}
+      {/* <TestimonialsSection /> */}
     </div>
   )
 }
