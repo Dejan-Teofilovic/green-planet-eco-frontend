@@ -18,8 +18,10 @@ export default function HomePage() {
       <AboutSection />
       <ValuesSection />
       <VisionSection />
-      <WhitepaperSection />
-      <TestimonialsSection />
+      <div>
+        <WhitepaperSection />
+        <TestimonialsSection />
+      </div>
     </div>
   )
 }

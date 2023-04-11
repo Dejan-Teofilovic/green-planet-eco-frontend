@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import Container from "../../components/Container";
 import TinyDashedBar from "../../components/TinyDashedBar";
 
@@ -64,22 +64,24 @@ const WHITEPAPER: Array<IWhitepaper> = [
 
 export default function WhitepaperSection() {
   return (
-    <Container id="whitepaper">
-      <h1 className="text-gray-900 text-3xl md:text-5xl text-center font-extrabold capitalize">
-        Whitepaper
-      </h1>
-      <div className="flex justify-center">
-        <TinyDashedBar className="mt-6 md:mt-8" />
-      </div>
+    <div className="bg-white py-16 md:py-36">
+      <Container id="whitepaper">
+        <h1 className="text-gray-900 text-3xl md:text-5xl text-center font-extrabold capitalize">
+          Whitepaper
+        </h1>
+        <div className="flex justify-center">
+          <TinyDashedBar className="mt-6 md:mt-8" />
+        </div>
 
-      <div className="mt-8 flex flex-col gap-4">
-        {WHITEPAPER.map(dataItem => (
-          <div key={dataItem.id}>
-            <h2 className="font-bold text-lg">{dataItem.title}</h2>
-            <p className="text-gray-500 mt-2">{dataItem.description}</p>
-          </div>
-        ))}
-      </div>
-    </Container>
+        <div className="mt-8 flex flex-col gap-4">
+          {WHITEPAPER.map(dataItem => (
+            <div key={dataItem.id}>
+              <h2 className="font-bold text-lg">{dataItem.title}</h2>
+              <p className="text-gray-500 mt-2">{dataItem.description}</p>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </div>
   )
 }

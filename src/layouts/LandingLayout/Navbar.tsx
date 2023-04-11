@@ -1,13 +1,15 @@
 import React, { useMemo, useState } from 'react'
-import { Button, IconButton } from '@material-tailwind/react'
+import { Button, IconButton, MenuHandler, Menu, MenuList, MenuItem } from '@material-tailwind/react'
 import { Icon } from '@iconify/react'
 import { Link as ScrollLink } from 'react-scroll'
+import { Link, useLocation } from 'react-router-dom'
 import useMobileMenu from '../../hooks/useMobileMenu'
-import { SOCIAL_LINKS, NAV_BUTTONS } from '../../utils/constants'
+import { SOCIAL_LINKS, NAV_BUTTONS, NAV_LINKS } from '../../utils/constants'
 
 // -------------------------------------------------------------------------------
 
 export default function Navbar() {
+  const { pathname } = useLocation()
   const { openMenu, closeMenu, opened } = useMobileMenu()
 
   const [isShadow, setIsShadow] = useState<boolean>(false)
@@ -70,17 +72,54 @@ export default function Navbar() {
 
               {/* For Desktop */}
               <div className="hidden lg:flex gap-1">
-                {NAV_BUTTONS.map(dataItem => (
+                {NAV_LINKS.map(dataItem => {
+                  if (dataItem.children) {
+                    return (
+                      <Menu key={dataItem.id}>
+                        <MenuHandler>
+                          <Button
+                            variant="text"
+                            className="capitalize text-sm text-grey-800"
+                          >
+                            {dataItem.label}
+                          </Button>
+                        </MenuHandler>
+                        <MenuList>
+                          {dataItem.children.map(childItem => (
+                            <MenuItem key={childItem.id} className={`text-sm ${pathname === childItem.path ? 'text-primary' : 'text-grey-800'}`}>
+                              <Link to={childItem.path || ''}>
+                                {childItem.label}
+                              </Link>
+                            </MenuItem>
+                          ))}
+                        </MenuList>
+                      </Menu>
+                    )
+                  } else {
+                    return (
+                      <Button
+                        key={dataItem.id}
+                        variant="text"
+                        className={`capitalize text-sm ${pathname === dataItem.path ? 'text-primary' : 'text-grey-800'}`}
+                      >
+                        <Link to={dataItem.path || ''}>
+                          {dataItem.label}
+                        </Link>
+                      </Button>
+                    )
+                  }
+                })}
+                {/* {NAV_BUTTONS.map(dataItem => (
                   <Button
                     key={dataItem.id}
                     variant="text"
                     className={`capitalize text-sm ${reachedSectionId === dataItem.id ? 'text-primary' : 'text-grey-800'}`}
                   >
-                    <ScrollLink to={dataItem.sectionId} spy smooth offset={-70} duration={500} onSetActive={() => setReachedSectionId(dataItem.id)}>
+                    <Link to={dataItem.path || ''}>
                       {dataItem.label}
-                    </ScrollLink>
+                    </Link>
                   </Button>
-                ))}
+                ))} */}
               </div>
 
               {/* For Mobile */}
@@ -97,13 +136,50 @@ export default function Navbar() {
 
         {opened && (
           <div className={`absolute w-full flex lg:hidden flex-col items-center bg-primary ${isShadow && 'shadow-2xl'}`}>
-            {NAV_BUTTONS.map(dataItem => (
+            {/* {NAV_BUTTONS.map(dataItem => (
               <Button variant="text" className="text-white text-sm" key={dataItem.id}>
                 <ScrollLink to={dataItem.sectionId} spy smooth offset={-70} duration={500} onSetActive={() => setReachedSectionId(dataItem.id)}>
                   {dataItem.label}
                 </ScrollLink>
               </Button>
-            ))}
+            ))} */}
+            {NAV_LINKS.map(dataItem => {
+              if (dataItem.children) {
+                return (
+                  <Menu key={dataItem.id}>
+                    <MenuHandler>
+                      <Button
+                        variant="text"
+                        className="capitalize text-sm text-white"
+                      >
+                        {dataItem.label}
+                      </Button>
+                    </MenuHandler>
+                    <MenuList>
+                      {dataItem.children.map(childItem => (
+                        <MenuItem key={childItem.id} className={`text-sm ${pathname === childItem.path ? 'text-primary' : 'text-gray-800'}`}>
+                          <Link to={childItem.path || ''}>
+                            {childItem.label}
+                          </Link>
+                        </MenuItem>
+                      ))}
+                    </MenuList>
+                  </Menu>
+                )
+              } else {
+                return (
+                  <Button
+                    key={dataItem.id}
+                    variant="text"
+                    className={`capitalize text-sm ${pathname === dataItem.path ? 'text-green-900' : 'text-white'}`}
+                  >
+                    <Link to={dataItem.path || ''}>
+                      {dataItem.label}
+                    </Link>
+                  </Button>
+                )
+              }
+            })}
           </div>
         )}
       </div>

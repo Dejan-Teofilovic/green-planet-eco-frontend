@@ -9,3 +9,10 @@ export interface INavButton {
   label: string;
   sectionId: string;
 }
+
+export interface INavLink {
+  id: number;
+  label: string;
+  path?: string;
+  children?: Array<INavLink>;
+}
