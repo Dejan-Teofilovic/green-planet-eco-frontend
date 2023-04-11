@@ -1,5 +1,9 @@
+import PageTitle from "../../../components/PageTitle";
+
 export default function CampaignPage() {
   return (
-    <div></div>
+    <div>
+      <PageTitle title="Campaigns" />
+    </div>
   )
 }

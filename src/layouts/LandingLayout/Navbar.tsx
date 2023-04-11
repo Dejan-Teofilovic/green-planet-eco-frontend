@@ -12,7 +12,7 @@ export default function Navbar() {
   const { openMenu, closeMenu, opened } = useMobileMenu()
 
   const [isShadow, setIsShadow] = useState<boolean>(false)
-  const [reachedSectionId, setReachedSectionId] = useState<number>(1)
+  // const [reachedSectionId, setReachedSectionId] = useState<number>(1)
 
   const icon = useMemo<string>(() => {
     if (opened) {
@@ -67,7 +67,9 @@ export default function Navbar() {
         <div className="relative bg-white px-6 py-4 z-20">
           <div className="container max-w-6xl mx-auto">
             <div className="flex justify-between items-center">
-              <img src="/assets/images/logo.png" alt="Logo" className="w-32" />
+              <Link to="/">
+                <img src="/assets/images/logo.png" alt="Logo" className="w-32" />
+              </Link>
 
               {/* For Desktop */}
               <div className="hidden lg:flex gap-1">
@@ -83,7 +85,7 @@ export default function Navbar() {
                             {dataItem.label}
                           </Button>
                         </MenuHandler>
-                        <MenuList>
+                        <MenuList className="border border-primary">
                           {dataItem.children.map(childItem => (
                             <MenuItem key={childItem.id} className={`text-sm ${pathname === childItem.path ? 'text-primary' : 'text-grey-800'}`}>
                               <Link to={childItem.path || ''}>

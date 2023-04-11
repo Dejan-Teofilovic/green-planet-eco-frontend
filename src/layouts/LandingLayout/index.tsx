@@ -1,10 +1,15 @@
-import React from "react";
+import React, { lazy } from "react";
 import { Outlet } from "react-router-dom";
 import AlertMessage from "../../components/AlertMessage";
 import Loading from "../../components/Loading";
 import useLoading from "../../hooks/useLoading";
-import Footer from "./Footer";
-import Navbar from "./Navbar";
+
+// ------------------------------------------------------------------------------------
+
+const Navbar = lazy(() => import('./Navbar'))
+const Footer = lazy(() => import('./Footer'))
+
+// ------------------------------------------------------------------------------------
 
 export default function LandingLayout() {
   const { isLoading } = useLoading();
