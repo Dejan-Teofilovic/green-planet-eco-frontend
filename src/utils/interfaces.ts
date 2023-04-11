@@ -25,3 +25,12 @@ export interface ICampaignCardData {
   goalAmount: number;
   raisedAmount: number;
 }
+
+export interface IProfileData {
+  id: number;
+  name: string;
+  position: string;
+  bio: string;
+  imgSrc: string;
+  socialLinks: Array<ISocialLink>;
+}

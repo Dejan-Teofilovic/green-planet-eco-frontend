@@ -1,11 +1,11 @@
 import React, { lazy } from "react";
 import Container from "../../../components/Container";
-import PageTitle from "../../../components/PageTitle";
 import { ICampaignCardData } from "../../../utils/interfaces";
 
 // --------------------------------------------------------------------------
 
 const CardInGrid = lazy(() => import('./CardInGrid'))
+const PageTitle = lazy(() => import('../../../components/PageTitle'))
 
 // --------------------------------------------------------------------------
 

@@ -1,8 +1,9 @@
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from 'swiper';
+import { Avatar } from "@material-tailwind/react";
 import Container from "../../components/Container";
 import TinyDashedBar from "../../components/TinyDashedBar";
-import { Avatar, Card } from "@material-tailwind/react";
 
 // ----------------------------------------------------------------------------------
 
