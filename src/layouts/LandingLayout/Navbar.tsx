@@ -1,10 +1,9 @@
 import React, { useMemo, useState } from 'react'
 import { Button, IconButton, MenuHandler, Menu, MenuList, MenuItem } from '@material-tailwind/react'
 import { Icon } from '@iconify/react'
-import { Link as ScrollLink } from 'react-scroll'
 import { Link, useLocation } from 'react-router-dom'
 import useMobileMenu from '../../hooks/useMobileMenu'
-import { SOCIAL_LINKS, NAV_BUTTONS, NAV_LINKS } from '../../utils/constants'
+import { SOCIAL_LINKS, NAV_LINKS } from '../../utils/constants'
 
 // -------------------------------------------------------------------------------
 

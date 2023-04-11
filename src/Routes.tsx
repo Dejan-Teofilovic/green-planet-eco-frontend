@@ -5,6 +5,7 @@ import LandingLayout from "./layouts/LandingLayout";
 // --------------------------------------------------------------------------------------
 
 const HomePage = lazy(() => import('./pages/HomePage'))
+const NoPage = lazy(() => import('./pages/NoPage'))
 
 // --------------------------------------------------------------------------------------
 
@@ -19,8 +20,7 @@ export default function Routes() {
         },
         {
           path: '*',
-          // element: <Navigate to="/" replace />
-          element: <></>
+          element: <NoPage />
         }
       ]
     }
