@@ -16,3 +16,12 @@ export interface INavLink {
   path?: string;
   children?: Array<INavLink>;
 }
+
+export interface ICampaignCardData {
+  id: number;
+  imgSrc: string;
+  title: string;
+  description: string;
+  goalAmount: number;
+  raisedAmount: number;
+}

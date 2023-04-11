@@ -74,7 +74,7 @@ export default function VisionSection() {
             </div>
             <div className="flex flex-col gap-6">
               <h2 className="text-xl font-bold">{dataItem.name}</h2>
-              <p className="text-gray-500 text-sm">{dataItem.description}</p>
+              {/* <p className="text-gray-500 text-sm">{dataItem.description}</p> */}
             </div>
             <div className="vision_card_triangle absolute top-0 right-0" />
           </div>
