@@ -93,6 +93,7 @@ export default function FaqPage() {
             <div className="col-span-7 md:col-span-3 bg-primary rounded-lg py-8 md:py-12 px-8">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold">Any Questions?</h2>
               <div className="flex flex-col gap-4 mt-6 md:mt-8">
+                {/* Your Name */}
                 <div>
                   <Input
                     id="name"
@@ -110,6 +111,8 @@ export default function FaqPage() {
                     </span>
                   )}
                 </div>
+
+                {/* Your Email */}
                 <div>
                   <Input
                     id="email"
