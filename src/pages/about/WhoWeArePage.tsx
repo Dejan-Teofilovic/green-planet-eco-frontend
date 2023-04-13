@@ -1,15 +1,15 @@
 import React, { lazy } from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from 'swiper';
-import Container from '../../../components/Container'
-import TinyDashedBar from '../../../components/TinyDashedBar';
-import { IProfileData } from '../../../utils/interfaces';
-import { SOCIAL_LINKS } from '../../../utils/constants';
+import Container from '../../components/Container'
+import TinyDashedBar from '../../components/TinyDashedBar';
+import { IProfileData } from '../../utils/interfaces';
+import { SOCIAL_LINKS } from '../../utils/constants';
 
 // -----------------------------------------------------------------------------
 
-const PageTitle = lazy(() => import('../../../components/PageTitle'))
-const ProfileCard = lazy(() => import('./ProfileCard'))
+const PageTitle = lazy(() => import('../../components/PageTitle'))
+const ProfileCard = lazy(() => import('../../components/ProfileCard'))
 
 // -----------------------------------------------------------------------------
 

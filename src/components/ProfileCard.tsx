@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardBody, CardFooter, CardHeader, IconButton } from "@material-tailwind/react";
 import { Icon } from "@iconify/react";
-import { IProfileData } from "../../../utils/interfaces";
+import { IProfileData } from "../utils/interfaces";
 
 // ----------------------------------------------------------------------------------
 
