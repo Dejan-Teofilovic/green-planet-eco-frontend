@@ -1,4 +1,4 @@
-import { lazy } from 'react'
+import React, { lazy } from 'react'
 import Container from '../../components/Container'
 
 // -----------------------------------------------------------------------
