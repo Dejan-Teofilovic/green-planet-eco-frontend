@@ -1,4 +1,4 @@
-import { INavButton, INavLink, ISocialLink } from "./interfaces";
+import { INavButton, INavLink, IServiceData, ISocialLink } from "./interfaces";
 
 export const SOCIAL_LINKS: Array<ISocialLink> = [
   {
@@ -119,3 +119,29 @@ export const NAV_LINKS: Array<INavLink> = [
     path: "/contact-us"
   }
 ];
+
+export const SERVICES: Array<IServiceData> = [
+  {
+    id: 1,
+    title: "Supporting Cause",
+    description:
+      "Your contribution used locally to help charitable causes and support the organization, Support.",
+    imgSrc: "/assets/images/who_we_are_donate.png"
+  },
+  {
+    id: 2,
+    title: "Most Trusted One",
+    description:
+      "Your contribution used locally to help charitable causes and support the organization, Support.",
+    imgSrc: "/assets/images/who_we_are_medal.png"
+  },
+  {
+    id: 3,
+    title: "Award Winners",
+    description:
+      "Your contribution used locally to help charitable causes and support the organization, Support.",
+    imgSrc: "/assets/images/who_we_are_torch.png"
+  }
+];
+
+export const MSG_REQUIRED_FIELD = "Required field.";

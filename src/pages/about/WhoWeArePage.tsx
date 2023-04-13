@@ -4,7 +4,7 @@ import { Pagination } from 'swiper';
 import Container from '../../components/Container'
 import TinyDashedBar from '../../components/TinyDashedBar';
 import { IProfileData } from '../../utils/interfaces';
-import { SOCIAL_LINKS } from '../../utils/constants';
+import { SERVICES, SOCIAL_LINKS } from '../../utils/constants';
 
 // -----------------------------------------------------------------------------
 
@@ -12,13 +12,6 @@ const PageTitle = lazy(() => import('../../components/PageTitle'))
 const ProfileCard = lazy(() => import('../../components/ProfileCard'))
 
 // -----------------------------------------------------------------------------
-
-interface IServiceData {
-  id: number;
-  title: string;
-  description: string;
-  imgSrc: string;
-}
 
 interface IValue {
   id: number;
@@ -28,28 +21,6 @@ interface IValue {
 }
 
 // -----------------------------------------------------------------------------
-
-const SERVICES: Array<IServiceData> = [
-  {
-    id: 1,
-    title: 'Supporting Cause',
-    description: 'Your contribution used locally to help charitable causes and support the organization, Support.',
-    imgSrc: '/assets/images/who_we_are_donate.png'
-  },
-  {
-    id: 2,
-    title: 'Most Trusted One',
-    description: 'Your contribution used locally to help charitable causes and support the organization, Support.',
-    imgSrc: '/assets/images/who_we_are_medal.png'
-
-  },
-  {
-    id: 3,
-    title: 'Award Winners',
-    description: 'Your contribution used locally to help charitable causes and support the organization, Support.',
-    imgSrc: '/assets/images/who_we_are_torch.png'
-  }
-]
 
 const VALUES: Array<IValue> = [
   {

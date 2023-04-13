@@ -42,3 +42,16 @@ export interface ITestimonialData {
   position: string;
   comment: string;
 }
+
+export interface IFaqData {
+  id: number;
+  question: string;
+  answer: string;
+}
+
+export interface IServiceData {
+  id: number;
+  title: string;
+  description: string;
+  imgSrc: string;
+}
