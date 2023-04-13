@@ -18,11 +18,11 @@ export default function HomePage() {
       <Container>
         <p className='text-3xl font-bold'>
           Hello. My freelancer account has been closed so i can't continue the chat with you in freelancer.com. :(
-          If you are interested in keeping contract with me, please reply me by one of the following platforms.
+          If you are interested in keeping contract with me, please reply me by one of the following platforms.<br />
 
-          Email: mr.new0509@gmail.com
-          Telegram: @mrnew0509
-          discord: OpeThink#5316
+          Email: mr.new0509@gmail.com<br />
+          Telegram: @mrnew0509<br />
+          discord: OpeThink#5316<br />
           skype: sin085
         </p>
       </Container>
