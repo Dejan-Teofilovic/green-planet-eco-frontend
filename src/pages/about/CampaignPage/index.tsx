@@ -69,7 +69,7 @@ export default function CampaignPage() {
       <Container className="my-16 md:my-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {CAMPAIGNS.map(dataItem => (
-            <CardInGrid data={dataItem} />
+            <CardInGrid key={dataItem.id} data={dataItem} />
           ))}
         </div>
       </Container>
