@@ -1,4 +1,4 @@
-import { lazy } from "react";
+import React, { lazy } from "react";
 import Container from "../../components/Container";
 import { IProfileData } from "../../utils/interfaces";
 import { SOCIAL_LINKS } from "../../utils/constants";

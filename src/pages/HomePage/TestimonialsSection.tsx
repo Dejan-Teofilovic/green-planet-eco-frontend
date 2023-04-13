@@ -4,20 +4,11 @@ import { Pagination } from 'swiper';
 import { Avatar } from "@material-tailwind/react";
 import Container from "../../components/Container";
 import TinyDashedBar from "../../components/TinyDashedBar";
+import { ITestimonialData } from "../../utils/interfaces";
 
 // ----------------------------------------------------------------------------------
 
-interface ITestimonial {
-  id: number;
-  name: string;
-  avatarSrc: string;
-  position: string;
-  comment: string;
-}
-
-// ----------------------------------------------------------------------------------
-
-const TESTIMONIALS: Array<ITestimonial> = [
+const TESTIMONIALS: Array<ITestimonialData> = [
   {
     id: 1,
     name: 'John Doe',

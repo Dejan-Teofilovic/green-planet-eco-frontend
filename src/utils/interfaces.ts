@@ -34,3 +34,11 @@ export interface IProfileData {
   imgSrc: string;
   socialLinks: Array<ISocialLink>;
 }
+
+export interface ITestimonialData {
+  id: number;
+  name: string;
+  avatarSrc: string;
+  position: string;
+  comment: string;
+}
