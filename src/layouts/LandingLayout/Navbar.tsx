@@ -64,11 +64,12 @@ export default function Navbar() {
         </div>
 
         {/* Navbar */}
-        <div className="relative bg-white px-6 py-4 z-20">
+        <div className="relative bg-white px-6 py-2 z-20">
           <div className="container max-w-6xl mx-auto">
             <div className="flex justify-between items-center">
-              <Link to="/">
-                <img src="/assets/images/logo.png" alt="Logo" className="w-32" />
+              <Link to="/" className="flex items-center gap-4">
+                <img src="/assets/images/logo_white.png" alt="Logo" className="w-10" />
+                <span className="font-extrabold text-green-600 text-xl">Green Planet Echo</span>
               </Link>
 
               {/* For Desktop */}

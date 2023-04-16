@@ -21,7 +21,7 @@ export default function HomePage() {
       <VisionSection />
       <div>
         <WhitepaperSection />
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> */}
       </div>
     </div>
   )

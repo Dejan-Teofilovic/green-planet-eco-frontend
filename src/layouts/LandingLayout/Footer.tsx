@@ -1,16 +1,57 @@
 import React from 'react'
 import { Button, IconButton } from '@material-tailwind/react';
 import { Icon } from '@iconify/react';
-import { Link as ScrollLink } from 'react-scroll';
-import { NAV_BUTTONS, SOCIAL_LINKS } from '../../utils/constants';
+import { Link } from 'react-router-dom';
+import { SOCIAL_LINKS } from '../../utils/constants';
 import Input from '../../components/Input';
 import Container from '../../components/Container';
+import { INavLink } from '../../utils/interfaces';
 
 // -----------------------------------------------------------------------------------
 
 interface IProps {
   className?: string;
 }
+
+// -----------------------------------------------------------------------------------
+
+const QUICK_LINKS: Array<INavLink> = [
+  {
+    id: 1,
+    label: 'Home',
+    path: '/'
+  },
+  {
+    id: 2,
+    label: 'About',
+    path: '/about'
+  },
+  {
+    id: 3,
+    label: 'Learn',
+    path: '/learn'
+  },
+  {
+    id: 4,
+    label: 'Events',
+    path: '/events'
+  },
+  {
+    id: 5,
+    label: "Portfolio",
+    path: "/portfolio"
+  },
+  {
+    id: 6,
+    label: "News",
+    path: "/news"
+  },
+  {
+    id: 7,
+    label: "Contact us",
+    path: "/contact-us"
+  }
+]
 
 // -----------------------------------------------------------------------------------
 
@@ -22,7 +63,10 @@ export default function Footer({ className = '' }: IProps) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8">
             {/* Logo */}
             <div className="flex flex-col gap-4 md:gap-8">
-              <img src="/assets/images/logo-white2.png" className="w-36" />
+              <Link className="flex items-center gap-4" to="/">
+                <img src="/assets/images/logo_dark.png" className="w-10" />
+                <span className="font-extrabold text-green-600 text-xl">Green Planet Echo</span>
+              </Link>
               <p className="text-sm text-white font-semibold leading-6">
                 Breno Is a Fully Responsive Green Energy Fund Raising Theme.
               </p>
@@ -42,13 +86,13 @@ export default function Footer({ className = '' }: IProps) {
               <h2 className="text-white text-xl font-bold">Quick Links</h2>
               <div className="h-1 w-6 bg-primary mt-2" />
               <div className="grid grid-cols-2 mt-4 md:mt-8">
-                {NAV_BUTTONS.map(dataItem => (
+                {QUICK_LINKS.map(dataItem => (
                   <div key={dataItem.id} className="flex items-center">
                     <Icon icon="ic:round-keyboard-arrow-right" className="text-primary text-lg" />
                     <Button variant="text" className="text-white text-sm capitalize font-normal px-1 py-2">
-                      <ScrollLink to={dataItem.sectionId} spy smooth offset={-70} duration={500}>
+                      <Link to={dataItem.path || ''}>
                         {dataItem.label}
-                      </ScrollLink>
+                      </Link>
                     </Button>
                   </div>
                 ))}
@@ -77,7 +121,7 @@ export default function Footer({ className = '' }: IProps) {
 
       <div className="border-t border-gray-700 bg-gray-900 py-6">
         <p className="text-center text-white text-sm">
-          Copyrights © {new Date().getFullYear()} <span className="text-primary">Breno</span>
+          Copyrights © {new Date().getFullYear()} <span className="text-primary">Green Planet Echo</span>
         </p>
       </div>
     </div>
