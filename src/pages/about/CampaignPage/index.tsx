@@ -12,50 +12,50 @@ const PageTitle = lazy(() => import('../../../components/PageTitle'))
 const CAMPAIGNS: Array<ICampaignCardData> = [
   {
     id: 1,
-    title: 'Animal Feed and Food Bank',
-    imgSrc: '/assets/images/chicken.jpg',
-    description: 'There are many variations of passages of Lorem Ipsum available.',
-    raisedAmount: 500000,
+    title: 'Reforestation',
+    imgSrc: '/assets/images/campaign_reforestation.jpg',
+    description: 'Your donation aids in reforestation.',
+    raisedAmount: 0,
     goalAmount: 780000
   },
   {
     id: 2,
-    title: 'Animal Feed and Food Bank',
-    imgSrc: '/assets/images/chicken.jpg',
-    description: 'There are many variations of passages of Lorem Ipsum available.',
-    raisedAmount: 500000,
+    title: 'Saving Water',
+    imgSrc: '/assets/images/campaign_water.jpg',
+    description: 'Your donation aids in Saving Water.',
+    raisedAmount: 0,
     goalAmount: 780000
   },
   {
     id: 3,
-    title: 'Animal Feed and Food Bank',
-    imgSrc: '/assets/images/chicken.jpg',
-    description: 'There are many variations of passages of Lorem Ipsum available.',
-    raisedAmount: 500000,
+    title: 'Recycling',
+    imgSrc: '/assets/images/campaign_recycling.jpg',
+    description: 'Your donation aids in Recycling.',
+    raisedAmount: 0,
     goalAmount: 780000
   },
   {
     id: 4,
-    title: 'Animal Feed and Food Bank',
-    imgSrc: '/assets/images/chicken.jpg',
-    description: 'There are many variations of passages of Lorem Ipsum available.',
-    raisedAmount: 500000,
+    title: 'Saving Oceans',
+    imgSrc: '/assets/images/campaign_ocean.jpg',
+    description: 'Your donation aids in Saving the Oceans.',
+    raisedAmount: 0,
     goalAmount: 780000
   },
   {
     id: 5,
-    title: 'Animal Feed and Food Bank',
-    imgSrc: '/assets/images/chicken.jpg',
-    description: 'There are many variations of passages of Lorem Ipsum available.',
-    raisedAmount: 500000,
+    title: 'Saving Animals',
+    imgSrc: '/assets/images/campaign_animals.jpg',
+    description: 'Your donation aids in Saving Animals.',
+    raisedAmount: 0,
     goalAmount: 780000
   },
   {
     id: 6,
-    title: 'Animal Feed and Food Bank',
-    imgSrc: '/assets/images/chicken.jpg',
-    description: 'There are many variations of passages of Lorem Ipsum available.',
-    raisedAmount: 500000,
+    title: 'Helping Communities',
+    imgSrc: '/assets/images/campaign_communities.jpg',
+    description: 'Your donation aids in Helping Communities.',
+    raisedAmount: 0,
     goalAmount: 780000
   }
 ]

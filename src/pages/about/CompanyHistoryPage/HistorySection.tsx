@@ -10,13 +10,13 @@ export default function HistorySection() {
     <Container>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
         <div className="flex flex-col items-center lg:items-start gap-6 md:gap-8">
-          <h2 className="text-gray-900 text-3xl md:text-5xl font-extrabold text-center lg:text-left">
-            We Work with 20 Years of Experience
+          <h2 className="text-primary text-3xl md:text-5xl font-extrabold text-center lg:text-left">
+            Green Planet Eco
           </h2>
           <TinyDashedBar />
           <Card className="flex lg:hidden">
             <CardBody className="p-3">
-              <img src="/assets/images/company.jpg" alt="company" className="rounded-lg" />
+              <img src="/assets/images/history.jpg" alt="company" className="rounded-lg" />
             </CardBody>
           </Card>
           <div className="flex flex-col gap-4">
@@ -56,7 +56,7 @@ export default function HistorySection() {
         <div className="hidden lg:block">
           <Card>
             <CardBody className="p-3">
-              <img src="/assets/images/company.jpg" alt="company" className="rounded-lg" />
+              <img src="/assets/images/history.jpg" alt="company" className="rounded-lg" />
             </CardBody>
           </Card>
         </div>

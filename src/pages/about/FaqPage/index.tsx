@@ -6,6 +6,8 @@ import Container from "../../../components/Container";
 import { IFaqData } from "../../../utils/interfaces";
 import Input from "../../../components/Input";
 import { MSG_REQUIRED_FIELD, SERVICES } from "../../../utils/constants";
+import TinyDashedBar from "../../../components/TinyDashedBar";
+import { Icon } from "@iconify/react";
 
 // ---------------------------------------------------------------------
 
@@ -50,7 +52,7 @@ const validationSchema = yup.object().shape({
 // ---------------------------------------------------------------------
 
 export default function FaqPage() {
-  const [openedAccordions, setOpenedAccordions] = useState<Array<number>>([])
+  // const [openedAccordions, setOpenedAccordions] = useState<Array<number>>([])
 
   const initialValues: IMessageData = {
     name: '',
@@ -66,23 +68,93 @@ export default function FaqPage() {
     }
   })
 
-  const handleAccordionOpening = (accordionId: number) => {
-    const _openedAccordions = [...openedAccordions]
-    const indexOfAccordionId = _openedAccordions.indexOf(accordionId)
+  // const handleAccordionOpening = (accordionId: number) => {
+  //   const _openedAccordions = [...openedAccordions]
+  //   const indexOfAccordionId = _openedAccordions.indexOf(accordionId)
 
 
-    if (indexOfAccordionId >= 0) {
-      _openedAccordions.splice(indexOfAccordionId, 1)
-      setOpenedAccordions(_openedAccordions)
-    } else {
-      setOpenedAccordions([..._openedAccordions, accordionId])
-    }
-  }
+  //   if (indexOfAccordionId >= 0) {
+  //     _openedAccordions.splice(indexOfAccordionId, 1)
+  //     setOpenedAccordions(_openedAccordions)
+  //   } else {
+  //     setOpenedAccordions([..._openedAccordions, accordionId])
+  //   }
+  // }
 
   return (
     <div>
       <PageTitle title="Faq" />
-      <div className="bg-white py-16 md:py-32">
+      <Container className="py-16 md:py-32 flex flex-col items-center gap-6 md:gap-8">
+        <h1 className="text-gray-900 text-3xl md:text-5xl text-center font-extrabold capitalize">
+          Any Questions?
+        </h1>
+        <TinyDashedBar />
+
+        <div className="flex flex-col gap-8 w-full">
+          {/* Your Name */}
+          <div className="flex flex-col gap-2">
+            <label className="font-bold">Your Name *</label>
+            <Input
+              id="name"
+              name="name"
+              type="name"
+              className="border border-gray-400"
+              placeholder=""
+              onChange={formik.handleChange}
+              value={formik.values.name}
+              error={formik.touched.name && Boolean(formik.errors.name)}
+            />
+            {formik.touched.name && Boolean(formik.errors.name) && (
+              <span className="text-red-500 text-sm">
+                {formik.touched.name && formik.errors.name}
+              </span>
+            )}
+          </div>
+
+          {/* Your Email */}
+          <div className="flex flex-col gap-2">
+            <label className="font-bold">Your Email *</label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              className="border border-gray-400"
+              placeholder=""
+              onChange={formik.handleChange}
+              value={formik.values.email}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+            />
+            {formik.touched.email && Boolean(formik.errors.email) && (
+              <span className="text-red-500 text-sm">
+                {formik.touched.email && formik.errors.email}
+              </span>
+            )}
+          </div>
+
+          {/* Message */}
+          <div className="flex flex-col gap-2">
+            <label className="font-bold">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              className="rounded px-3 py-2 w-full focus:outline-none border border-gray-400"
+              placeholder=""
+              rows={4}
+              onChange={formik.handleChange}
+              value={formik.values.message}
+            />
+          </div>
+
+          <div className="flex justify-center">
+            <Button className="flex items-center gap-2 rounded-full bg-primary hover:bg-primary shadow-none text-base capitalize px-8">
+              <Icon icon="material-symbols:send-rounded" className="text-2xl" />
+              Send
+            </Button>
+          </div>
+        </div>
+      </Container>
+
+      {/* <div className="bg-white py-16 md:py-32">
         <Container>
           <div className="grid grid-cols-7 gap-8 items-start">
             <div className="col-span-7 md:col-span-4 p-4 bg-gray-100 flex flex-col gap-6">
@@ -93,7 +165,6 @@ export default function FaqPage() {
             <div className="col-span-7 md:col-span-3 bg-primary rounded-lg py-8 md:py-12 px-8">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold">Any Questions?</h2>
               <div className="flex flex-col gap-4 mt-6 md:mt-8">
-                {/* Your Name */}
                 <div>
                   <Input
                     id="name"
@@ -112,7 +183,6 @@ export default function FaqPage() {
                   )}
                 </div>
 
-                {/* Your Email */}
                 <div>
                   <Input
                     id="email"
@@ -130,6 +200,7 @@ export default function FaqPage() {
                     </span>
                   )}
                 </div>
+
                 <div>
                   <textarea
                     id="message"
@@ -163,7 +234,7 @@ export default function FaqPage() {
             ))}
           </div>
         </Container>
-      </div>
+      </div> */}
     </div>
   )
 }

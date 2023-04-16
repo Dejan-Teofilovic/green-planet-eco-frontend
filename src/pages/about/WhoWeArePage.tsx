@@ -25,25 +25,25 @@ interface IValue {
 const VALUES: Array<IValue> = [
   {
     id: 1,
-    value: '89000 +',
+    value: '0',
     label: 'Trees Planted',
     imgSrc: '/assets/images/green_tree.png'
   },
   {
     id: 2,
-    value: '79000 +',
+    value: '0',
     label: 'Solar Panels',
     imgSrc: '/assets/images/green_solar.png'
   },
   {
     id: 3,
-    value: '69000 +',
+    value: '0',
     label: 'Wildlife Saved',
     imgSrc: '/assets/images/green_elephant.png'
   },
   {
     id: 4,
-    value: '59000 +',
+    value: '0',
     label: 'Served Water',
     imgSrc: '/assets/images/green_water.png'
   }
@@ -52,33 +52,33 @@ const VALUES: Array<IValue> = [
 const PROFILES: Array<IProfileData> = [
   {
     id: 1,
-    name: 'Peterson',
+    name: 'Waldenir Moreira',
     position: 'CEO',
-    bio: 'Oisseminate economically sound bandwidth and',
+    bio: '',
     imgSrc: '/assets/images/profile.jpg',
     socialLinks: SOCIAL_LINKS
   },
   {
     id: 2,
-    name: 'Peterson',
-    position: 'CTO',
-    bio: 'Oisseminate economically sound bandwidth and',
+    name: 'Thaynara Silva',
+    position: 'Project Manager',
+    bio: '',
     imgSrc: '/assets/images/profile.jpg',
     socialLinks: SOCIAL_LINKS
   },
   {
     id: 3,
-    name: 'Peterson',
-    position: 'COO',
-    bio: 'Oisseminate economically sound bandwidth and',
+    name: 'Thays Luana Souza',
+    position: 'Marketing Developer',
+    bio: '',
     imgSrc: '/assets/images/profile.jpg',
     socialLinks: SOCIAL_LINKS
   },
   {
     id: 4,
-    name: 'Peterson',
-    position: 'CFO',
-    bio: 'Oisseminate economically sound bandwidth and',
+    name: '',
+    position: 'IT Developer',
+    bio: '',
     imgSrc: '/assets/images/profile.jpg',
     socialLinks: SOCIAL_LINKS
   }

@@ -51,7 +51,7 @@ export default function TestimonialsPage() {
   return (
     <div>
       <PageTitle title="Testimonials" />
-      <div className="bg-white py-16 md:py-36">
+      {/* <div className="bg-white py-16 md:py-36">
         <Container>
           <Swiper
             breakpoints={{
@@ -102,7 +102,10 @@ export default function TestimonialsPage() {
             </div>
           </div>
         </Container>
-      </div>
+      </div> */}
+      <Container>
+        <p className="text-3xl md:text-5xl font-bold text-center my-16 md:my-32">Upcoming Soon...</p>
+      </Container>
     </div>
   )
 }

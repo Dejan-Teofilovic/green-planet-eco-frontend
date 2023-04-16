@@ -1,5 +1,4 @@
 import React, { lazy } from 'react'
-import Container from '../../components/Container'
 
 // --------------------------------------------------------------------------
 
@@ -8,7 +7,7 @@ const AboutSection = lazy(() => import('./AboutSection'))
 const ValuesSection = lazy(() => import('./ValuesSection'))
 const VisionSection = lazy(() => import('./VisionSection'))
 const WhitepaperSection = lazy(() => import('./WhitepaperSection'))
-const TestimonialsSection = lazy(() => import('./TestimonialsSection'))
+// const TestimonialsSection = lazy(() => import('./TestimonialsSection'))
 
 // --------------------------------------------------------------------------
 

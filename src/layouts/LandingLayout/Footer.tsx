@@ -68,7 +68,7 @@ export default function Footer({ className = '' }: IProps) {
                 <span className="font-extrabold text-green-600 text-xl">Green Planet Echo</span>
               </Link>
               <p className="text-sm text-white font-semibold leading-6">
-                Breno Is a Fully Responsive Green Energy Fund Raising Theme.
+                Help make the World a Better Planet to live
               </p>
               <div className="flex items-center gap-1">
                 {SOCIAL_LINKS.map(dataItem => (
