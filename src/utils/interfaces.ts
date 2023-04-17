@@ -55,3 +55,15 @@ export interface IServiceData {
   description: string;
   imgSrc: string;
 }
+
+export interface ILearnData {
+  id: number;
+  title: string;
+  description: string;
+  benefits: Array<{
+    id: number;
+    title: string;
+    description: string;
+  }>;
+  imgSrc: string;
+}

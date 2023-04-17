@@ -1,49 +1,49 @@
 import React, { lazy } from 'react'
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from 'swiper';
-import { ITestimonialData } from '../../../utils/interfaces'
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import { Pagination } from 'swiper';
+// import { ITestimonialData } from '../../../utils/interfaces'
 import Container from '../../../components/Container'
-import TinyDashedBar from '../../../components/TinyDashedBar';
-import { Button } from '@material-tailwind/react';
+// import TinyDashedBar from '../../../components/TinyDashedBar';
+// import { Button } from '@material-tailwind/react';
 
 // -----------------------------------------------------------------------
 
 const PageTitle = lazy(() => import('../../../components/PageTitle'))
-const TestimonialItem = lazy(() => import('./TestimonialItem'))
+// const TestimonialItem = lazy(() => import('./TestimonialItem'))
 
 // -----------------------------------------------------------------------
 
 
-const TESTIMONIALS: Array<ITestimonialData> = [
-  {
-    id: 1,
-    name: 'John Doe',
-    avatarSrc: '/assets/images/avatar_testimonials.jpg',
-    position: 'CEO',
-    comment: 'Mauris id enim id purus ornare tincidunt. Aenean vel consequat risus. Proin viverra nisi at nisl imperdiet auctor. Donec ornare,'
-  },
-  {
-    id: 2,
-    name: 'John Doe',
-    avatarSrc: '/assets/images/avatar_testimonials.jpg',
-    position: 'CEO',
-    comment: 'Mauris id enim id purus ornare tincidunt. Aenean vel consequat risus. Proin viverra nisi at nisl imperdiet auctor. Donec ornare,'
-  },
-  {
-    id: 3,
-    name: 'John Doe',
-    avatarSrc: '/assets/images/avatar_testimonials.jpg',
-    position: 'CEO',
-    comment: 'Mauris id enim id purus ornare tincidunt. Aenean vel consequat risus. Proin viverra nisi at nisl imperdiet auctor. Donec ornare,'
-  },
-  {
-    id: 4,
-    name: 'John Doe',
-    avatarSrc: '/assets/images/avatar_testimonials.jpg',
-    position: 'CEO',
-    comment: 'Mauris id enim id purus ornare tincidunt. Aenean vel consequat risus. Proin viverra nisi at nisl imperdiet auctor. Donec ornare,'
-  }
-]
+// const TESTIMONIALS: Array<ITestimonialData> = [
+//   {
+//     id: 1,
+//     name: 'John Doe',
+//     avatarSrc: '/assets/images/avatar_testimonials.jpg',
+//     position: 'CEO',
+//     comment: 'Mauris id enim id purus ornare tincidunt. Aenean vel consequat risus. Proin viverra nisi at nisl imperdiet auctor. Donec ornare,'
+//   },
+//   {
+//     id: 2,
+//     name: 'John Doe',
+//     avatarSrc: '/assets/images/avatar_testimonials.jpg',
+//     position: 'CEO',
+//     comment: 'Mauris id enim id purus ornare tincidunt. Aenean vel consequat risus. Proin viverra nisi at nisl imperdiet auctor. Donec ornare,'
+//   },
+//   {
+//     id: 3,
+//     name: 'John Doe',
+//     avatarSrc: '/assets/images/avatar_testimonials.jpg',
+//     position: 'CEO',
+//     comment: 'Mauris id enim id purus ornare tincidunt. Aenean vel consequat risus. Proin viverra nisi at nisl imperdiet auctor. Donec ornare,'
+//   },
+//   {
+//     id: 4,
+//     name: 'John Doe',
+//     avatarSrc: '/assets/images/avatar_testimonials.jpg',
+//     position: 'CEO',
+//     comment: 'Mauris id enim id purus ornare tincidunt. Aenean vel consequat risus. Proin viverra nisi at nisl imperdiet auctor. Donec ornare,'
+//   }
+// ]
 
 // -----------------------------------------------------------------------
 

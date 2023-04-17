@@ -12,3 +12,17 @@ export const getVisibleAmount = (amount: number, decimal?: number): string => {
 
   return `${strInt}.${floatPart}`;
 };
+
+/**
+ * Show the first letters corresponding the length as param
+ * @param str abcdefghi
+ * @param lengthToShow 3
+ * @returns abc...
+ */
+export const showFirstLetters = (str: string, lengthToShow: number): string => {
+  if (str.length <= lengthToShow) {
+    return str;
+  } else {
+    return str.slice(0, lengthToShow) + "...";
+  }
+};

@@ -65,7 +65,7 @@ export default function Footer({ className = '' }: IProps) {
             <div className="flex flex-col gap-4 md:gap-8">
               <Link className="flex items-center gap-4" to="/">
                 <img src="/assets/images/logo_dark.png" className="w-10" />
-                <span className="font-extrabold text-green-600 text-xl">Green Planet Echo</span>
+                <span className="font-extrabold text-green-600 text-xl">Green Planet Eco</span>
               </Link>
               <p className="text-sm text-white font-semibold leading-6">
                 Help make the World a Better Planet to live

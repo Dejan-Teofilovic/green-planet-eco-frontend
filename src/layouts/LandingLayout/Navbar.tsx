@@ -69,7 +69,7 @@ export default function Navbar() {
             <div className="flex justify-between items-center">
               <Link to="/" className="flex items-center gap-4">
                 <img src="/assets/images/logo_white.png" alt="Logo" className="w-10" />
-                <span className="font-extrabold text-green-600 text-xl">Green Planet Echo</span>
+                <span className="font-extrabold text-green-600 text-xl">Green Planet Eco</span>
               </Link>
 
               {/* For Desktop */}

@@ -1,18 +1,18 @@
-import React, { lazy, useState } from "react";
+import React, { lazy } from "react";
 import * as yup from 'yup';
 import { useFormik } from "formik";
 import { Button } from "@material-tailwind/react";
-import Container from "../../../components/Container";
-import { IFaqData } from "../../../utils/interfaces";
-import Input from "../../../components/Input";
-import { MSG_REQUIRED_FIELD, SERVICES } from "../../../utils/constants";
-import TinyDashedBar from "../../../components/TinyDashedBar";
 import { Icon } from "@iconify/react";
+import Container from "../../../components/Container";
+// import { IFaqData } from "../../../utils/interfaces";
+import Input from "../../../components/Input";
+import { MSG_REQUIRED_FIELD } from "../../../utils/constants";
+import TinyDashedBar from "../../../components/TinyDashedBar";
 
 // ---------------------------------------------------------------------
 
 const PageTitle = lazy(() => import('../../../components/PageTitle'))
-const AccordionItem = lazy(() => import('./AccordionItem'))
+// const AccordionItem = lazy(() => import('./AccordionItem'))
 
 // ---------------------------------------------------------------------
 
@@ -24,23 +24,23 @@ interface IMessageData {
 
 // ---------------------------------------------------------------------
 
-const FAQS: Array<IFaqData> = [
-  {
-    id: 1,
-    question: 'How to reduce energy costs?',
-    answer: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.'
-  },
-  {
-    id: 2,
-    question: 'How to rescue me?',
-    answer: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.'
-  },
-  {
-    id: 3,
-    question: 'How to fix a tree planted too deep?',
-    answer: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.'
-  }
-]
+// const FAQS: Array<IFaqData> = [
+//   {
+//     id: 1,
+//     question: 'How to reduce energy costs?',
+//     answer: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.'
+//   },
+//   {
+//     id: 2,
+//     question: 'How to rescue me?',
+//     answer: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.'
+//   },
+//   {
+//     id: 3,
+//     question: 'How to fix a tree planted too deep?',
+//     answer: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.'
+//   }
+// ]
 
 // ---------------------------------------------------------------------
 
@@ -83,7 +83,7 @@ export default function FaqPage() {
 
   return (
     <div>
-      <PageTitle title="Faq" />
+      <PageTitle title="FAQ" />
       <Container className="py-16 md:py-32 flex flex-col items-center gap-6 md:gap-8">
         <h1 className="text-gray-900 text-3xl md:text-5xl text-center font-extrabold capitalize">
           Any Questions?
