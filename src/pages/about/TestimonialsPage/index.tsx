@@ -103,8 +103,8 @@ export default function TestimonialsPage() {
           </div>
         </Container>
       </div> */}
-      <Container>
-        <p className="text-3xl md:text-5xl font-bold text-center my-16 md:my-32">Upcoming Soon...</p>
+      <Container className="my-16 md:my-32">
+        <p className="text-3xl md:text-5xl font-bold text-center">Upcoming Soon...</p>
       </Container>
     </div>
   )

@@ -51,9 +51,13 @@ export default function Navbar() {
         {/* Topbar */}
         <div className="bg-primary py-1 hidden lg:block">
           <div className="container max-w-6xl mx-auto flex items-center justify-between">
-            <span className="tracking-wider text-white text-sm font-semibold">Providing awesome since 2001 years</span>
+            <span className="tracking-wider text-white text-sm font-semibold">
+              {/* Providing awesome since 2001 years */}
+            </span>
             <div className="flex items-center gap-4">
-              <span className="tracking-wider text-white text-sm font-semibold">Have any questions? 1 (541) 754-3010</span>
+              <span className="tracking-wider text-white text-sm font-semibold">
+                {/* Have any questions? 1 (541) 754-3010 */}
+              </span>
               <div className="flex items-center">
                 {SOCIAL_LINKS.map(dataItem => (
                   <IconButton variant="text" key={dataItem.id} className="text-white text-lg">

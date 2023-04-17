@@ -13,7 +13,7 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 items-center">
           <div className="flex flex-col gap-4 items-center md:items-start">
             <h1 className="text-primary uppercase font-extrabold text-4xl md:text-6xl text-center md:text-left">Save the World</h1>
-            <p className="text-white capitalize font-semibold text-xl md:text-3xl leading-8 md:leading-10 text-center md:text-left">Planting trees in your<br /> surrouding</p>
+            <p className="text-white capitalize font-semibold text-xl md:text-2xl leading-8 md:leading-10 text-center md:text-left">Help make the World a Better Planet to live</p>
             <TinyDashedBar />
 
             <div className="mt-8">

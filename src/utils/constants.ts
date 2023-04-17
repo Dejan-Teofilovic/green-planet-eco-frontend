@@ -135,22 +135,19 @@ export const SERVICES: Array<IServiceData> = [
   {
     id: 1,
     title: "Supporting Cause",
-    description:
-      "Your contribution used locally to help charitable causes and support the organization, Support.",
+    description: "Working towards a greener tomorrow.",
     imgSrc: "/assets/images/who_we_are_donate.png"
   },
   {
     id: 2,
     title: "Most Trusted One",
-    description:
-      "Your contribution used locally to help charitable causes and support the organization, Support.",
+    description: "Our work is based on transparency.",
     imgSrc: "/assets/images/who_we_are_medal.png"
   },
   {
     id: 3,
-    title: "Award Winners",
-    description:
-      "Your contribution used locally to help charitable causes and support the organization, Support.",
+    title: "Award Won",
+    description: "We are working hard to acquire recognition for our cause.",
     imgSrc: "/assets/images/who_we_are_torch.png"
   }
 ];

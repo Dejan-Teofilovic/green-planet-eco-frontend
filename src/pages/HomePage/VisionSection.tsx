@@ -63,7 +63,8 @@ export default function VisionSection() {
       <TinyDashedBar />
       <div className="max-w-3xl mx-auto">
         <p className="text-gray-500 text-center">
-          Mauris id enim id purus ornare tincidunt. Aenean vel consequat risus. Proin viverra nisi at nisl imperdiet auctor. Donec ornare, est sed tincidunt placerat.
+          We're on a mission to make the worlld a greener place. Our environmental company creates sustainable projects that help communities and businesses thrive while protecting the planet.<br />
+          Join us in building a better future for all.
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
