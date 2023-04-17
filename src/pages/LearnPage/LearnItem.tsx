@@ -25,9 +25,9 @@ export default function LearnItem({ data }: IProps) {
       </CardBody>
       <CardFooter>
         <Link to={`${data.id}`}>
-          <Button variant="text" className="text-primary font-bold flex items-center gap-2 px-0">
-            Leanr More
-            <Icon icon="material-symbols:arrow-right-alt-rounded" />
+          <Button variant="text" className="text-primary font-bold flex items-center gap-1 px-0">
+            Learn More
+            <Icon icon="material-symbols:arrow-right-alt-rounded" className="text-lg" />
           </Button>
         </Link>
       </CardFooter>

@@ -52,14 +52,14 @@ export default function ContactUsPage() {
         <div className="grid grid-cols-3 gap-24">
           <div className="col-span-3 md:col-span-1">
             <div className="flex gap-6">
-              <Icon icon="ic:outline-email" className="text-primary text-5xl" />
+              <Icon icon="ic:outline-email" className="text-primary text-5xl mt-[-0.3rem]" />
               <div className="flex flex-col gap-4">
                 <span className="text-2xl font-bold">Email</span>
 
-                <div className="flex flex-col gap-1">
+                {/* <div className="flex flex-col gap-1">
                   <p className="text-gray-800"><span className="font-bold">Email:</span> support@breno.com</p>
                   <p className="text-gray-600"><span className="font-bold">Skype:</span> live:support.breno</p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

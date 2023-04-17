@@ -26,3 +26,21 @@ export const showFirstLetters = (str: string, lengthToShow: number): string => {
     return str.slice(0, lengthToShow) + "...";
   }
 };
+
+export const getVisibleDateTime = (datetime: Date): string => {
+  let date = datetime.toDateString();
+  let time = datetime.toTimeString();
+  let _time = `${time.split(":")[0]}:${time.split(":")[1]}`;
+  let _date = `${date.split(" ")[1]} ${date.split(" ")[2]}, ${
+    date.split(" ")[3]
+  }`;
+  return `${_time} ${_date}`;
+};
+
+export const getVisibleDate = (datetime: Date): string => {
+  let date = datetime.toDateString();
+  let _date = `${date.split(" ")[1]} ${date.split(" ")[2]}, ${
+    date.split(" ")[3]
+  }`;
+  return `${_date}`;
+};

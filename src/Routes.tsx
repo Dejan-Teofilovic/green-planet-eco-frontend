@@ -11,6 +11,7 @@ const EventsPage = lazy(() => import('./pages/EventsPage'))
 const PortfolioPage = lazy(() => import('./pages/PortfolioPage'))
 const NewsPage = lazy(() => import('./pages/NewsPage'))
 const ContactUsPage = lazy(() => import('./pages/ContactUsPage'))
+const TokenPage = lazy(() => import('./pages/about/TokenPage'))
 const CampaignPage = lazy(() => import('./pages/about/CampaignPage'))
 const WhoWeArePage = lazy(() => import('./pages/about/WhoWeArePage'))
 const CompanyHistoryPage = lazy(() => import('./pages/about/CompanyHistoryPage'))
@@ -57,6 +58,10 @@ export default function Routes() {
         {
           path: '/about',
           children: [
+            {
+              path: 'token',
+              element: <TokenPage />
+            },
             {
               path: 'campaigns',
               element: <CampaignPage />

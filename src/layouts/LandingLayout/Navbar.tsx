@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { Button, IconButton, MenuHandler, Menu, MenuList, MenuItem } from '@material-tailwind/react'
 import { Icon } from '@iconify/react'
 import { Link, useLocation } from 'react-router-dom'
@@ -13,6 +13,10 @@ export default function Navbar() {
 
   const [isShadow, setIsShadow] = useState<boolean>(false)
   // const [reachedSectionId, setReachedSectionId] = useState<number>(1)
+
+  useEffect(() => {
+    closeMenu()
+  }, [pathname])
 
   const icon = useMemo<string>(() => {
     if (opened) {

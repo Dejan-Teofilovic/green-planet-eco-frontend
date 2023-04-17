@@ -1,4 +1,10 @@
-import { ILearnData, INavButton, INavLink, IServiceData, ISocialLink } from "./interfaces";
+import {
+  ILearnData,
+  INavButton,
+  INavLink,
+  IServiceData,
+  ISocialLink
+} from "./interfaces";
 
 export const SOCIAL_LINKS: Array<ISocialLink> = [
   {
@@ -61,6 +67,11 @@ export const NAV_LINKS: Array<INavLink> = [
     id: 2,
     label: "About",
     children: [
+      {
+        id: 7,
+        label: "Token",
+        path: "/about/token"
+      },
       {
         id: 1,
         label: "Campaigns",

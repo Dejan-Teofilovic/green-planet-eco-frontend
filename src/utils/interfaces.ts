@@ -69,3 +69,11 @@ export interface ILearnData {
   benefits: Array<IBenefitOfLearn>;
   imgSrc: string;
 }
+
+export interface INewsData {
+  id: number;
+  title: string;
+  description: string;
+  imgSrc: string;
+  postedAt: Date;
+}
