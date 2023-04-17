@@ -6,6 +6,7 @@ import { Navigate, useRoutes } from "react-router-dom";
 const LandingLayout = lazy(() => import('./layouts/LandingLayout'))
 const HomePage = lazy(() => import('./pages/HomePage'))
 const LearnPage = lazy(() => import('./pages/LearnPage'))
+const LearnItemPage = lazy(() => import('./pages/LearnItemPage'))
 const EventsPage = lazy(() => import('./pages/EventsPage'))
 const PortfolioPage = lazy(() => import('./pages/PortfolioPage'))
 const NewsPage = lazy(() => import('./pages/NewsPage'))
@@ -32,6 +33,10 @@ export default function Routes() {
         {
           path: '/learn',
           element: <LearnPage />
+        },
+        {
+          path: '/learn/:id',
+          element: <LearnItemPage />
         },
         {
           path: '/events',

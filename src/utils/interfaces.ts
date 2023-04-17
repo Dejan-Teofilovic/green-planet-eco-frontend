@@ -56,14 +56,16 @@ export interface IServiceData {
   imgSrc: string;
 }
 
+export interface IBenefitOfLearn {
+  id: number;
+  title: string;
+  description: string;
+}
+
 export interface ILearnData {
   id: number;
   title: string;
   description: string;
-  benefits: Array<{
-    id: number;
-    title: string;
-    description: string;
-  }>;
+  benefits: Array<IBenefitOfLearn>;
   imgSrc: string;
 }
