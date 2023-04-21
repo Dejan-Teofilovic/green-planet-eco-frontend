@@ -11,6 +11,7 @@ import TinyDashedBar from "../../../components/TinyDashedBar"
 // -----------------------------------------------------------------------------------
 
 const DialogTokenSale = lazy(() => import('./DialogTokenSale'))
+const DialogTokenSaleForPartners = lazy(() => import('./DialogTokenSaleForPartners'))
 
 // -----------------------------------------------------------------------------------
 
@@ -24,9 +25,14 @@ export default function HeroSection() {
   const isDesktop = useMediaQuery({ minWidth: 1024, maxWidth: 1280 });
 
   const [dialogTokenSaleOpened, setDialogTokenSaleOpened] = useState<boolean>(false)
+  const [dialogTokenSaleForPartnersOpened, setDialogTokenSaleForPartnersOpened] = useState<boolean>(false)
 
   const openDialogTokenSale = () => {
     setDialogTokenSaleOpened(true)
+  }
+
+  const openDialogTokenSaleForPartners = () => {
+    setDialogTokenSaleForPartnersOpened(true)
   }
 
   /* ---------- Set the width of dialog by the screen size --------- */
@@ -87,18 +93,24 @@ export default function HeroSection() {
             <div className="flex flex-col items-center gap-6 py-10 md:py-28 px-8 bg-primary rounded-none md:rounded-xl">
               <Icon icon="ph:wallet-fill" className="text-white text-6xl" />
               <h2 className="font-extrabold text-center text-2xl text-white">Buy Crypto</h2>
-              {/* <SaleProgressBar /> */}
               {isConnected ? (
-                <div className="flex reverse flex-row md:flex-col-reverse lg:flex-row items-center justify-center gap-2">
+                <>
+                  <div className="flex reverse flex-row md:flex-col-reverse lg:flex-row items-center justify-center gap-2">
+                    <Button
+                      className="bg-gray-900 hover:bg-gray-900 text-white rounded shadow-none hover:shadow-none"
+                      onClick={() => disconnect()}
+                    >Disconnect</Button>
+                    <Button
+                      className="bg-gray-100 hover:bg-gray-100 text-green-600 rounded shadow-none hover:shadow-none"
+                      onClick={openDialogTokenSale}
+                    >Purchase</Button>
+                  </div>
                   <Button
-                    className="bg-gray-900 hover:bg-gray-900 text-white rounded shadow-none hover:shadow-none"
-                    onClick={() => disconnect()}
-                  >Disconnect</Button>
-                  <Button
-                    className="bg-gray-100 hover:bg-gray-100 text-green-600 rounded shadow-none hover:shadow-none"
-                    onClick={openDialogTokenSale}
-                  >Purchase</Button>
-                </div>
+                    variant="text"
+                    className="normal-case font-normal text-white text-sm p-0"
+                    onClick={openDialogTokenSaleForPartners}
+                  >Are you our partner? Click here.</Button>
+                </>
               ) : (
                 <Button
                   className="bg-gray-900 hover:bg-gray-900 text-white rounded shadow-none hover:shadow-none"
@@ -121,6 +133,11 @@ export default function HeroSection() {
       <DialogTokenSale
         dialogOpened={dialogTokenSaleOpened}
         setDialogOpened={setDialogTokenSaleOpened}
+        sizeOfDialog={sizeOfDialog}
+      />
+      <DialogTokenSaleForPartners
+        dialogOpened={dialogTokenSaleForPartnersOpened}
+        setDialogOpened={setDialogTokenSaleForPartnersOpened}
         sizeOfDialog={sizeOfDialog}
       />
     </div>

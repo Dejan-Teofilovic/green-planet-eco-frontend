@@ -506,6 +506,12 @@ export const MSG_REQUIRED_FIELD = "Required field.";
 
 export const REGEX_NUMBER_VALID = /^[0-9]*\.?[0-9]*$/;
 
+export const WHITELIST_OF_PARTNERS = [
+  "0xeb0C7cEAE3088cddCE3Ba427ab15BeBDc499b897",
+  "0xf983dd6200b3bb4e34cf8bb51803b18e25422948",
+  "0xf122670b84de4ca820be6b919347e7dfaa789f0c",
+];
+
 export const CONTRACT_ADDRESS = "0x1ed729D938405057FBD08b6c66058AdA04f6dC89";
 export const CHAIN_ID = 5;
 export const CONTRACT_ABI = [

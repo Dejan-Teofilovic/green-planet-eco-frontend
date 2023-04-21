@@ -1,9 +1,11 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useMemo, useState } from "react";
 import { Icon } from "@iconify/react";
 import { Button, Dialog, DialogBody, DialogFooter, DialogHeader, IconButton, Progress } from "@material-tailwind/react";
 import { useContractReads, usePrepareContractWrite, useContractWrite, useAccount, useWaitForTransaction } from 'wagmi';
 import { utils } from 'ethers';
-import { CHAIN_ID, CONTRACT_ABI, CONTRACT_ADDRESS, REGEX_NUMBER_VALID } from "../../../utils/constants";
+import { MerkleTree } from 'merkletreejs'
+import keccak256 from "keccak256";
+import { CHAIN_ID, CONTRACT_ABI, CONTRACT_ADDRESS, REGEX_NUMBER_VALID, WHITELIST_OF_PARTNERS } from "../../../utils/constants";
 import useLoading from "../../../hooks/useLoading";
 import { getVisibleAmount } from "../../../utils/functions";
 import Input from "../../../components/Input";
@@ -29,7 +31,7 @@ const contract: {} = {
 
 // ----------------------------------------------------------------------------
 
-export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfDialog }: IProps) {
+export default function DialogTokenSaleForPartners({ dialogOpened, setDialogOpened, sizeOfDialog }: IProps) {
   const { address } = useAccount()
   const { openLoading, closeLoading } = useLoading()
   const { openAlert } = useAlertMessage()
@@ -41,6 +43,18 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
   const [ethAmount, setEthAmount] = useState<string>('0')
   const [purchaseDisabled, setPurchaseDisabled] = useState<boolean>(false)
 
+  const merkleProof = useMemo<Array<string>>(() => {
+    if (address) {
+      const leafNodes = WHITELIST_OF_PARTNERS.map(addr => keccak256(addr));
+      const merkleTree = new MerkleTree(leafNodes, keccak256, { sortPairs: true });
+
+      const hexProof = merkleTree.getHexProof(keccak256(address));
+      return hexProof
+    } else {
+      return []
+    }
+  }, [address])
+
   //  Get essential values from contract
   const { isLoading: contractReadsLoading } = useContractReads({
     contracts: [
@@ -50,15 +64,15 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
       },
       {
         ...contract,
-        functionName: 'SHARE_OF_PRIVATE_SALE'   //  Replace
+        functionName: 'SHARE_OF_PARTNERS'
       },
       {
         ...contract,
-        functionName: 'mintableTokenAmountForPrivate' //  Replace
+        functionName: 'mintableTokenAmountForPartners'
       },
       {
         ...contract,
-        functionName: 'tokenPriceForPrivate'   // Replace
+        functionName: 'tokenPriceForPartners'
       },
     ],
 
@@ -111,8 +125,8 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
     address: CONTRACT_ADDRESS,
     abi: CONTRACT_ABI,
     chainId: CHAIN_ID,
-    functionName: 'privateSale',  //  Replace
-    args: [Number(tokenAmount || '0')],
+    functionName: 'mintForPartners',
+    args: [merkleProof, Number(tokenAmount || '0')],
     overrides: {
       from: address,
       value: utils.parseEther(ethAmount || '0')
@@ -120,7 +134,8 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
     onSuccess: () => {
       setPurchaseDisabled(false)
     },
-    onError: () => {
+    onError: (error) => {
+      console.log('>>>>>> error => ', error)
       setPurchaseDisabled(true)
     },
   })
@@ -180,7 +195,7 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
       <DialogBody className="px-6" divider>
         <div className="flex flex-col gap-8">
           {/* title - Replace */}
-          <h3 className="text-lg md:text-xl font-bold text-center">Pre-Sale</h3> 
+          <h3 className="text-lg md:text-xl font-bold text-center">Private Sale for Our Partners</h3>
 
           {/* Progress bar */}
           <div className="flex flex-col gap-2">
