@@ -4,7 +4,7 @@ import { Pagination } from 'swiper';
 import Container from '../../components/Container'
 import TinyDashedBar from '../../components/TinyDashedBar';
 import { IProfileData } from '../../utils/interfaces';
-import { SERVICES, SOCIAL_LINKS } from '../../utils/constants';
+import { PROFILES, SERVICES, SOCIAL_LINKS } from '../../utils/constants';
 
 // -----------------------------------------------------------------------------
 
@@ -46,41 +46,6 @@ const VALUES: Array<IValue> = [
     value: '0',
     label: 'Served Water',
     imgSrc: '/assets/images/green_water.png'
-  }
-]
-
-const PROFILES: Array<IProfileData> = [
-  {
-    id: 1,
-    name: 'Waldenir Moreira',
-    position: 'CEO',
-    bio: '',
-    imgSrc: '/assets/images/profile.jpg',
-    socialLinks: SOCIAL_LINKS
-  },
-  {
-    id: 2,
-    name: 'Thaynara Silva',
-    position: 'Project Manager',
-    bio: '',
-    imgSrc: '/assets/images/profile.jpg',
-    socialLinks: SOCIAL_LINKS
-  },
-  {
-    id: 3,
-    name: 'Thays Luana Souza',
-    position: 'Marketing Developer',
-    bio: '',
-    imgSrc: '/assets/images/profile.jpg',
-    socialLinks: SOCIAL_LINKS
-  },
-  {
-    id: 4,
-    name: '',
-    position: 'IT Developer',
-    bio: '',
-    imgSrc: '/assets/images/profile.jpg',
-    socialLinks: SOCIAL_LINKS
   }
 ]
 

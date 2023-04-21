@@ -2,6 +2,7 @@ import {
   ILearnData,
   INavButton,
   INavLink,
+  IProfileData,
   IServiceData,
   ISocialLink,
 } from "./interfaces";
@@ -446,6 +447,59 @@ export const LEARNS: Array<ILearnData> = [
     ],
     imgSrc: "/assets/images/learn_forest.jpg",
   },
+];
+
+export const PROFILES: Array<IProfileData> = [
+  {
+    id: 1,
+    name: "Waldenir Moreira",
+    position: "CEO",
+    bio: "",
+    imgSrc: "/assets/images/team_ceo.jpg",
+    socialLinks: [
+      {
+        id: 1,
+        icon: "mdi:twitter",
+        url: "https://twitter.com/waldenirsilvanz",
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "Thaynara Silva",
+    position: "Project Manager",
+    bio: "",
+    imgSrc: "/assets/images/team_pm.jpg",
+    socialLinks: [
+      {
+        id: 1,
+        icon: "mdi:twitter",
+        url: "https://twitter.com/thaynarasilvanz",
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: "Thays Luana Souza",
+    position: "Marketing Developer",
+    bio: "",
+    imgSrc: "/assets/images/team_md.jpg",
+    socialLinks: [
+      {
+        id: 1,
+        icon: "mdi:twitter",
+        url: "https://twitter.com/thayssilv_a",
+      },
+    ],
+  },
+  // {
+  //   id: 4,
+  //   name: 'Atsuo Koizumi',
+  //   position: 'Software Developer',
+  //   bio: '',
+  //   imgSrc: '/assets/images/team_sd.jpg',
+  //   socialLinks: SOCIAL_LINKS
+  // }
 ];
 
 export const MSG_REQUIRED_FIELD = "Required field.";
