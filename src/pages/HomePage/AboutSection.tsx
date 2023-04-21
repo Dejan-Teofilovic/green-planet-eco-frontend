@@ -13,7 +13,7 @@ export default function AboutSection() {
           <div className="absolute top-[55%] w-full flex justify-end">
             <div className="bg-primary p-3 w-[70%] rounded-tl-full rounded-bl-full flex items-center gap-4">
               <div className="rounded-full bg-gray-100 border-8 border-gray-300 border-opacity-60 p-2 md:p-3 lg:p-6 animate-pulse">
-                <a href="https://youtu.be/jAa58N4Jlos" target="_blank">
+                <a href="https://youtu.be/-iM6o895M80" target="_blank">
                   <Icon icon="material-symbols:play-arrow-rounded" className="text-4xl text-primary" />
                 </a>
               </div>

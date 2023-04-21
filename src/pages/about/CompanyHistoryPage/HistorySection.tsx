@@ -46,11 +46,6 @@ export default function HistorySection() {
               innovation, collaboration, and customized solutions, Green Planet Eco is well-positioned to make a
               positive impact on the world and inspire others to join its mission.
             </p>
-            <p className="block lg:hidden text-gray-500 text-justify">
-              Change it to Vision: Our vision is to create a world where the environment is valued and protected,
-              and people are empowered to make sustainable choices. We strive to inspire individuals, businesses,
-              and governments to take action and contribute to a more sustainable future.
-            </p>
           </div>
         </div>
         <div className="hidden lg:block">
@@ -75,11 +70,6 @@ export default function HistorySection() {
           and mission reflect its commitment to creating a more sustainable future for all. With its focus on
           innovation, collaboration, and customized solutions, Green Planet Eco is well-positioned to make a
           positive impact on the world and inspire others to join its mission.
-        </p>
-        <p className="text-gray-500 text-justify">
-          Change it to Vision: Our vision is to create a world where the environment is valued and protected,
-          and people are empowered to make sustainable choices. We strive to inspire individuals, businesses,
-          and governments to take action and contribute to a more sustainable future.
         </p>
       </div>
     </Container>

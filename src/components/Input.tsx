@@ -17,7 +17,9 @@ export default function Input({ className = '', classNameOfInput = '', startAdor
   return (
     <div className={`flex items-center gap-2 px-3 py-2 rounded bg-white ${className} ${error ? 'border-red-500' : ''}`}>
       {startAdornment}
-      <input className={`w-full focus:outline-none ${classNameOfInput}`} {...others} />
+      <div className="flex-1">
+        <input className={`w-full focus:outline-none ${classNameOfInput}`} {...others} />
+      </div>
       {endAdornment}
     </div>
   );

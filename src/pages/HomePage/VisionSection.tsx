@@ -63,7 +63,7 @@ export default function VisionSection() {
       <TinyDashedBar />
       <div className="max-w-3xl mx-auto">
         <p className="text-gray-500 text-center">
-          We're on a mission to make the worlld a greener place. Our environmental company creates sustainable projects that help communities and businesses thrive while protecting the planet.<br />
+          We're on a mission to make the world a greener place. Our environmental company creates sustainable projects that help communities and businesses thrive while protecting the planet.<br />
           Join us in building a better future for all.
         </p>
       </div>

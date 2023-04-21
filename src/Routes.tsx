@@ -88,11 +88,11 @@ export default function Routes() {
             },
             {
               path: '',
-              element: <Navigate to="campaigns" replace />
+              element: <Navigate to="token" replace />
             },
             {
               path: '*',
-              element: <Navigate to="campaigns" replace />
+              element: <Navigate to="token" replace />
             }
           ]
         },

@@ -56,10 +56,7 @@ export default function ContactUsPage() {
               <div className="flex flex-col gap-4">
                 <span className="text-2xl font-bold">Email</span>
 
-                {/* <div className="flex flex-col gap-1">
-                  <p className="text-gray-800"><span className="font-bold">Email:</span> support@breno.com</p>
-                  <p className="text-gray-600"><span className="font-bold">Skype:</span> live:support.breno</p>
-                </div> */}
+                <a href="mailto:info@greenplaneteco.com">info@greenplaneteco.com</a>
               </div>
             </div>
           </div>
