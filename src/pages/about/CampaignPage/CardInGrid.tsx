@@ -20,24 +20,26 @@ export default function CardInGrid({ data }: IProps) {
       </div>
 
       <p className="text-gray-500 mt-4">{data.description}</p>
+      <div className="flex-1" />
+      <div>
+        <div className="mt-14 flex flex-col gap-2">
+          <Progress
+            className="h-3 rounded-full"
+            value={data.raisedAmount / data.goalAmount * 100}
+            barProps={{
+              className: 'bg-primary'
+            }}
+          />
+          <p className="text-sm text-gray-500">
+            <span className="text-gray-800 font-bold">${getVisibleAmount(data.raisedAmount)}</span>&nbsp;
+            donated of &nbsp;
+            <span className="text-gray-800 font-bold">${getVisibleAmount(data.goalAmount)}</span> goal
+          </p>
+        </div>
 
-      <div className="mt-14 flex flex-col gap-2">
-        <Progress
-          className="h-3 rounded-full"
-          value={data.raisedAmount / data.goalAmount * 100}
-          barProps={{
-            className: 'bg-primary'
-          }}
-        />
-        <p className="text-sm text-gray-500">
-          <span className="text-gray-800 font-bold">${getVisibleAmount(data.raisedAmount)}</span>&nbsp;
-          donated of &nbsp;
-          <span className="text-gray-800 font-bold">${getVisibleAmount(data.goalAmount)}</span> goal
-        </p>
-      </div>
-
-      <div className="mt-4">
-        <Button className="rounded-full text-base bg-primary shadow-none capitalize">Donate</Button>
+        <div className="mt-4">
+          <Button className="rounded-full text-base bg-primary shadow-none capitalize">Donate</Button>
+        </div>
       </div>
     </Card>
   )
