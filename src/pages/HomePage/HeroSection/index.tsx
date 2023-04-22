@@ -1,12 +1,13 @@
 import React, { lazy, useMemo, useState } from "react"
 import { Button, Dialog } from "@material-tailwind/react"
 import { useWeb3Modal } from "@web3modal/react"
-import { useAccount, useDisconnect } from "wagmi"
+import { useAccount, useDisconnect, useSwitchNetwork, useNetwork } from "wagmi"
 import { useMediaQuery } from 'react-responsive';
 import { Link } from "react-router-dom"
 import { Icon } from "@iconify/react"
 import Container from "../../../components/Container"
 import TinyDashedBar from "../../../components/TinyDashedBar"
+import { CHAIN_ID } from "../../../utils/constants";
 
 // -----------------------------------------------------------------------------------
 
@@ -19,6 +20,8 @@ export default function HeroSection() {
   const { open } = useWeb3Modal()
   const { isConnected } = useAccount()
   const { disconnect } = useDisconnect()
+  const { switchNetwork } = useSwitchNetwork()
+  const { chain } = useNetwork()
   const isMobile = useMediaQuery({ maxWidth: 480 });
   const isTablet = useMediaQuery({ minWidth: 480, maxWidth: 768 });
   const isLaptop = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
@@ -93,7 +96,7 @@ export default function HeroSection() {
             <div className="flex flex-col items-center gap-6 py-10 md:py-28 px-8 bg-primary rounded-none md:rounded-xl">
               <Icon icon="ph:wallet-fill" className="text-white text-6xl" />
               <h2 className="font-extrabold text-center text-2xl text-white">Buy Crypto</h2>
-              {isConnected ? (
+              {isConnected ? chain?.id === CHAIN_ID ? (
                 <>
                   <div className="flex reverse flex-row md:flex-col-reverse lg:flex-row items-center justify-center gap-2">
                     <Button
@@ -111,6 +114,17 @@ export default function HeroSection() {
                     onClick={openDialogTokenSaleForPartners}
                   >Are you our partner? Click here.</Button>
                 </>
+              ) : (
+                <div className="flex reverse flex-row md:flex-col-reverse lg:flex-row items-center justify-center gap-2">
+                  <Button
+                    className="bg-gray-900 hover:bg-gray-900 text-white rounded shadow-none hover:shadow-none"
+                    onClick={() => disconnect()}
+                  >Disconnect</Button>
+                  <Button
+                    className="bg-gray-100 hover:bg-gray-100 text-green-600 rounded shadow-none hover:shadow-none"
+                    onClick={() => switchNetwork?.(CHAIN_ID)}
+                  >Switch Network</Button>
+                </div>
               ) : (
                 <Button
                   className="bg-gray-900 hover:bg-gray-900 text-white rounded shadow-none hover:shadow-none"

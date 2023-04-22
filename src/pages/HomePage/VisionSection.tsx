@@ -35,7 +35,7 @@ const CARDS: Array<ICardData> = [
   {
     id: 4,
     imgSrc: '/assets/images/green_eco.png',
-    name: 'Solar Energy',
+    name: 'Reforestation',
     description: 'Mauris id enim id purus ornare tincidunt.'
   },
   {
