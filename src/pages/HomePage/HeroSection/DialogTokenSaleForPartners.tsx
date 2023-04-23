@@ -135,7 +135,7 @@ export default function DialogTokenSaleForPartners({ dialogOpened, setDialogOpen
       setPurchaseDisabled(false)
     },
     onError: (error) => {
-      console.log('>>>>>> error => ', error)
+      // console.log('>>>>>> error => ', error)
       setPurchaseDisabled(true)
     },
   })

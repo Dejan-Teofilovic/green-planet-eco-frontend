@@ -64,7 +64,7 @@ export default function FaqPage() {
     initialValues,
     validationSchema,
     onSubmit: (values) => {
-      console.log(values)
+      // console.log(values)
     }
   })
 
