@@ -89,7 +89,7 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
 
     if (value.match(REGEX_NUMBER_VALID)) {
       setTokenAmount(value);
-      setEthAmount((Number(value) * tokenPrice).toFixed(4));
+      setEthAmount((Number(value) * tokenPrice).toFixed(5));
     }
   }
 
@@ -102,7 +102,7 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
 
     if (value.match(REGEX_NUMBER_VALID)) {
       setEthAmount(value);
-      setTokenAmount((Number(value) / tokenPrice).toFixed(4));
+      setTokenAmount((Number(value) / tokenPrice).toFixed(5));
     }
   }
 
@@ -180,7 +180,7 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
       <DialogBody className="px-6" divider>
         <div className="flex flex-col gap-8">
           {/* title - Replace */}
-          <h3 className="text-lg md:text-xl font-bold text-center">Pre-Sale</h3> 
+          <h3 className="text-lg md:text-xl font-bold text-center">Pre-Sale</h3>
 
           {/* Progress bar */}
           <div className="flex flex-col gap-2">

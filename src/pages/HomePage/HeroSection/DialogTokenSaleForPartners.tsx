@@ -103,7 +103,7 @@ export default function DialogTokenSaleForPartners({ dialogOpened, setDialogOpen
 
     if (value.match(REGEX_NUMBER_VALID)) {
       setTokenAmount(value);
-      setEthAmount((Number(value) * tokenPrice).toFixed(4));
+      setEthAmount((Number(value) * tokenPrice).toFixed(5));
     }
   }
 
@@ -116,7 +116,7 @@ export default function DialogTokenSaleForPartners({ dialogOpened, setDialogOpen
 
     if (value.match(REGEX_NUMBER_VALID)) {
       setEthAmount(value);
-      setTokenAmount((Number(value) / tokenPrice).toFixed(4));
+      setTokenAmount((Number(value) / tokenPrice).toFixed(5));
     }
   }
 
