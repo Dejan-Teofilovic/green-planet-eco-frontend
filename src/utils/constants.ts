@@ -11,22 +11,22 @@ export const SOCIAL_LINKS: Array<ISocialLink> = [
   {
     id: 1,
     icon: "ri:facebook-fill",
-    url: "#"
+    url: "https://www.facebook.com/profile.php?id=100091997497224"
   },
   {
     id: 2,
     icon: "mdi:twitter",
-    url: "#"
+    url: "https://twitter.com/GreenPlanetEco"
   },
   {
     id: 3,
     icon: "ph:instagram-logo-fill",
-    url: "#"
+    url: "https://www.instagram.com/greenplaneteco.io/"
   },
   {
     id: 4,
     icon: "ri:linkedin-fill",
-    url: "#"
+    url: "https://www.linkedin.com/in/green-planet-eco-5a25ab248/"
   }
 ];
 
