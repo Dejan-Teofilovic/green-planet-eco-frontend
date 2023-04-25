@@ -491,15 +491,21 @@ export const PROFILES: Array<IProfileData> = [
         url: "https://twitter.com/thayssilv_a"
       }
     ]
+  },
+  {
+    id: 4,
+    name: 'Atsuo Koizumi',
+    position: 'Software Developer',
+    bio: '',
+    imgSrc: '/assets/images/team_sd.jpg',
+    socialLinks: [
+      {
+        id: 1,
+        icon: 'mdi:twitter',
+        url: 'https://twitter.com/AtsuoKoizu50448'
+      }
+    ]
   }
-  // {
-  //   id: 4,
-  //   name: 'Atsuo Koizumi',
-  //   position: 'Software Developer',
-  //   bio: '',
-  //   imgSrc: '/assets/images/team_sd.jpg',
-  //   socialLinks: SOCIAL_LINKS
-  // }
 ];
 
 export const MSG_REQUIRED_FIELD = "Required field.";
