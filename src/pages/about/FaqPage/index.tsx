@@ -3,11 +3,15 @@ import * as yup from 'yup';
 import { useFormik } from "formik";
 import { Button } from "@material-tailwind/react";
 import { Icon } from "@iconify/react";
+import { useRequest } from 'alova';
 import Container from "../../../components/Container";
 // import { IFaqData } from "../../../utils/interfaces";
 import Input from "../../../components/Input";
 import { MSG_REQUIRED_FIELD } from "../../../utils/constants";
 import TinyDashedBar from "../../../components/TinyDashedBar";
+import { alovaInstanceForBackend } from "../../../utils/alovaInstances";
+import useAlertMessage from "../../../hooks/useAlertMessage";
+import useLoading from "../../../hooks/useLoading";
 
 // ---------------------------------------------------------------------
 
@@ -52,6 +56,21 @@ const validationSchema = yup.object().shape({
 // ---------------------------------------------------------------------
 
 export default function FaqPage() {
+  const { openAlert } = useAlertMessage()
+  const { openLoading, closeLoading } = useLoading()
+  const { send: askQuestion } = useRequest(
+    reqData => alovaInstanceForBackend.Post(
+      '/contact/ask-question',
+      reqData,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    ),
+    { immediate: false }
+  )
+
   // const [openedAccordions, setOpenedAccordions] = useState<Array<number>>([])
 
   const initialValues: IMessageData = {
@@ -65,6 +84,36 @@ export default function FaqPage() {
     validationSchema,
     onSubmit: (values) => {
       // console.log(values)
+      openLoading()
+      askQuestion(values)
+        .then((result: any) => {
+          if (result.status === 200) {
+            openAlert({
+              title: 'Success',
+              color: 'green',
+              message: 'Your email has been sent successfully.',
+              icon: <Icon icon="ic:round-check-circle" />
+            })
+          } else if (500) {
+            openAlert({
+              title: 'Failed',
+              color: 'red',
+              message: 'Sending email has been failed.',
+              icon: <Icon icon="material-symbols:error-rounded" />
+            })
+          }
+          closeLoading()
+        })
+        .catch(error => {
+          console.log(error)
+          openAlert({
+            title: 'Failed',
+            color: 'red',
+            message: 'Sending email has been failed.',
+            icon: <Icon icon="material-symbols:error-rounded" />
+          })
+          closeLoading()
+        })
     }
   })
 
@@ -146,7 +195,10 @@ export default function FaqPage() {
           </div>
 
           <div className="flex justify-center">
-            <Button className="flex items-center gap-2 rounded-full bg-primary hover:bg-primary shadow-none text-base capitalize px-8">
+            <Button
+              className="flex items-center gap-2 rounded-full bg-primary hover:bg-primary shadow-none text-base capitalize px-8"
+              onClick={() => formik.handleSubmit()}
+            >
               <Icon icon="material-symbols:send-rounded" className="text-2xl" />
               Send
             </Button>
