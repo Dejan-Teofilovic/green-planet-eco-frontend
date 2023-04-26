@@ -83,7 +83,6 @@ export default function FaqPage() {
     initialValues,
     validationSchema,
     onSubmit: (values) => {
-      // console.log(values)
       openLoading()
       askQuestion(values)
         .then((result: any) => {
@@ -105,7 +104,6 @@ export default function FaqPage() {
           closeLoading()
         })
         .catch(error => {
-          console.log(error)
           openAlert({
             title: 'Failed',
             color: 'red',

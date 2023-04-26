@@ -61,7 +61,6 @@ export default function ContactUsPage() {
     initialValues,
     validationSchema,
     onSubmit: (values) => {
-      console.log(values)
       openLoading()
       contactToAdmin(values)
         .then((result: any) => {
@@ -83,7 +82,6 @@ export default function ContactUsPage() {
           closeLoading()
         })
         .catch(error => {
-          console.log(error)
           openAlert({
             title: 'Failed',
             color: 'red',
