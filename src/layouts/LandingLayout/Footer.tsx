@@ -123,7 +123,7 @@ export default function Footer({ className = '' }: IProps) {
 
       <div className="border-t border-gray-700 bg-gray-900 py-6">
         <p className="text-center text-white text-sm">
-          Copyrights © {new Date().getFullYear()} <span className="text-primary">Green Planet Echo</span>
+          Copyrights © {new Date().getFullYear()} <span className="text-primary">Green Planet Eco</span>
         </p>
       </div>
     </div>
