@@ -15,23 +15,21 @@ export default function Navbar() {
   // const [reachedSectionId, setReachedSectionId] = useState<number>(1)
 
   useEffect(() => {
-    closeMenu()
+    // closeMenu()
   }, [pathname])
 
   const icon = useMemo<string>(() => {
     if (opened) {
       return 'akar-icons:cross'
-    } else {
-      return 'material-symbols:menu-rounded'
     }
+    return 'material-symbols:menu-rounded'
   }, [opened])
 
   const toggleMobileMenu = () => {
     if (opened) {
       return closeMenu()
-    } else {
-      return openMenu()
     }
+    return openMenu()
   }
 
   const toggleShadow = () => {

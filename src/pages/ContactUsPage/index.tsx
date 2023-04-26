@@ -2,10 +2,14 @@ import React, { lazy } from 'react'
 import * as yup from 'yup';
 import { useFormik } from "formik";
 import { Icon } from '@iconify/react'
+import { Button } from '@material-tailwind/react';
+import { useRequest } from 'alova';
 import Container from '../../components/Container'
 import { MSG_REQUIRED_FIELD } from '../../utils/constants'
 import Input from '../../components/Input';
-import { Button } from '@material-tailwind/react';
+import { alovaInstanceForBackend } from '../../utils/alovaInstances';
+import useAlertMessage from '../../hooks/useAlertMessage';
+import useLoading from '../../hooks/useLoading';
 
 // ----------------------------------------------------------------------
 
@@ -16,7 +20,7 @@ const PageTitle = lazy(() => import('../../components/PageTitle'))
 interface IRequestData {
   name: string;
   email: string;
-  url: string;
+  website: string;
   message: string;
 }
 
@@ -24,16 +28,32 @@ interface IRequestData {
 
 const validationSchema = yup.object().shape({
   name: yup.string().required(MSG_REQUIRED_FIELD),
-  email: yup.string().email('Invalid email type.').required(MSG_REQUIRED_FIELD)
+  email: yup.string().email('Invalid email type.').required(MSG_REQUIRED_FIELD),
+  website: yup.string().url('Invalid URL type.').required(MSG_REQUIRED_FIELD)
 })
 
 // ----------------------------------------------------------------------
 
 export default function ContactUsPage() {
+  const { openAlert } = useAlertMessage()
+  const { openLoading, closeLoading } = useLoading()
+  const { send: contactToAdmin } = useRequest(
+    reqData => alovaInstanceForBackend.Post(
+      '/contact/contact-to-admin',
+      reqData,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    ),
+    { immediate: false }
+  )
+
   const initialValues: IRequestData = {
     name: '',
     email: '',
-    url: '',
+    website: '',
     message: ''
   }
 
@@ -41,7 +61,37 @@ export default function ContactUsPage() {
     initialValues,
     validationSchema,
     onSubmit: (values) => {
-      // console.log(values)
+      console.log(values)
+      openLoading()
+      contactToAdmin(values)
+        .then((result: any) => {
+          if (result.status === 200) {
+            openAlert({
+              title: 'Success',
+              color: 'green',
+              message: 'Your email has been sent successfully.',
+              icon: <Icon icon="ic:round-check-circle" />
+            })
+          } else if (500) {
+            openAlert({
+              title: 'Failed',
+              color: 'red',
+              message: 'Sending email has been failed.',
+              icon: <Icon icon="material-symbols:error-rounded" />
+            })
+          }
+          closeLoading()
+        })
+        .catch(error => {
+          console.log(error)
+          openAlert({
+            title: 'Failed',
+            color: 'red',
+            message: 'Sending email has been failed.',
+            icon: <Icon icon="material-symbols:error-rounded" />
+          })
+          closeLoading()
+        })
     }
   })
 
@@ -76,7 +126,7 @@ export default function ContactUsPage() {
                   error={formik.touched.name && Boolean(formik.errors.name)}
                 />
                 {formik.touched.name && Boolean(formik.errors.name) && (
-                  <span className="text-red-500 text-sm">
+                  <span className="text-red-800 text-sm font-bold">
                     {formik.touched.name && formik.errors.name}
                   </span>
                 )}
@@ -95,7 +145,7 @@ export default function ContactUsPage() {
                   error={formik.touched.email && Boolean(formik.errors.email)}
                 />
                 {formik.touched.email && Boolean(formik.errors.email) && (
-                  <span className="text-red-500 text-sm">
+                  <span className="text-red-800 text-sm font-bold">
                     {formik.touched.email && formik.errors.email}
                   </span>
                 )}
@@ -104,13 +154,18 @@ export default function ContactUsPage() {
               {/* Website URL */}
               <div className="col-span-2">
                 <Input
-                  id="url"
-                  name="url"
+                  id="website"
+                  name="website"
                   className="py-1 md:py-3 rounded-none"
                   placeholder="Website URL *"
                   onChange={formik.handleChange}
-                  value={formik.values.url}
+                  value={formik.values.website}
                 />
+                {formik.touched.website && Boolean(formik.errors.website) && (
+                  <span className="text-red-800 text-sm font-bold">
+                    {formik.touched.website && formik.errors.website}
+                  </span>
+                )}
               </div>
 
               {/* Message */}

@@ -77,3 +77,8 @@ export interface INewsData {
   imgSrc: string;
   postedAt: Date;
 }
+
+export interface IResponse {
+  status: number;
+  [key: string]: any;
+}
