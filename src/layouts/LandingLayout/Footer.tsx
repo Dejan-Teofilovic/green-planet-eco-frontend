@@ -81,6 +81,8 @@ export default function Footer({ className = '' }: IProps) {
               </div>
             </div>
 
+            <div></div>
+
             {/* Quick Links */}
             <div>
               <h2 className="text-white text-xl font-bold">Quick Links</h2>
@@ -100,7 +102,7 @@ export default function Footer({ className = '' }: IProps) {
             </div>
 
             {/* Get in Touch */}
-            <div>
+            {/* <div>
               <h2 className="text-white text-xl font-bold">Get In Touch</h2>
               <div className="h-1 w-6 bg-primary mt-2" />
 
@@ -114,7 +116,7 @@ export default function Footer({ className = '' }: IProps) {
                 </div>
               </div>
 
-            </div>
+            </div> */}
           </div>
         </Container>
       </div>
