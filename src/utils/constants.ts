@@ -460,7 +460,7 @@ export const PROFILES: Array<IProfileData> = [
       {
         id: 1,
         icon: "mdi:twitter",
-        url: "https://twitter.com/waldenirsilvanz"
+        url: "https://twitter.com/WaldenirMoreira"
       }
     ]
   },
@@ -488,21 +488,21 @@ export const PROFILES: Array<IProfileData> = [
       {
         id: 1,
         icon: "mdi:twitter",
-        url: "https://twitter.com/thayssilv_a"
+        url: "https://twitter.com/luanasouza_MK"
       }
     ]
   },
   {
     id: 4,
-    name: 'Atsuo Koizumi',
-    position: 'Software Developer',
-    bio: '',
-    imgSrc: '/assets/images/team_sd.jpg',
+    name: "Atsuo Koizumi",
+    position: "Software Developer",
+    bio: "",
+    imgSrc: "/assets/images/team_sd.jpg",
     socialLinks: [
       {
         id: 1,
-        icon: 'mdi:twitter',
-        url: 'https://twitter.com/AtsuoKoizu50448'
+        icon: "mdi:twitter",
+        url: "https://twitter.com/AtsuoKoizu50448"
       }
     ]
   }
