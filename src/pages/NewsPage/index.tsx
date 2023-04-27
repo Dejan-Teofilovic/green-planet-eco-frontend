@@ -42,7 +42,7 @@ const NEWS: Array<INewsData> = [
     id: 5,
     title: 'Saving Animals',
     description: '',
-    imgSrc: '/assets/images/learn_solar.jpg',
+    imgSrc: '/assets/images/news_animals.jpg',
     postedAt: new Date()
   },
   {
