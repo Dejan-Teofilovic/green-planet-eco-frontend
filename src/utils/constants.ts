@@ -480,7 +480,7 @@ export const PROFILES: Array<IProfileData> = [
   },
   {
     id: 3,
-    name: "Thays Luana Souza",
+    name: "Luana Souza",
     position: "Marketing Developer",
     bio: "",
     imgSrc: "/assets/images/team_md.jpg",
