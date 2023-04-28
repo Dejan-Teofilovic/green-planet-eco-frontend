@@ -15,7 +15,9 @@ import Loading from './components/Loading'
 const projectId = import.meta.env.VITE_WALLET_CONNECT_PROJECT_ID
 const chains = [mainnet]
 
-const { provider, webSocketProvider } = configureChains(chains, [w3mProvider({ projectId })])
+const { provider, webSocketProvider } = configureChains(chains, [w3mProvider({
+  projectId
+})])
 
 const wagmiClient = createClient({
   autoConnect: true,
@@ -46,6 +48,10 @@ function App() {
       <Web3Modal
         projectId={projectId}
         ethereumClient={ethereumClient}
+        explorerRecommendedWalletIds={[
+          '8a0ee50d1f22f6651afcae7eb4253e52a3310b90af5daef78a8c4929a9bb99d4',
+          '4622a2b2d6af1c9844944291e5e7351a6aa24cd7b23099efac1b2fd875da31a0'
+        ]}
       />
     </BrowserRouter>
   )
