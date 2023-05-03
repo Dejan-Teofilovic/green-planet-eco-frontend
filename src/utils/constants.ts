@@ -112,8 +112,8 @@ export const NAV_LINKS: Array<INavLink> = [
   },
   {
     id: 4,
-    label: "Events",
-    path: "/events"
+    label: "Carbon Credit",
+    path: "/carbon-credit"
   },
   {
     id: 5,
