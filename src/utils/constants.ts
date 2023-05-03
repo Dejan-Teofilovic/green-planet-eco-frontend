@@ -520,7 +520,7 @@ export const WHITELIST_OF_PARTNERS = [
   "0xe7A4e3E8742E86D8623e059525c2E8e955746bdB"
 ];
 
-export const CONTRACT_ADDRESS = "0xaa337606903172D75325FA0f4e7DF7AA51F53a87";
+export const CONTRACT_ADDRESS = "0x972B99eDe570d8E52AbcF24c95337ec2728053DA";
 export const CHAIN_ID: number = 1;
 export const CONTRACT_ABI = [
   { inputs: [], stateMutability: "nonpayable", type: "constructor" },
@@ -547,6 +547,15 @@ export const CONTRACT_ABI = [
       }
     ],
     name: "Approval",
+    type: "event"
+  },
+  { anonymous: false, inputs: [], name: "EnableTrading", type: "event" },
+  {
+    anonymous: false,
+    inputs: [
+      { indexed: false, internalType: "bool", name: "enable", type: "bool" }
+    ],
+    name: "EnableWalletToWalletTransferWithoutFee",
     type: "event"
   },
   {
@@ -650,6 +659,41 @@ export const CONTRACT_ABI = [
   {
     anonymous: false,
     inputs: [
+      { indexed: true, internalType: "address", name: "pair", type: "address" },
+      { indexed: true, internalType: "bool", name: "value", type: "bool" }
+    ],
+    name: "SetAutomatedMarketMakerPair",
+    type: "event"
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "bytes32",
+        name: "merkleRoot",
+        type: "bytes32"
+      }
+    ],
+    name: "SetMerkleRootOfPartners",
+    type: "event"
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256"
+      }
+    ],
+    name: "SetSwappableTokenAmountAtOnce",
+    type: "event"
+  },
+  {
+    anonymous: false,
+    inputs: [
       {
         indexed: false,
         internalType: "uint256",
@@ -695,15 +739,21 @@ export const CONTRACT_ABI = [
     type: "event"
   },
   {
-    inputs: [],
-    name: "INIT_TOTAL_SUPPLY",
-    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-    stateMutability: "view",
-    type: "function"
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "address",
+        name: "toWallet",
+        type: "address"
+      }
+    ],
+    name: "Withdraw",
+    type: "event"
   },
   {
     inputs: [],
-    name: "MAX_SUPPLY",
+    name: "INIT_TOTAL_SUPPLY",
     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
     type: "function"
@@ -888,14 +938,14 @@ export const CONTRACT_ABI = [
   },
   {
     inputs: [],
-    name: "maxTransferAmountBuy",
+    name: "maxTransferAmount",
     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
     type: "function"
   },
   {
     inputs: [],
-    name: "maxTransferAmountSell",
+    name: "maxTransferAmountBuy",
     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
     type: "function"
@@ -1207,6 +1257,13 @@ export const CONTRACT_ABI = [
   {
     inputs: [],
     name: "walletOfMarketing",
+    outputs: [{ internalType: "address", name: "", type: "address" }],
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [],
+    name: "walletOfOwner",
     outputs: [{ internalType: "address", name: "", type: "address" }],
     stateMutability: "view",
     type: "function"

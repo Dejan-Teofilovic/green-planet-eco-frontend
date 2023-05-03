@@ -62,8 +62,6 @@ export default function LearnItemPage() {
                 ))}
               </div>
 
-
-
               <h2 className="mt-16 text-3xl font-black">Benefits</h2>
               <TinyDashedBar className="mt-4" />
 

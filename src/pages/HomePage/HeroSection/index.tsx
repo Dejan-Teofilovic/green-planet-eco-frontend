@@ -134,7 +134,9 @@ export default function HeroSection() {
             </div>
 
             <div className="flex flex-col items-center gap-6 py-10 md:py-16 lg:py-20 px-8 bg-white">
-              <img src="/assets/images/hero_donate.png" alt="" />
+              <a href="/assets/documents/Green Planet Eco - Credit Carbon.pdf" target="_blank">
+                <img src="/assets/images/hero_donate.png" alt="" />
+              </a>
               <h2 className="font-extrabold text-center text-2xl">Buy Carbon Credit</h2>
               <p className="text-gray-400 text-center">
                 Buying carbon credits is a way for individuals or organizations to offset their carbon footprint.
