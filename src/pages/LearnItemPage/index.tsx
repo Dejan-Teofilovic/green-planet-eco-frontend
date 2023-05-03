@@ -54,9 +54,15 @@ export default function LearnItemPage() {
                 </CardBody>
               </Card>
 
-              <p className="mt-6 text-gray-500 text-justify">
-                {data.description}
-              </p>
+              <div className="mt-6 flex flex-col gap-6">
+                {data.description.split('<br />').map((descriptionItem, index) => (
+                  <p className="text-gray-600 text-justify" key={index}>
+                    {descriptionItem}
+                  </p>
+                ))}
+              </div>
+
+
 
               <h2 className="mt-16 text-3xl font-black">Benefits</h2>
               <TinyDashedBar className="mt-4" />
