@@ -15,6 +15,7 @@ export interface INavLink {
   label: string;
   path?: string;
   children?: Array<INavLink>;
+  isLinkToOutside?: boolean;
 }
 
 export interface ICampaignCardData {

@@ -103,6 +103,18 @@ export default function Navbar() {
                         </MenuList>
                       </Menu>
                     )
+                  } else if (dataItem.isLinkToOutside) {
+                    return (
+                      <Button
+                        key={dataItem.id}
+                        variant="text"
+                        className={`capitalize text-sm ${pathname === dataItem.path ? 'text-primary' : 'text-grey-800'}`}
+                      >
+                        <a href={dataItem.path || ''} target="_blank">
+                          {dataItem.label}
+                        </a>
+                      </Button>
+                    )
                   } else {
                     return (
                       <Button

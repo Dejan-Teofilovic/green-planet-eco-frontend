@@ -113,7 +113,8 @@ export const NAV_LINKS: Array<INavLink> = [
   {
     id: 4,
     label: "Carbon Credit",
-    path: "/carbon-credit"
+    path: "/assets/documents/Green Planet Eco - Credit Carbon.pdf",
+    isLinkToOutside: true
   },
   {
     id: 5,
