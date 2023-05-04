@@ -67,7 +67,7 @@ export default function WhitepaperSection() {
     <div className="bg-white py-16 md:py-36">
       <Container id="whitepaper">
         <h1 className="text-gray-900 text-3xl md:text-5xl text-center font-extrabold capitalize">
-          Green Planet Eco Blockchain
+          Green Planet Eco
         </h1>
         <div className="flex justify-center">
           <TinyDashedBar className="mt-6 md:mt-8" />
