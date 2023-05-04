@@ -59,7 +59,7 @@ const NEWS: Array<INewsData> = [
 export default function NewsPage() {
   return (
     <div>
-      <PageTitle title="Learn" />
+      <PageTitle title="News" />
       <Container className="my-16 md:my-32">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {NEWS.map(dataItem => (
