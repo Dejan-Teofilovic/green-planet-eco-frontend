@@ -118,8 +118,9 @@ export const NAV_LINKS: Array<INavLink> = [
   },
   {
     id: 5,
-    label: "Portfolio",
-    path: "/portfolio"
+    label: "Whitepaper",
+    path: "/assets/documents/WHITEPAPER- Green Planet Eco.pdf",
+    isLinkToOutside: true
   },
   {
     id: 6,
