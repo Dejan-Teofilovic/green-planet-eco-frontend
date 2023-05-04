@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, IconButton } from '@material-tailwind/react';
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
-import { SOCIAL_LINKS } from '../../utils/constants';
+import { NAV_LINKS, SOCIAL_LINKS } from '../../utils/constants';
 import Input from '../../components/Input';
 import Container from '../../components/Container';
 import { INavLink } from '../../utils/interfaces';
@@ -12,46 +12,6 @@ import { INavLink } from '../../utils/interfaces';
 interface IProps {
   className?: string;
 }
-
-// -----------------------------------------------------------------------------------
-
-const QUICK_LINKS: Array<INavLink> = [
-  {
-    id: 1,
-    label: 'Home',
-    path: '/'
-  },
-  {
-    id: 2,
-    label: 'About',
-    path: '/about'
-  },
-  {
-    id: 3,
-    label: 'Learn',
-    path: '/learn'
-  },
-  {
-    id: 4,
-    label: 'Events',
-    path: '/events'
-  },
-  {
-    id: 5,
-    label: "Portfolio",
-    path: "/portfolio"
-  },
-  {
-    id: 6,
-    label: "News",
-    path: "/news"
-  },
-  {
-    id: 7,
-    label: "Contact us",
-    path: "/contact-us"
-  }
-]
 
 // -----------------------------------------------------------------------------------
 
@@ -88,16 +48,32 @@ export default function Footer({ className = '' }: IProps) {
               <h2 className="text-white text-xl font-bold">Quick Links</h2>
               <div className="h-1 w-6 bg-primary mt-2" />
               <div className="grid grid-cols-2 mt-4 md:mt-8">
-                {QUICK_LINKS.map(dataItem => (
-                  <div key={dataItem.id} className="flex items-center">
-                    <Icon icon="ic:round-keyboard-arrow-right" className="text-primary text-lg" />
-                    <Button variant="text" className="text-white text-sm capitalize font-normal px-1 py-2">
-                      <Link to={dataItem.path || ''}>
-                        {dataItem.label}
-                      </Link>
-                    </Button>
-                  </div>
-                ))}
+                {NAV_LINKS.map(dataItem => {
+                  if (!dataItem.children && !dataItem.isLinkToOutside) {
+                    return (
+                      <div key={dataItem.id} className="flex items-center">
+                        <Icon icon="ic:round-keyboard-arrow-right" className="text-primary text-lg" />
+                        <Button variant="text" className="text-white text-sm capitalize font-normal px-1 py-2">
+                          <Link to={dataItem.path || ''}>
+                            {dataItem.label}
+                          </Link>
+                        </Button>
+                      </div>
+                    )
+                  } else if (dataItem.isLinkToOutside) {
+                    return (
+                      <div key={dataItem.id} className="flex items-center">
+                        <Icon icon="ic:round-keyboard-arrow-right" className="text-primary text-lg" />
+                        <Button variant="text" className="text-white text-sm capitalize font-normal px-1 py-2">
+                          <a href={dataItem.path || ''} target="_blank">
+                            {dataItem.label}
+                          </a>
+                        </Button>
+                      </div>
+                    )
+                  }
+                  return <></>
+                })}
               </div>
             </div>
 
