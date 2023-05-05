@@ -16,27 +16,27 @@ const WHITEPAPER: Array<IWhitepaper> = [
   {
     id: 1,
     // title: 'Abstract:',
-    description: 'The Green Planet Eco is an innovative and advanced technology that has been implemented on the Ethereum network. Its primary purpose is to address urgent environmental concerns that the planet is currently facing. Its architecture is decentralized, which ensures a reliable, transparent, and efficient system that promotes sustainable practices and facilitates the growth of the green economy.'
+    description: 'The Green Planet Eco Blockchain is an innovative and advanced contract technology that has been implemented on the Ethereum network. Its primary purpose is to address urgent environmental concerns that the planet is currently facing. The architecture of this Blockchain is decentralized, which ensures a reliable, transparent, and efficient system that promotes sustainable practices and facilitates the growth of the green economy.'
   },
   {
     id: 2,
     // title: 'Introduction:',
-    description: 'At its core, the Green Planet Eco is powered by a distributed network of nodes that work together to maintain the integrity of the platform. This network is secured by a consensus algorithm that ensures that all transactions are verified and validated before they are added to the blockchain. The use of blockchain technology provides several benefits, including immutability, transparency, and tamper-proof records that are resistant to fraud and manipulation.'
+    description: 'At its core, the Green Planet Eco Blockchain is powered by a distributed network of nodes that work together to maintain the integrity of the platform. This network is secured by a consensus algorithm that ensures that all transactions are verified and validated before they are added to the Blockchain . The use of Blockchain technology provides several benefits, including immutability, transparency, and tamper-proof records that are resistant to fraud and manipulation.'
   },
   {
     id: 3,
     // title: 'Our Mission:',
-    description: "The Green Planet Eco is also designed to be highly scalable and efficient, enabling it to process a large volume of transactions with minimal energy consumption. This is achieved through the use of innovative technologies, such as sharding and proof-of-stake consensus, that help to reduce the computational power required to maintain the network."
+    description: "The Green Planet Eco Blockchain is also designed to be highly scalable and efficient, enabling it to process a large volume of transactions with minimal energy consumption. This is achieved through the use of innovative technologies, such as sharding and proof-of-stake consensus, that help to reduce the computational power required to maintain the network."
   },
   {
     id: 4,
     // title: 'Our Approach:',
-    description: 'One of the key features of the Green Planet Eco is its focus on sustainability and the environment. The platform provides a range of tools and resources that enable individuals and organizations to track and offset their carbon footprint, as well as participate in initiatives that promote sustainable practices and support the green economy.'
+    description: 'One of the key features of the Green Planet Eco Blockchain is its focus on sustainability and the environment. The platform provides a range of tools and resources that enable individuals and organizations to track and offset their carbon footprint, as well as participate in initiatives that promote sustainable practices and support the green economy.'
   },
   {
     id: 5,
     // title: 'Consultation:',
-    description: 'Overall, the Green Planet Eco represents a major step forward in the development of sustainable blockchain technology. Its combination of decentralization, scalability, and environmental focus make it a powerful tool for promoting positive change and driving the transition to a more sustainable future.'
+    description: 'Overall, the Green Planet Eco Blockchain represents a major step forward in the development of sustainable Blockchain technology. Its combination of decentralization, scalability, and environmental focus make it a powerful tool for promoting positive change and driving the transition to a more sustainable future.'
   },
   // {
   //   id: 6,
@@ -67,7 +67,7 @@ export default function WhitepaperSection() {
     <div className="bg-white py-16 md:py-36">
       <Container id="whitepaper">
         <h1 className="text-gray-900 text-3xl md:text-5xl text-center font-extrabold capitalize">
-          Green Planet Eco
+          Green Planet Eco Blockchain
         </h1>
         <div className="flex justify-center">
           <TinyDashedBar className="mt-6 md:mt-8" />
