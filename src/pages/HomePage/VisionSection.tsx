@@ -22,8 +22,8 @@ const CARDS: Array<ICardData> = [
   },
   {
     id: 2,
-    imgSrc: '/assets/images/green_electricity.png',
-    name: 'Renewable Energy',
+    imgSrc: '/assets/images/green_recycle.png',
+    name: 'Recycling',
     description: 'Mauris id enim id purus ornare tincidunt.'
   },
   {
@@ -46,7 +46,7 @@ const CARDS: Array<ICardData> = [
   },
   {
     id: 6,
-    imgSrc: '/assets/images/green_recycle.png',
+    imgSrc: '/assets/images/green_electricity.png',
     name: 'Green Technology',
     description: 'Mauris id enim id purus ornare tincidunt.'
   }
