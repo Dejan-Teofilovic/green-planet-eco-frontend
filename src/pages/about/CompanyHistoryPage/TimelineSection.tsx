@@ -120,6 +120,10 @@ const TIMELINE: Array<ITimeData> = [
       {
         id: 4,
         task: 'Aggressive Marketing'
+      },
+      {
+        id: 5,
+        task: 'ECO App'
       }
     ]
   },
