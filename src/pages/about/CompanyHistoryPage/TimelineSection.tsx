@@ -123,7 +123,7 @@ const TIMELINE: Array<ITimeData> = [
       },
       {
         id: 5,
-        task: 'ECO App'
+        task: 'ECO AI App'
       }
     ]
   },
