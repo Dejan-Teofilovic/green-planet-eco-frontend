@@ -19,14 +19,14 @@ export default function TestimonialItem({ data }: IProps) {
       </div>
       <div className="flex flex-col items-center mt-8 gap-3">
         <div className="max-w-3xl mx-auto">
-          <p className="text-center text-gray-500 leading-7 md:leading-10">
+          <p className="text-center text-gray-600 leading-7 md:leading-10">
             Mauris id enim id purus ornare tincidunt. Aenean vel consequat risus. Proin viverra nisi at nisl imperdiet auctor. Donec ornare, est sed tincidunt placerat, sem mi suscipit mi, at varius enim sem at sem. Fusce
           </p>
         </div>
         <Icon icon="material-symbols:format-quote-rounded" className="text-primary text-4xl" />
         <div>
           <p className="text-center font-bold uppercase">Angelina</p>
-          <p className="text-center text-gray-500">Analytics</p>
+          <p className="text-center text-gray-600">Analytics</p>
         </div>
       </div>
     </div >

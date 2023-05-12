@@ -21,7 +21,7 @@ export default function ProfileCard({ data }: IProps) {
       <CardBody className="text-center">
         <h3 className="capitalize text-2xl font-bold">{data.name}</h3>
         <p className="text-lg text-primary font-bold">{data.position}</p>
-        <p className="text-gray-500 mt-3">{data.bio}</p>
+        <p className="text-gray-600 mt-3">{data.bio}</p>
       </CardBody>
 
       <CardFooter className="flex justify-center items-center gap-2">

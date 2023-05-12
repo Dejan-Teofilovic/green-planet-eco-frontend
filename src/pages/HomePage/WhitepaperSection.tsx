@@ -77,7 +77,7 @@ export default function WhitepaperSection() {
           {WHITEPAPER.map(dataItem => (
             <div key={dataItem.id}>
               {/* <h2 className="font-bold text-lg">{dataItem.title}</h2> */}
-              <p className="text-gray-500 mt-2">{dataItem.description}</p>
+              <p className="text-gray-600 mt-2">{dataItem.description}</p>
             </div>
           ))}
         </div>

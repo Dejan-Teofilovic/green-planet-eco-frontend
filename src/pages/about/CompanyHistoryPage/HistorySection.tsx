@@ -20,26 +20,26 @@ export default function HistorySection() {
             </CardBody>
           </Card>
           <div className="flex flex-col gap-4">
-            <p className="text-gray-500 text-justify">
+            <p className="text-gray-600 text-justify">
               Green Planet Eco is a new environmental company that has recently started with a mission to
               promote sustainability and protect the environment through innovative solutions. The company’s
               vision is to create a world where natural resources are used responsibly, and people work in harmony
               with nature to ensure a healthy and sustainable future.
             </p>
-            <p className="text-gray-500 text-justify">
+            <p className="text-gray-600 text-justify">
               Green Planet Eco is committed to making a positive impact on the world and creating a more
               sustainable future. The company’s mission is to inspire individuals, businesses, and governments to
               take action and contribute to a more sustainable future. Green Planet Eco believes that by working
               together, we can create a world where the environment is valued and protected, and people are
               empowered to make sustainable choices.
             </p>
-            <p className="block lg:hidden text-gray-500 text-justify">
+            <p className="block lg:hidden text-gray-600 text-justify">
               Green Planet Eco’s approach to sustainability is rooted in innovation and collaboration. The
               company’s team of experts is constantly exploring new technologies and ideas to help reduce
               environmental impact and promote sustainability. Green Planet Eco also believes in the power of
               collaboration and works closely with clients, partners, and stakeholders to achieve its mission.
             </p>
-            <p className="block lg:hidden text-gray-500 text-justify">
+            <p className="block lg:hidden text-gray-600 text-justify">
               In conclusion, Green Planet Eco is a new environmental company that is dedicated to promoting
               sustainability and protecting the environment through innovative solutions. The company’s vision
               and mission reflect its commitment to creating a more sustainable future for all. With its focus on
@@ -58,13 +58,13 @@ export default function HistorySection() {
       </div>
 
       <div className="mt-4 hidden lg:flex flex-col gap-4">
-        <p className="text-gray-500 text-justify">
+        <p className="text-gray-600 text-justify">
           Green Planet Eco’s approach to sustainability is rooted in innovation and collaboration. The
           company’s team of experts is constantly exploring new technologies and ideas to help reduce
           environmental impact and promote sustainability. Green Planet Eco also believes in the power of
           collaboration and works closely with clients, partners, and stakeholders to achieve its mission.
         </p>
-        <p className="text-gray-500 text-justify">
+        <p className="text-gray-600 text-justify">
           In conclusion, Green Planet Eco is a new environmental company that is dedicated to promoting
           sustainability and protecting the environment through innovative solutions. The company’s vision
           and mission reflect its commitment to creating a more sustainable future for all. With its focus on

@@ -61,7 +61,7 @@ export default function WhoWeArePage() {
               <div key={dataItem.id} className="rounded-2xl px-8 py-10 bg-white flex flex-col items-center">
                 <img src={dataItem.imgSrc} alt={dataItem.title} />
                 <h2 className="text-gray-800 text-center text-2xl font-bold mt-8">{dataItem.title}</h2>
-                <p className="text-gray-500 text-center mt-4">{dataItem.description}</p>
+                <p className="text-gray-600 text-center mt-4">{dataItem.description}</p>
               </div>
             ))}
           </div>

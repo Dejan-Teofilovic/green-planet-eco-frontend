@@ -152,7 +152,7 @@ export default function TimelineSection() {
                     <h3 className="text-left text-2xl font-extrabold">{dataItem.title}</h3>
                     <ul className="mt-4 list-disc pl-4">
                       {dataItem.tasks.map(taskItem => (
-                        <li key={taskItem.id} className="text-gray-500">{taskItem.task}</li>
+                        <li key={taskItem.id} className="text-gray-600">{taskItem.task}</li>
                       ))}
                     </ul>
 
@@ -182,7 +182,7 @@ export default function TimelineSection() {
                     <h3 className="text-left text-2xl font-extrabold">{dataItem.title}</h3>
                     <ul className="mt-4 list-disc pl-4">
                       {dataItem.tasks.map(taskItem => (
-                        <li key={taskItem.id} className="text-gray-500">{taskItem.task}</li>
+                        <li key={taskItem.id} className="text-gray-600">{taskItem.task}</li>
                       ))}
                     </ul>
                     <div className="absolute left-[-14.2%] top-[1%] flex items-center">
@@ -210,7 +210,7 @@ export default function TimelineSection() {
               <h3 className="text-left text-xl font-extrabold">{dataItem.title}</h3>
               <ul className="mt-4 list-disc pl-4">
                 {dataItem.tasks.map(taskItem => (
-                  <li key={taskItem.id} className="text-gray-500">{taskItem.task}</li>
+                  <li key={taskItem.id} className="text-gray-600">{taskItem.task}</li>
                 ))}
               </ul>
               <div className="absolute left-[-27.5%] top-[1%] flex items-center">

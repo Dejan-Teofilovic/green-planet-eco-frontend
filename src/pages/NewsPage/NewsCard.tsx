@@ -27,8 +27,8 @@ export default function NewsCard({ data }: IProps) {
           </span>
         </div>
         <h2 className="text-xl font-bold">{data.title}</h2>
-        <p className="text-gray-500">Upcoming soon...</p>
-        {/* <p className="text-gray-500 mt-4">{showFirstLetters(data.description, 60)}</p> */}
+        <p className="text-gray-600">Upcoming soon...</p>
+        {/* <p className="text-gray-600 mt-4">{showFirstLetters(data.description, 60)}</p> */}
       </CardBody>
       <CardFooter>
         <Link to={`${data.id}`}>

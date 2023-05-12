@@ -52,7 +52,7 @@ export default function ValuesSection() {
                 <div className="flex flex-col items-center gap-4" key={dataItem.id}>
                   <img src={dataItem.imgSrc} />
                   <span className="text-5xl font-extrabold text-primary">{dataItem.value}</span>
-                  <span className="text-xl font-extrabold text-gray-500 capitalize">{dataItem.label}</span>
+                  <span className="text-xl font-extrabold text-gray-600 capitalize">{dataItem.label}</span>
                 </div>
               )
             } else {
@@ -60,7 +60,7 @@ export default function ValuesSection() {
                 <div className="flex flex-col items-center gap-4 border-r border-gray-500" key={dataItem.id}>
                   <img src={dataItem.imgSrc} />
                   <span className="text-5xl font-extrabold text-primary">{dataItem.value}</span>
-                  <span className="text-xl font-extrabold text-gray-500 capitalize">{dataItem.label}</span>
+                  <span className="text-xl font-extrabold text-gray-600 capitalize">{dataItem.label}</span>
                 </div>
               )
             }
@@ -74,7 +74,7 @@ export default function ValuesSection() {
                 <div><img src={dataItem.imgSrc} /></div>
                 <div className="flex flex-col">
                   <span className="text-3xl font-extrabold text-primary">{dataItem.value}</span>
-                  <span className="text-lg font-bold text-gray-500 capitalize">{dataItem.label}</span>
+                  <span className="text-lg font-bold text-gray-600 capitalize">{dataItem.label}</span>
                 </div>
               </div>
             ))}

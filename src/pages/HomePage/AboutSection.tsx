@@ -35,7 +35,7 @@ export default function AboutSection() {
 
             <TinyDashedBar />
 
-            <p className="text-gray-500">
+            <p className="text-gray-600">
               Green Planet Eco was created to provide a range of innovative technologies and services that are
               designed to help communities and businesses build a better world to live in. Our team of experts is
               dedicated to creating sustainable solutions that address a wide range of environmental challenges,

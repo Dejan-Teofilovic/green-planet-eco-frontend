@@ -62,7 +62,7 @@ export default function VisionSection() {
       </h1>
       <TinyDashedBar />
       <div className="max-w-3xl mx-auto">
-        <p className="text-gray-500 text-center">
+        <p className="text-gray-600 text-center">
           We're on a mission to make the world a greener place. Our environmental company creates sustainable projects that help communities and businesses thrive while protecting the planet.<br />
           Join us in building a better future for all.
         </p>
@@ -75,7 +75,7 @@ export default function VisionSection() {
             </div>
             <div className="flex flex-col gap-6">
               <h2 className="text-xl font-bold">{dataItem.name}</h2>
-              {/* <p className="text-gray-500 text-sm">{dataItem.description}</p> */}
+              {/* <p className="text-gray-600 text-sm">{dataItem.description}</p> */}
             </div>
             <div className="vision_card_triangle absolute top-0 right-0" />
           </div>

@@ -88,7 +88,7 @@ export default function TestimonialsSection() {
                         </div>
                       </div>
 
-                      <p className="text-gray-500 mt-8 text-left text-sm">{dataItem.comment}</p>
+                      <p className="text-gray-600 mt-8 text-left text-sm">{dataItem.comment}</p>
 
                       <div className="bg-primary rounded-tl-3xl rounded-br-3xl h-8 w-16 absolute top-0 left-0" />
                       <div className="bg-primary rounded-tl-3xl rounded-br-3xl h-8 w-16 absolute bottom-0 right-0" />
