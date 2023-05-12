@@ -83,3 +83,8 @@ export interface IResponse {
   status: number;
   [key: string]: any;
 }
+
+export interface IImage {
+  id: number;
+  imgSrc: string;
+}

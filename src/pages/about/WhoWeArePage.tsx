@@ -3,8 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from 'swiper';
 import Container from '../../components/Container'
 import TinyDashedBar from '../../components/TinyDashedBar';
-import { IProfileData } from '../../utils/interfaces';
-import { PROFILES, SERVICES, SOCIAL_LINKS } from '../../utils/constants';
+import { PROFILES, SERVICES } from '../../utils/constants';
 
 // -----------------------------------------------------------------------------
 
