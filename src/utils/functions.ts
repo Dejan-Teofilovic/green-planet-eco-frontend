@@ -1,4 +1,5 @@
 import { lazy } from "react";
+import { AFFILIATE_TOKEN } from "./constants";
 
 /**
  * Convert number to a readable string
@@ -82,3 +83,15 @@ export const getVisibleDate = (datetime: Date): string => {
 //   };
 //   return lazy(retryImport);
 // };
+
+export const setItemOfLocalStorage = (name: string, value: string) => {
+  return localStorage.setItem(name, value);
+};
+
+export const getItemOfLocalStorage = (name: string): string | null => {
+  return localStorage.getItem(name);
+};
+
+export const removeItemOfLocalStorage = (name: string) => {
+  return localStorage.removeItem(name);
+};

@@ -9,6 +9,7 @@ import { LoadingProvider } from './contexts/LoadingContext'
 import { MobileMenuProvider } from './contexts/MobileMenuContext'
 import Routes from './Routes'
 import Loading from './components/Loading'
+import { AffiliateProvider } from './contexts/AffiliateContext';
 
 // -----------------------------------------------------------------------------------
 
@@ -38,9 +39,11 @@ function App() {
         <AlertMessageProvider>
           <LoadingProvider>
             <MobileMenuProvider>
-              <Suspense fallback={<Loading />}>
-                <Routes />
-              </Suspense>
+              <AffiliateProvider>
+                <Suspense fallback={<Loading />}>
+                  <Routes />
+                </Suspense>
+              </AffiliateProvider>
             </MobileMenuProvider>
           </LoadingProvider>
         </AlertMessageProvider>

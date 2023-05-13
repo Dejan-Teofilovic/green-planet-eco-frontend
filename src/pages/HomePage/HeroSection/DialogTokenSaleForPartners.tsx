@@ -5,11 +5,13 @@ import { useContractReads, usePrepareContractWrite, useContractWrite, useAccount
 import { utils } from 'ethers';
 import { MerkleTree } from 'merkletreejs'
 import keccak256 from "keccak256";
-import { CHAIN_ID, CONTRACT_ABI, CONTRACT_ADDRESS, REGEX_NUMBER_VALID, WHITELIST_OF_PARTNERS } from "../../../utils/constants";
+import { CONTRACT_ABI, REGEX_NUMBER_VALID, WHITELIST_OF_PARTNERS } from "../../../utils/constants";
 import useLoading from "../../../hooks/useLoading";
 import { getVisibleAmount } from "../../../utils/functions";
 import Input from "../../../components/Input";
 import useAlertMessage from "../../../hooks/useAlertMessage";
+
+const { VITE_CONTRACT_ADDRESS, VITE_CHAIN_ID } = import.meta.env
 
 // ----------------------------------------------------------------------------
 
@@ -24,9 +26,9 @@ interface IProps {
 // ----------------------------------------------------------------------------
 
 const contract: {} = {
-  address: CONTRACT_ADDRESS,
+  address: VITE_CONTRACT_ADDRESS,
   abi: CONTRACT_ABI,
-  chainId: CHAIN_ID
+  chainId: Number(VITE_CHAIN_ID)
 }
 
 // ----------------------------------------------------------------------------
@@ -122,9 +124,9 @@ export default function DialogTokenSaleForPartners({ dialogOpened, setDialogOpen
 
   /* --------------------- Purchase ECO ----------------------- */
   const { config: contractWriteConfig } = usePrepareContractWrite({
-    address: CONTRACT_ADDRESS,
+    address: VITE_CONTRACT_ADDRESS,
     abi: CONTRACT_ABI,
-    chainId: CHAIN_ID,
+    chainId: Number(VITE_CHAIN_ID),
     functionName: 'mintForPartners',
     args: [merkleProof, Number(tokenAmount || '0')],
     overrides: {

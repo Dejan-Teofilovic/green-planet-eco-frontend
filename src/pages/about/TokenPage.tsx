@@ -2,7 +2,8 @@ import React from "react";
 import Container from "../../components/Container";
 import PageTitle from "../../components/PageTitle";
 import TinyDashedBar from "../../components/TinyDashedBar";
-import { CONTRACT_ADDRESS } from "../../utils/constants";
+
+const { VITE_CONTRACT_ADDRESS } = import.meta.env
 
 export default function TokenPage() {
   return (
@@ -22,7 +23,7 @@ export default function TokenPage() {
           </div>
           <div className="flex justify-center">
             <span className="font-bold">Token Address:</span>&nbsp;
-            <a target="_blank" href={`https://etherscan.io/token/${CONTRACT_ADDRESS}`} className="text-primary">{CONTRACT_ADDRESS}</a>
+            <a target="_blank" href={`https://etherscan.io/token/${VITE_CONTRACT_ADDRESS}`} className="text-primary">{VITE_CONTRACT_ADDRESS}</a>
           </div>
           <div className="flex-1 flex flex-col gap-4">
             <p className="text-gray-600">

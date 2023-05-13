@@ -3,11 +3,16 @@ import { Icon } from "@iconify/react";
 import { Button, Dialog, DialogBody, DialogFooter, DialogHeader, IconButton, Progress } from "@material-tailwind/react";
 import { useContractReads, usePrepareContractWrite, useContractWrite, useAccount, useWaitForTransaction } from 'wagmi';
 import { utils } from 'ethers';
-import { CHAIN_ID, CONTRACT_ABI, CONTRACT_ADDRESS, REGEX_NUMBER_VALID } from "../../../utils/constants";
+import { CONTRACT_ABI, REGEX_NUMBER_VALID } from "../../../utils/constants";
 import useLoading from "../../../hooks/useLoading";
 import { getVisibleAmount } from "../../../utils/functions";
 import Input from "../../../components/Input";
 import useAlertMessage from "../../../hooks/useAlertMessage";
+import { useRequest } from "alova";
+import { alovaInstanceForBackend } from "../../../utils/alovaInstances";
+import useAffiliate from "../../../hooks/useAffililate";
+
+const { VITE_CONTRACT_ADDRESS, VITE_CHAIN_ID } = import.meta.env
 
 // ----------------------------------------------------------------------------
 
@@ -22,9 +27,9 @@ interface IProps {
 // ----------------------------------------------------------------------------
 
 const contract: {} = {
-  address: CONTRACT_ADDRESS,
+  address: VITE_CONTRACT_ADDRESS,
   abi: CONTRACT_ABI,
-  chainId: CHAIN_ID
+  chainId: Number(VITE_CHAIN_ID)
 }
 
 // ----------------------------------------------------------------------------
@@ -33,6 +38,7 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
   const { address } = useAccount()
   const { openLoading, closeLoading } = useLoading()
   const { openAlert } = useAlertMessage()
+  const { affiliateToken } = useAffiliate()
 
   const [totalTokenAmount, setTotalTokenAmount] = useState<number>(0)
   const [mintableTokenAmount, setMintableTokenAmount] = useState<number>(0)
@@ -107,10 +113,23 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
   }
 
   /* --------------------- Purchase ECO ----------------------- */
+  const { send: payToAffiliator } = useRequest(
+    reqData => alovaInstanceForBackend.Post(
+      '/affiliate/pay-to-affiliator',
+      reqData,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    ),
+    { immediate: false }
+  )
+
   const { config: contractWriteConfig } = usePrepareContractWrite({
-    address: CONTRACT_ADDRESS,
+    address: VITE_CONTRACT_ADDRESS,
     abi: CONTRACT_ABI,
-    chainId: CHAIN_ID,
+    chainId: Number(VITE_CHAIN_ID),
     functionName: 'privateSale',  //  Replace
     args: [Number(tokenAmount || '0')],
     overrides: {
@@ -136,6 +155,7 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
 
   const handlePurchase = () => {
     purchase?.()
+
   }
   /* ----------------------------------------------------------- */
 
@@ -147,13 +167,34 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
 
   useEffect(() => {
     if (transactionSuccess) {
-      closeLoading()
-      openAlert({
-        title: 'Success',
-        color: 'green',
-        message: 'Purchasing has been processeed successfully.',
-        icon: <Icon icon="ic:round-check-circle" />
-      })
+      payToAffiliator({ tokenAmount, affiliateToken })
+        .then((result: any) => {
+          if (result.status === 200) {
+            openAlert({
+              title: 'Success',
+              color: 'green',
+              message: 'Purchasing has been processeed successfully.',
+              icon: <Icon icon="ic:round-check-circle" />
+            })
+          } else if (500) {
+            openAlert({
+              title: 'Failed',
+              color: 'red',
+              message: 'Sending email has been failed.',
+              icon: <Icon icon="material-symbols:error-rounded" />
+            })
+          }
+          closeLoading()
+        })
+        .catch(error => {
+          openAlert({
+            title: 'Failed',
+            color: 'red',
+            message: 'Purchasing has occured error.',
+            icon: <Icon icon="material-symbols:error-rounded" />
+          })
+          closeLoading()
+        })
     }
   }, [transactionSuccess])
 

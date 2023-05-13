@@ -514,6 +514,8 @@ export const MSG_REQUIRED_FIELD = "Required field.";
 
 export const REGEX_NUMBER_VALID = /^[0-9]*\.?[0-9]*$/;
 
+export const AFFILIATE_TOKEN = "AFFILIATE_TOKEN";
+
 export const WHITELIST_OF_PARTNERS = [
   "0xeb0C7cEAE3088cddCE3Ba427ab15BeBDc499b897",
   "0xf983dd6200b3bb4e34cf8bb51803b18e25422948",
@@ -522,8 +524,6 @@ export const WHITELIST_OF_PARTNERS = [
   "0xe7A4e3E8742E86D8623e059525c2E8e955746bdB"
 ];
 
-export const CONTRACT_ADDRESS = "0x972B99eDe570d8E52AbcF24c95337ec2728053DA";
-export const CHAIN_ID: number = 1;
 export const CONTRACT_ABI = [
   { inputs: [], stateMutability: "nonpayable", type: "constructor" },
   {

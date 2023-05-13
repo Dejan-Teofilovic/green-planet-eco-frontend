@@ -7,7 +7,8 @@ import { Link } from "react-router-dom"
 import { Icon } from "@iconify/react"
 import Container from "../../../components/Container"
 import TinyDashedBar from "../../../components/TinyDashedBar"
-import { CHAIN_ID } from "../../../utils/constants";
+
+const { VITE_CHAIN_ID } = import.meta.env
 
 // -----------------------------------------------------------------------------------
 
@@ -39,6 +40,7 @@ export default function HeroSection() {
   }
 
   /* ---------- Set the width of dialog by the screen size --------- */
+
   const sizeOfDialog = useMemo(() => {
     if (isMobile) {
       return 'xxl';
@@ -54,6 +56,7 @@ export default function HeroSection() {
     }
     return 'xs';
   }, [isMobile, isTablet, isLaptop]);
+  
   /* --------------------------------------------------------------- */
 
   return (
@@ -61,6 +64,7 @@ export default function HeroSection() {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 items-center">
           <div className="flex flex-col gap-4 items-center md:items-start">
+            <img src="/assets/images/certik.png" alt="" />
             <h1 className="text-primary uppercase font-extrabold text-4xl md:text-6xl text-center md:text-left">Save the World</h1>
             <p className="text-white capitalize font-semibold text-xl md:text-2xl leading-8 md:leading-10 text-center md:text-left">
               Green Planet Eco - the key to a sustainable future.
@@ -98,7 +102,7 @@ export default function HeroSection() {
             <div className="flex flex-col items-center gap-6 py-10 md:py-28 px-8 bg-primary rounded-none md:rounded-xl">
               <Icon icon="ph:wallet-fill" className="text-white text-6xl" />
               <h2 className="font-extrabold text-center text-2xl text-white">Buy Crypto</h2>
-              {isConnected ? chain?.id === CHAIN_ID ? (
+              {isConnected ? chain?.id === Number(VITE_CHAIN_ID) ? (
                 <>
                   <div className="flex reverse flex-row md:flex-col-reverse lg:flex-row items-center justify-center gap-2">
                     <Button
@@ -124,7 +128,7 @@ export default function HeroSection() {
                   >Disconnect</Button>
                   <Button
                     className="bg-gray-100 hover:bg-gray-100 text-green-600 rounded shadow-none hover:shadow-none"
-                    onClick={() => switchNetwork?.(CHAIN_ID)}
+                    onClick={() => switchNetwork?.(Number(VITE_CHAIN_ID))}
                   >Switch Network</Button>
                 </div>
               ) : (

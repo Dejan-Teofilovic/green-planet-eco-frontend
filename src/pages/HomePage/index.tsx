@@ -1,4 +1,6 @@
-import React, { lazy } from 'react'
+import React, { lazy, useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import useAffiliate from '../../hooks/useAffililate'
 
 // --------------------------------------------------------------------------
 
@@ -12,6 +14,15 @@ const WhitepaperSection = lazy(() => import('./WhitepaperSection'))
 // --------------------------------------------------------------------------
 
 export default function HomePage() {
+  const { affiliateToken } = useParams()
+  const { setAffiliateTokenAct } = useAffiliate()
+
+  useEffect(() => {
+    if (affiliateToken) {
+      setAffiliateTokenAct(affiliateToken)
+    }
+  }, [affiliateToken])
+
   return (
     <div className="flex flex-col gap-16 md:gap-36">
       <HeroSection />
