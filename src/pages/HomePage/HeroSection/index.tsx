@@ -56,7 +56,7 @@ export default function HeroSection() {
     }
     return 'xs';
   }, [isMobile, isTablet, isLaptop]);
-  
+
   /* --------------------------------------------------------------- */
 
   return (
@@ -64,7 +64,18 @@ export default function HeroSection() {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 items-center">
           <div className="flex flex-col gap-4 items-center md:items-start">
-            {/* <img src="/assets/images/certik.png" alt="" /> */}
+            {/* <div className="certik-emble" data-id="d7c95667">
+              <a 
+                href="https://skynet.certik.com/projects/green-planet-eco?utm_source=SkyEmblem&utm_campaign=green-planet-eco&utm_medium=link"
+              >View project at certik.com</a>
+            </div> */}
+            <a 
+              href="https://skynet.certik.com/projects/green-planet-eco?utm_source=SkyEmblem&utm_campaign=green-planet-eco&utm_medium=link" target="_blank"
+            >
+              <img src="/assets/images/certik-logotype-h-w.svg" alt="certik" />
+              
+            </a>
+
             <h1 className="text-primary uppercase font-extrabold text-4xl md:text-6xl text-center md:text-left">Save the World</h1>
             <p className="text-white capitalize font-semibold text-xl md:text-2xl leading-8 md:leading-10 text-center md:text-left">
               Green Planet Eco - the key to a sustainable future.
