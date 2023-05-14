@@ -78,8 +78,7 @@ export default function HeroSection() {
             <a
               href="https://skynet.certik.com/projects/green-planet-eco?utm_source=SkyEmblem&utm_campaign=green-planet-eco&utm_medium=link" target="_blank"
             >
-              <img src="/assets/images/certik-logotype-h-w.svg" alt="certik" />
-
+              <img src="/assets/images/certificate.png" alt="certik" />
             </a>
 
             <h1 className="text-primary uppercase font-extrabold text-4xl md:text-6xl text-center md:text-left">Save the World</h1>
