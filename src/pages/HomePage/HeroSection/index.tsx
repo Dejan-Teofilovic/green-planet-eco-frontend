@@ -64,7 +64,7 @@ export default function HeroSection() {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 items-center">
           <div className="flex flex-col gap-4 items-center md:items-start">
-            <img src="/assets/images/certik.png" alt="" />
+            {/* <img src="/assets/images/certik.png" alt="" /> */}
             <h1 className="text-primary uppercase font-extrabold text-4xl md:text-6xl text-center md:text-left">Save the World</h1>
             <p className="text-white capitalize font-semibold text-xl md:text-2xl leading-8 md:leading-10 text-center md:text-left">
               Green Planet Eco - the key to a sustainable future.
