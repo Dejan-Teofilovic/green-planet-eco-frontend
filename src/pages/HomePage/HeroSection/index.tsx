@@ -7,6 +7,7 @@ import { Link } from "react-router-dom"
 import { Icon } from "@iconify/react"
 import Container from "../../../components/Container"
 import TinyDashedBar from "../../../components/TinyDashedBar"
+import DialogAffiliate from "./DialogAffiliate";
 
 const { VITE_CHAIN_ID } = import.meta.env
 
@@ -30,6 +31,7 @@ export default function HeroSection() {
 
   const [dialogTokenSaleOpened, setDialogTokenSaleOpened] = useState<boolean>(false)
   const [dialogTokenSaleForPartnersOpened, setDialogTokenSaleForPartnersOpened] = useState<boolean>(false)
+  const [dialogAffiliateOpened, setDialogAffiliateOpened] = useState<boolean>(false)
 
   const openDialogTokenSale = () => {
     setDialogTokenSaleOpened(true)
@@ -37,6 +39,10 @@ export default function HeroSection() {
 
   const openDialogTokenSaleForPartners = () => {
     setDialogTokenSaleForPartnersOpened(true)
+  }
+
+  const openDialogAffiliate = () => {
+    setDialogAffiliateOpened(true)
   }
 
   /* ---------- Set the width of dialog by the screen size --------- */
@@ -69,11 +75,11 @@ export default function HeroSection() {
                 href="https://skynet.certik.com/projects/green-planet-eco?utm_source=SkyEmblem&utm_campaign=green-planet-eco&utm_medium=link"
               >View project at certik.com</a>
             </div> */}
-            <a 
+            <a
               href="https://skynet.certik.com/projects/green-planet-eco?utm_source=SkyEmblem&utm_campaign=green-planet-eco&utm_medium=link" target="_blank"
             >
               <img src="/assets/images/certik-logotype-h-w.svg" alt="certik" />
-              
+
             </a>
 
             <h1 className="text-primary uppercase font-extrabold text-4xl md:text-6xl text-center md:text-left">Save the World</h1>
@@ -82,11 +88,19 @@ export default function HeroSection() {
             </p>
             <TinyDashedBar />
 
-            <div className="mt-8">
-              <Button className="bg-primary shadow-none text-base capitalize rounded-full px-12">
+            <div className="mt-8 flex items-center gap-3">
+              <Button className="bg-primary shadow-none text-base capitalize rounded-full px-6 md:px-12 hover:shadow-primary">
                 <Link to="/learn">
                   Read More
                 </Link>
+              </Button>
+
+              <Button
+                className="border-primary border-2 bg-transparent shadow-none text-base capitalize rounded-full px-5 md:px-10 hover:shadow-primary"
+                disabled={!isConnected}
+                onClick={openDialogAffiliate}
+              >
+                Invite Friend
               </Button>
             </div>
           </div>
@@ -161,16 +175,27 @@ export default function HeroSection() {
         </Container>
       </div>
 
-      <DialogTokenSale
-        dialogOpened={dialogTokenSaleOpened}
-        setDialogOpened={setDialogTokenSaleOpened}
-        sizeOfDialog={sizeOfDialog}
-      />
-      <DialogTokenSaleForPartners
-        dialogOpened={dialogTokenSaleForPartnersOpened}
-        setDialogOpened={setDialogTokenSaleForPartnersOpened}
-        sizeOfDialog={sizeOfDialog}
-      />
+      {isConnected && (
+        <>
+          <DialogTokenSale
+            dialogOpened={dialogTokenSaleOpened}
+            setDialogOpened={setDialogTokenSaleOpened}
+            sizeOfDialog={sizeOfDialog}
+          />
+          <DialogTokenSaleForPartners
+            dialogOpened={dialogTokenSaleForPartnersOpened}
+            setDialogOpened={setDialogTokenSaleForPartnersOpened}
+            sizeOfDialog={sizeOfDialog}
+          />
+          <DialogAffiliate
+            dialogOpened={dialogAffiliateOpened}
+            setDialogOpened={setDialogAffiliateOpened}
+            sizeOfDialog={sizeOfDialog}
+          />
+        </>
+      )}
+
+
     </div>
   )
 }

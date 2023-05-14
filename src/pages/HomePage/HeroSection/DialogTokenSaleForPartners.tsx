@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useEffect, useMemo, useState } from "react";
 import { Icon } from "@iconify/react";
-import { Button, Dialog, DialogBody, DialogFooter, DialogHeader, IconButton, Progress } from "@material-tailwind/react";
+import { Button, Dialog, DialogBody, DialogFooter, Progress } from "@material-tailwind/react";
 import { useContractReads, usePrepareContractWrite, useContractWrite, useAccount, useWaitForTransaction } from 'wagmi';
 import { utils } from 'ethers';
 import { MerkleTree } from 'merkletreejs'
@@ -10,12 +10,12 @@ import useLoading from "../../../hooks/useLoading";
 import { getVisibleAmount } from "../../../utils/functions";
 import Input from "../../../components/Input";
 import useAlertMessage from "../../../hooks/useAlertMessage";
+import { TSizeOfDialog } from "../../../utils/types";
+import CustomDialogHeader from "../../../components/CustomDialogHeader";
 
 const { VITE_CONTRACT_ADDRESS, VITE_CHAIN_ID } = import.meta.env
 
 // ----------------------------------------------------------------------------
-
-type TSizeOfDialog = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 
 interface IProps {
   dialogOpened: boolean;
@@ -81,7 +81,6 @@ export default function DialogTokenSaleForPartners({ dialogOpened, setDialogOpen
     watch: true,
 
     onSuccess: (data: Array<any>) => {
-      closeLoading()
       const totalSupply = parseInt(data[0]._hex) / 1e18
       setTotalTokenAmount(totalSupply * data[1] / 1000)
       setMintableTokenAmount(parseInt(data[2]._hex) / 1e18)
@@ -136,8 +135,7 @@ export default function DialogTokenSaleForPartners({ dialogOpened, setDialogOpen
     onSuccess: () => {
       setPurchaseDisabled(false)
     },
-    onError: (error) => {
-      // console.log('>>>>>> error => ', error)
+    onError: () => {
       setPurchaseDisabled(true)
     },
   })
@@ -188,12 +186,8 @@ export default function DialogTokenSaleForPartners({ dialogOpened, setDialogOpen
 
   return (
     <Dialog size={sizeOfDialog} open={dialogOpened} handler={handleDialog}>
-      <DialogHeader className="justify-between">
-        <h2 className="text-xl md:text-2xl font-bold">Purchase ECO</h2>
-        <IconButton variant="text" className="text-xl text-primary" onClick={handleDialog}>
-          <Icon icon="akar-icons:cross" />
-        </IconButton>
-      </DialogHeader>
+      <CustomDialogHeader title="Purchase ECO" handleDialog={handleDialog} />
+
       <DialogBody className="px-6" divider>
         <div className="flex flex-col gap-8">
           {/* title - Replace */}

@@ -1,6 +1,7 @@
 import React, { lazy, useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import useAffiliate from '../../hooks/useAffililate'
+import { QUERY_PARAM_NAME_OF_AFFILIATE_TOKEN } from '../../utils/constants'
 
 // --------------------------------------------------------------------------
 
@@ -14,14 +15,15 @@ const WhitepaperSection = lazy(() => import('./WhitepaperSection'))
 // --------------------------------------------------------------------------
 
 export default function HomePage() {
-  const { affiliateToken } = useParams()
+  const [searchParams] = useSearchParams()
   const { setAffiliateTokenAct } = useAffiliate()
 
   useEffect(() => {
+    const affiliateToken = searchParams.get(QUERY_PARAM_NAME_OF_AFFILIATE_TOKEN)
     if (affiliateToken) {
       setAffiliateTokenAct(affiliateToken)
     }
-  }, [affiliateToken])
+  }, [searchParams])
 
   return (
     <div className="flex flex-col gap-16 md:gap-36">

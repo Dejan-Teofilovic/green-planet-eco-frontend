@@ -97,10 +97,6 @@ export default function Routes() {
           ]
         },
         {
-          path: '/invite/:affiliateToken',
-          element: <HomePage />
-        },
-        {
           path: '*',
           element: <NoPage />
         }

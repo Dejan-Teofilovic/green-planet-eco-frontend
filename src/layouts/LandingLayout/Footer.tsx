@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Button, IconButton } from '@material-tailwind/react';
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
@@ -72,7 +72,7 @@ export default function Footer({ className = '' }: IProps) {
                       </div>
                     )
                   }
-                  return <></>
+                  return <Fragment key={dataItem.id} />
                 })}
               </div>
             </div>

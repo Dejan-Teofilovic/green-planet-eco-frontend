@@ -515,6 +515,7 @@ export const MSG_REQUIRED_FIELD = "Required field.";
 export const REGEX_NUMBER_VALID = /^[0-9]*\.?[0-9]*$/;
 
 export const AFFILIATE_TOKEN = "AFFILIATE_TOKEN";
+export const QUERY_PARAM_NAME_OF_AFFILIATE_TOKEN = "affiliate-token";
 
 export const WHITELIST_OF_PARTNERS = [
   "0xeb0C7cEAE3088cddCE3Ba427ab15BeBDc499b897",

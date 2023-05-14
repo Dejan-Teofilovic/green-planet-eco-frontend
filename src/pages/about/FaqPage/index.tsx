@@ -144,7 +144,6 @@ export default function FaqPage() {
             <Input
               id="name"
               name="name"
-              type="name"
               className="border border-gray-400"
               placeholder=""
               onChange={formik.handleChange}

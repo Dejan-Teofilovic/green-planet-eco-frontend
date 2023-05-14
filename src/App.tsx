@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { Web3Modal } from "@web3modal/react";
 import { EthereumClient, w3mConnectors, w3mProvider } from '@web3modal/ethereum';
 import { configureChains, createClient, WagmiConfig } from "wagmi";
-import { mainnet } from 'wagmi/chains'
+import { mainnet, goerli } from 'wagmi/chains'
 import { AlertMessageProvider } from './contexts/AlertMessageContext'
 import { LoadingProvider } from './contexts/LoadingContext'
 import { MobileMenuProvider } from './contexts/MobileMenuContext'
@@ -14,7 +14,7 @@ import { AffiliateProvider } from './contexts/AffiliateContext';
 // -----------------------------------------------------------------------------------
 
 const projectId = import.meta.env.VITE_WALLET_CONNECT_PROJECT_ID
-const chains = [mainnet]
+const chains = [mainnet, goerli]
 
 const { provider, webSocketProvider } = configureChains(chains, [w3mProvider({
   projectId

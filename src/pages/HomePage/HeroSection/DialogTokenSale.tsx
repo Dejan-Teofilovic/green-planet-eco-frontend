@@ -1,22 +1,23 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
-import { Button, Dialog, DialogBody, DialogFooter, DialogHeader, IconButton, Progress } from "@material-tailwind/react";
+import { Button, Dialog, DialogBody, DialogFooter, Progress } from "@material-tailwind/react";
 import { useContractReads, usePrepareContractWrite, useContractWrite, useAccount, useWaitForTransaction } from 'wagmi';
 import { utils } from 'ethers';
+import { useRequest } from "alova";
 import { CONTRACT_ABI, REGEX_NUMBER_VALID } from "../../../utils/constants";
 import useLoading from "../../../hooks/useLoading";
 import { getVisibleAmount } from "../../../utils/functions";
 import Input from "../../../components/Input";
 import useAlertMessage from "../../../hooks/useAlertMessage";
-import { useRequest } from "alova";
 import { alovaInstanceForBackend } from "../../../utils/alovaInstances";
 import useAffiliate from "../../../hooks/useAffililate";
+import { TSizeOfDialog } from "../../../utils/types";
+import CustomDialogHeader from "../../../components/CustomDialogHeader";
+import api from "../../../utils/api";
 
 const { VITE_CONTRACT_ADDRESS, VITE_CHAIN_ID } = import.meta.env
 
 // ----------------------------------------------------------------------------
-
-type TSizeOfDialog = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 
 interface IProps {
   dialogOpened: boolean;
@@ -31,6 +32,8 @@ const contract: {} = {
   abi: CONTRACT_ABI,
   chainId: Number(VITE_CHAIN_ID)
 }
+
+let numberOfLoad = 0;
 
 // ----------------------------------------------------------------------------
 
@@ -71,7 +74,6 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
     watch: true,
 
     onSuccess: (data: Array<any>) => {
-      closeLoading()
       const totalSupply = parseInt(data[0]._hex) / 1e18
       setTotalTokenAmount(totalSupply * data[1] / 1000)
       setMintableTokenAmount(parseInt(data[2]._hex) / 1e18)
@@ -113,18 +115,6 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
   }
 
   /* --------------------- Purchase ECO ----------------------- */
-  const { send: payToAffiliator } = useRequest(
-    reqData => alovaInstanceForBackend.Post(
-      '/affiliate/pay-to-affiliator',
-      reqData,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    ),
-    { immediate: false }
-  )
 
   const { config: contractWriteConfig } = usePrepareContractWrite({
     address: VITE_CONTRACT_ADDRESS,
@@ -154,8 +144,8 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
   })
 
   const handlePurchase = () => {
+    numberOfLoad = 0
     purchase?.()
-
   }
   /* ----------------------------------------------------------- */
 
@@ -166,35 +156,47 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
   }, [contractReadsLoading, transactionLoading])
 
   useEffect(() => {
-    if (transactionSuccess) {
-      payToAffiliator({ tokenAmount, affiliateToken })
-        .then((result: any) => {
-          if (result.status === 200) {
-            openAlert({
-              title: 'Success',
-              color: 'green',
-              message: 'Purchasing has been processeed successfully.',
-              icon: <Icon icon="ic:round-check-circle" />
-            })
-          } else if (500) {
+    if (transactionSuccess && numberOfLoad === 0) {
+      if (affiliateToken) {
+        api.post('/affiliate/pay-to-affiliator', { tokenAmount: `${Number(tokenAmount) / 100 * 4}`, affiliateToken })
+          .then((result: any) => {
+            if (result.status === 200) {
+              openAlert({
+                title: 'Success',
+                color: 'green',
+                message: 'Purchasing has been processeed successfully.',
+                icon: <Icon icon="ic:round-check-circle" />
+              })
+            } else if (500) {
+              openAlert({
+                title: 'Failed',
+                color: 'red',
+                message: 'Sending email has been failed.',
+                icon: <Icon icon="material-symbols:error-rounded" />
+              })
+            }
+            numberOfLoad = 1
+            closeLoading()
+          })
+          .catch(error => {
             openAlert({
               title: 'Failed',
               color: 'red',
-              message: 'Sending email has been failed.',
+              message: 'Purchasing has occured error.',
               icon: <Icon icon="material-symbols:error-rounded" />
             })
-          }
-          closeLoading()
-        })
-        .catch(error => {
-          openAlert({
-            title: 'Failed',
-            color: 'red',
-            message: 'Purchasing has occured error.',
-            icon: <Icon icon="material-symbols:error-rounded" />
+            numberOfLoad = 1
+            closeLoading()
           })
-          closeLoading()
+      } else {
+        openAlert({
+          title: 'Success',
+          color: 'green',
+          message: 'Purchasing has been processeed successfully.',
+          icon: <Icon icon="ic:round-check-circle" />
         })
+        closeLoading()
+      }
     }
   }, [transactionSuccess])
 
@@ -212,12 +214,7 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
 
   return (
     <Dialog size={sizeOfDialog} open={dialogOpened} handler={handleDialog}>
-      <DialogHeader className="justify-between">
-        <h2 className="text-xl md:text-2xl font-bold">Purchase ECO</h2>
-        <IconButton variant="text" className="text-xl text-primary" onClick={handleDialog}>
-          <Icon icon="akar-icons:cross" />
-        </IconButton>
-      </DialogHeader>
+      <CustomDialogHeader title="Purchase ECO" handleDialog={handleDialog} />
       <DialogBody className="px-6" divider>
         <div className="flex flex-col gap-8">
           {/* title - Replace */}
