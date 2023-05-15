@@ -1,4 +1,4 @@
-import React, { lazy, useMemo, useState } from "react"
+import React, { lazy, useEffect, useMemo, useState } from "react"
 import { Button, Dialog } from "@material-tailwind/react"
 import { useWeb3Modal } from "@web3modal/react"
 import { useAccount, useDisconnect, useSwitchNetwork, useNetwork } from "wagmi"
@@ -8,6 +8,8 @@ import { Icon } from "@iconify/react"
 import Container from "../../../components/Container"
 import TinyDashedBar from "../../../components/TinyDashedBar"
 import DialogAffiliate from "./DialogAffiliate";
+import useLoading from "../../../hooks/useLoading";
+import api from "../../../utils/api";
 
 const { VITE_CHAIN_ID } = import.meta.env
 
@@ -20,7 +22,7 @@ const DialogTokenSaleForPartners = lazy(() => import('./DialogTokenSaleForPartne
 
 export default function HeroSection() {
   const { open } = useWeb3Modal()
-  const { isConnected } = useAccount()
+  const { isConnected, address } = useAccount()
   const { disconnect } = useDisconnect()
   const { switchNetwork } = useSwitchNetwork()
   const { chain } = useNetwork()
@@ -28,10 +30,26 @@ export default function HeroSection() {
   const isTablet = useMediaQuery({ minWidth: 480, maxWidth: 768 });
   const isLaptop = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
   const isDesktop = useMediaQuery({ minWidth: 1024, maxWidth: 1280 });
+  const { openLoading, closeLoading } = useLoading()
 
   const [dialogTokenSaleOpened, setDialogTokenSaleOpened] = useState<boolean>(false)
   const [dialogTokenSaleForPartnersOpened, setDialogTokenSaleForPartnersOpened] = useState<boolean>(false)
   const [dialogAffiliateOpened, setDialogAffiliateOpened] = useState<boolean>(false)
+  const [affiliateLink, setAffiliateLink] = useState<string>('')
+
+  useEffect(() => {
+    if (address) {
+      openLoading()
+      api.get(`/affiliate/get-affiliate-link/${address}`)
+        .then(response => {
+          setAffiliateLink(response.data)
+          closeLoading()
+        })
+        .catch(error => {
+          closeLoading()
+        })
+    }
+  }, [address])
 
   const openDialogTokenSale = () => {
     setDialogTokenSaleOpened(true)
@@ -190,6 +208,7 @@ export default function HeroSection() {
             dialogOpened={dialogAffiliateOpened}
             setDialogOpened={setDialogAffiliateOpened}
             sizeOfDialog={sizeOfDialog}
+            affiliateLink={affiliateLink}
           />
         </>
       )}

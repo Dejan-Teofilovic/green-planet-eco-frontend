@@ -1,5 +1,5 @@
 import React, { lazy, useEffect } from 'react'
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 import useAffiliate from '../../hooks/useAffililate'
 import { QUERY_PARAM_NAME_OF_AFFILIATE_TOKEN } from '../../utils/constants'
 
@@ -15,14 +15,19 @@ const WhitepaperSection = lazy(() => import('./WhitepaperSection'))
 // --------------------------------------------------------------------------
 
 export default function HomePage() {
-  const [searchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
   const { setAffiliateTokenAct } = useAffiliate()
 
   useEffect(() => {
-    const affiliateToken = searchParams.get(QUERY_PARAM_NAME_OF_AFFILIATE_TOKEN)
-    if (affiliateToken) {
-      setAffiliateTokenAct(affiliateToken)
+    try {
+      const affiliateToken = searchParams.get(QUERY_PARAM_NAME_OF_AFFILIATE_TOKEN)
+      if (affiliateToken) {
+        setAffiliateTokenAct(affiliateToken)
+      }
+    } catch (error) {
+      console.log('>>>>>>>> error => ', error)
     }
+
   }, [searchParams])
 
   return (

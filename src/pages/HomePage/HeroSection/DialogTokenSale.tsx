@@ -158,23 +158,14 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
   useEffect(() => {
     if (transactionSuccess && numberOfLoad === 0) {
       if (affiliateToken) {
-        api.post('/affiliate/pay-to-affiliator', { tokenAmount: `${Number(tokenAmount) / 100 * 4}`, affiliateToken })
+        api.post('/affiliate/pay-to-affiliator', { tokenAmount: `${Number(tokenAmount) / 100 * 4}`, affiliateToken, purchaserAddress: address })
           .then((result: any) => {
-            if (result.status === 200) {
-              openAlert({
-                title: 'Success',
-                color: 'green',
-                message: 'Purchasing has been processeed successfully.',
-                icon: <Icon icon="ic:round-check-circle" />
-              })
-            } else if (500) {
-              openAlert({
-                title: 'Failed',
-                color: 'red',
-                message: 'Sending email has been failed.',
-                icon: <Icon icon="material-symbols:error-rounded" />
-              })
-            }
+            openAlert({
+              title: 'Success',
+              color: 'green',
+              message: 'Purchasing has been processeed successfully.',
+              icon: <Icon icon="ic:round-check-circle" />
+            })
             numberOfLoad = 1
             closeLoading()
           })
