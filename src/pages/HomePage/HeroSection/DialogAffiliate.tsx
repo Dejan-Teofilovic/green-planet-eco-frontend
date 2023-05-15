@@ -27,7 +27,7 @@ export default function DialogAffiliate({ dialogOpened, setDialogOpened, sizeOfD
 
   return (
     <Dialog size={sizeOfDialog} open={dialogOpened} handler={handleDialog}>
-      <CustomDialogHeader title="Invite Friend" handleDialog={handleDialog} />
+      <CustomDialogHeader title="Affiliate Link" handleDialog={handleDialog} />
       <DialogBody className="px-6" divider>
         <div className="flex flex-col gap-4">
           <p className="text-gray-700 text-sm font-bold">

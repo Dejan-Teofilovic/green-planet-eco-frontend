@@ -209,7 +209,10 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
       <DialogBody className="px-6" divider>
         <div className="flex flex-col gap-8">
           {/* title - Replace */}
-          <h3 className="text-lg md:text-xl font-bold text-center">Pre-Sale</h3>
+          <div className="flex flex-col gap-2">
+            <h3 className="text-lg md:text-xl font-bold text-center">Pre-Sale</h3>
+            <p className="text-sm text-center font-bold">1 ECO = {tokenPrice} ETH</p>
+          </div>
 
           {/* Progress bar */}
           <div className="flex flex-col gap-2">
