@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Button, Dialog, DialogBody, DialogFooter } from "@material-tailwind/react";
 import { Icon } from "@iconify/react";
 import copy from 'copy-text-to-clipboard'
