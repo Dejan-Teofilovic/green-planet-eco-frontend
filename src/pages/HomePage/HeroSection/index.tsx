@@ -117,7 +117,7 @@ export default function HeroSection() {
                 disabled={!isConnected}
                 onClick={openDialogAffiliate}
               >
-                Invite Friend
+                Affiliate Link
               </Button>
             </div>
           </div>
