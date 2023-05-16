@@ -1,5 +1,5 @@
 import React, { lazy, useEffect, useMemo, useState } from "react"
-import { Button, Dialog } from "@material-tailwind/react"
+import { Button } from "@material-tailwind/react"
 import { useWeb3Modal } from "@web3modal/react"
 import { useAccount, useDisconnect, useSwitchNetwork, useNetwork } from "wagmi"
 import { useMediaQuery } from 'react-responsive';

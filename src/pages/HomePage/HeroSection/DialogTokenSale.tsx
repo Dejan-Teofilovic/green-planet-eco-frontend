@@ -207,7 +207,7 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
     <Dialog size={sizeOfDialog} open={dialogOpened} handler={handleDialog}>
       <CustomDialogHeader title="Purchase ECO" handleDialog={handleDialog} />
       <DialogBody className="px-6" divider>
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-4">
           {/* title - Replace */}
           <div className="flex flex-col gap-2">
             <h3 className="text-lg md:text-xl font-bold text-center">Pre-Sale</h3>
@@ -228,6 +228,10 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
               <p className="text-sm">Total: <span className="font-bold">{getVisibleAmount(totalTokenAmount)}</span> ECO</p>
             </div>
           </div>
+
+          <p className="text-sm text-center">
+            Next price: <span className="font-bold">1 ECO = 0.00004 ETH</span>
+          </p>
 
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-1">
