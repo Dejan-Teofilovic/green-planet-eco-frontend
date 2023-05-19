@@ -16,48 +16,33 @@ const WHITEPAPER: Array<IWhitepaper> = [
   {
     id: 1,
     // title: 'Abstract:',
-    description: 'The Green Planet Eco Token is an innovative and advanced contract technology that has been implemented on the Ethereum network. Its primary purpose is to address urgent environmental concerns that the planet is currently facing. The architecture of this Token is decentralized, which ensures a reliable, transparent, and efficient system that promotes sustainable practices and facilitates the growth of the green economy.'
+    description: 'Green Planet Eco is at the forefront of leveraging blockchain technology to drive investments in sustainable causes and empower individuals to offset their carbon footprint. With a strong commitment to environmental sustainability, Green Planet Eco utilizes the transparency, security, and efficiency of blockchain to create an innovative platform for positive change.'
   },
   {
     id: 2,
     // title: 'Introduction:',
-    description: 'At its core, the Green Planet Eco Token is powered by a distributed network of nodes that work together to maintain the integrity of the platform. This network is secured by a consensus algorithm that ensures that all transactions are verified and validated before they are added to the Token . The use of Token technology provides several benefits, including immutability, transparency, and tamper-proof records that are resistant to fraud and manipulation.'
+    description: 'By harnessing the power of blockchain, Green Planet Eco connects eco-conscious investors with impactful sustainable projects. Through their platform, individuals can invest in initiatives such as renewable energy, reforestation, waste management, and other environmentally friendly projects. The blockchain ensures transparency and immutability, providing investors with a clear view of where their funds are allocated and how they are making a difference.'
   },
   {
     id: 3,
     // title: 'Our Mission:',
-    description: "The Green Planet Eco Token is also designed to be highly scalable and efficient, enabling it to process a large volume of transactions with minimal energy consumption. This is achieved through the use of innovative technologies, such as sharding and proof-of-stake consensus, that help to reduce the computational power required to maintain the network."
+    description: "Green Planet Eco is also developing a user-friendly mobile application that harnesses the power of blockchain technology to help users measure and offset their carbon footprint. The app will enable users to calculate their emissions across various aspects of their daily lives, including transportation, energy consumption, and lifestyle choices. The app also ensures accurate tracking and verification of carbon reduction efforts, allowing users to effectively offset their carbon footprint."
   },
   {
     id: 4,
     // title: 'Our Approach:',
-    description: 'One of the key features of the Green Planet Eco Token is its focus on sustainability and the environment. The platform provides a range of tools and resources that enable individuals and organizations to track and offset their carbon footprint, as well as participate in initiatives that promote sustainable practices and support the green economy.'
+    description: 'Through the Green Planet Eco app, users will have access to a variety of carbon offset credit plans. These projects will be carefully selected based on rigorous sustainability criteria, ensuring their positive impact on the environment. The app will facilitate secure transactions using blockchain technology, ensuring that every offset contribution is allocated to the chosen project with transparency and integrity.'
   },
   {
     id: 5,
     // title: 'Consultation:',
-    description: 'Overall, the Green Planet Eco Token represents a major step forward in the development of sustainable Token technology. Its combination of decentralization, scalability, and environmental focus make it a powerful tool for promoting positive change and driving the transition to a more sustainable future.'
+    description: 'Green Planet Eco envisions a global community of environmentally conscious individuals united in their commitment to combat climate change and create a sustainable future. By harnessing the power of blockchain, the organization aims to make sustainable investing accessible and transparent while empowering individuals to take meaningful actions to offset their carbon footprint.'
   },
-  // {
-  //   id: 6,
-  //   // title: 'Project Management:',
-  //   description: 'Our team of project managers has extensive experience in managing sustainable projects from start to finish. We use a proven methodology that ensures project success and delivers measurable results. We provide project planning, budgeting, scheduling, risk management, and quality control services to ensure successful project delivery.'
-  // },
-  // {
-  //   id: 7,
-  //   // title: 'Implementation:',
-  //   description: "We implement customized solutions tailored to our clients' specific sustainability objectives. Our solutions promote energy efficiency, reduce carbon emissions, and encourage sustainable practices.We provide implementation services for renewable energy projects, waste management, water conservation, sustainable agriculture, and green building design."
-  // },
-  // {
-  //   id: 8,
-  //   // title: 'Training and Education:',
-  //   description: 'We offer training and education services to help our clients implement sustainable practices and technologies. We provide customized training programs that include workshops, seminars, and online courses. Our goal is to empower our clients with the knowledge and skills they need to create a more sustainable future.'
-  // },
-  // {
-  //   id: 9,
-  //   // title: 'Conclusion:',
-  //   description: 'Green Planet Eco is committed to creating a more sustainable future for all. We believe that by working together, we can achieve a world that is environmentally sustainable and economically viable. Our services are designed to help communities and businesses worldwide create sustainable projects that promote energy efficiency, reduce carbon emissions, and encourage sustainable practices. We are dedicated to leveraging technology, innovation, and collaboration to create a better future for all.'
-  // }
+  {
+    id: 6,
+    // title: 'Consultation:',
+    description: 'Join Green Planet Eco on their mission to build a greener future. Through the innovative use of blockchain technology, we can drive investments in sustainable causes, provide tools to offset carbon footprints, and inspire individuals to make a positive impact on the environment. Together, we can create a sustainable world for future generations.'
+  }
 ]
 
 // ------------------------------------------------------------------------------------
@@ -67,7 +52,7 @@ export default function WhitepaperSection() {
     <div className="bg-white py-16 md:py-36">
       <Container id="whitepaper">
         <h1 className="text-gray-900 text-3xl md:text-5xl text-center font-extrabold capitalize">
-          Green Planet Eco Token
+          Green Planet Eco on Blockchain Ecosystem
         </h1>
         <div className="flex justify-center">
           <TinyDashedBar className="mt-6 md:mt-8" />
