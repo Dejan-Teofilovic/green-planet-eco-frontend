@@ -5,7 +5,9 @@ export default function NewsBar() {
   return (
     <div>
       <Marquee direction="right">
-        <img src="/assets/images/news_logo_btc.png" alt="news logo" className="w-48" />
+        <a href="https://www.newsbtc.com/press-releases/green-planet-eco-the-future-is-calling-us-join-our-pre-sale-today/" target="_blank">
+          <img src="/assets/images/news_logo_btc.png" alt="news logo" className="w-48" />
+        </a>
       </Marquee>
     </div>
 
