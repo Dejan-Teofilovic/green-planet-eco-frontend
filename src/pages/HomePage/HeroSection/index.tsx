@@ -1,7 +1,7 @@
 import React, { lazy, useEffect, useMemo, useState } from "react"
-import { Button } from "@material-tailwind/react"
+import { Button, Progress } from "@material-tailwind/react"
 import { useWeb3Modal } from "@web3modal/react"
-import { useAccount, useDisconnect, useSwitchNetwork, useNetwork } from "wagmi"
+import { useAccount, useDisconnect, useSwitchNetwork, useNetwork, useContractReads } from "wagmi"
 import { useMediaQuery } from 'react-responsive';
 import { Link } from "react-router-dom"
 import { Icon } from "@iconify/react"
@@ -10,13 +10,25 @@ import TinyDashedBar from "../../../components/TinyDashedBar"
 import DialogAffiliate from "./DialogAffiliate";
 import useLoading from "../../../hooks/useLoading";
 import api from "../../../utils/api";
+import { CONTRACT_ABI } from "../../../utils/constants";
+import { getVisibleAmount } from "../../../utils/functions";
 
-const { VITE_CHAIN_ID } = import.meta.env
+// -----------------------------------------------------------------------------------
+
+const { VITE_CONTRACT_ADDRESS, VITE_CHAIN_ID } = import.meta.env
 
 // -----------------------------------------------------------------------------------
 
 const DialogTokenSale = lazy(() => import('./DialogTokenSale'))
 const DialogTokenSaleForPartners = lazy(() => import('./DialogTokenSaleForPartners'))
+
+// -----------------------------------------------------------------------------------
+
+const contract: {} = {
+  address: VITE_CONTRACT_ADDRESS,
+  abi: CONTRACT_ABI,
+  chainId: Number(VITE_CHAIN_ID)
+}
 
 // -----------------------------------------------------------------------------------
 
@@ -36,6 +48,40 @@ export default function HeroSection() {
   const [dialogTokenSaleForPartnersOpened, setDialogTokenSaleForPartnersOpened] = useState<boolean>(false)
   const [dialogAffiliateOpened, setDialogAffiliateOpened] = useState<boolean>(false)
   const [affiliateLink, setAffiliateLink] = useState<string>('')
+  const [totalTokenAmount, setTotalTokenAmount] = useState<number>(0)
+  const [mintableTokenAmount, setMintableTokenAmount] = useState<number>(0)
+  const [tokenPrice, setTokenPrice] = useState<number>(0)
+
+  //  Get essential values from contract
+  const { isLoading: contractReadsLoading } = useContractReads({
+    contracts: [
+      {
+        ...contract,
+        functionName: 'INIT_TOTAL_SUPPLY'
+      },
+      {
+        ...contract,
+        functionName: 'SHARE_OF_PRIVATE_SALE'   //  Replace
+      },
+      {
+        ...contract,
+        functionName: 'mintableTokenAmountForPrivate' //  Replace
+      },
+      {
+        ...contract,
+        functionName: 'tokenPriceForPrivate'   // Replace
+      },
+    ],
+
+    watch: true,
+
+    onSuccess: (data: Array<any>) => {
+      const totalSupply = parseInt(data[0]._hex) / 1e18
+      setTotalTokenAmount(totalSupply * data[1] / 1000)
+      setMintableTokenAmount(parseInt(data[2]._hex) / 1e18)
+      setTokenPrice(parseInt(data[3]._hex) / 1e18)
+    }
+  })
 
   useEffect(() => {
     if (address) {
@@ -50,6 +96,12 @@ export default function HeroSection() {
         })
     }
   }, [address])
+
+  useEffect(() => {
+    if (contractReadsLoading) {
+      openLoading()
+    }
+  }, [contractReadsLoading])
 
   const openDialogTokenSale = () => {
     setDialogTokenSaleOpened(true)
@@ -141,9 +193,39 @@ export default function HeroSection() {
               </p>
             </div>
 
-            <div className="flex flex-col items-center gap-6 py-10 md:py-28 px-8 bg-primary rounded-none md:rounded-xl">
+            {/* Pre-sale */}
+            <div className="flex flex-col items-center gap-6 py-10 md:py-10 px-8 bg-primary rounded-none md:rounded-xl">
               <Icon icon="ph:wallet-fill" className="text-white text-6xl" />
-              <h2 className="font-extrabold text-center text-2xl text-white">Buy Crypto</h2>
+              <h2 className="font-extrabold text-center text-2xl text-white">Pre-sale</h2>
+              <div className="flex flex-col gap-4 w-full">
+                {/* title - Replace */}
+                <div className="flex flex-col gap-2">
+                  <p className="text-sm text-center font-bold text-white">1 ECO = {tokenPrice} ETH</p>
+                </div>
+
+                {/* Progress bar */}
+                <div className="flex flex-col gap-2">
+                  <Progress
+                    value={(totalTokenAmount - mintableTokenAmount) / totalTokenAmount * 100}
+                    className="h-3 rounded-lg bg-gray-300"
+                    barProps={{
+                      className: 'bg-primary h-3 rounded-lg bg-gray-900'
+                    }}
+                  />
+                  <div className="flex justify-between items-center">
+                    <p className="text-sm text-white">
+                      Sold: <span className="text-white font-bold">{getVisibleAmount(totalTokenAmount - mintableTokenAmount)}</span> ECO
+                    </p>
+                    <p className="text-sm text-white">
+                      Total: <span className="font-bold">{getVisibleAmount(totalTokenAmount)}</span> ECO
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-sm text-center text-gray-300">
+                  Next price: <span className="font-bold">1 ECO = 0.00004 ETH</span>
+                </p>
+              </div>
               {isConnected ? chain?.id === Number(VITE_CHAIN_ID) ? (
                 <>
                   <div className="flex reverse flex-row md:flex-col-reverse lg:flex-row items-center justify-center gap-2">
@@ -198,6 +280,9 @@ export default function HeroSection() {
             dialogOpened={dialogTokenSaleOpened}
             setDialogOpened={setDialogTokenSaleOpened}
             sizeOfDialog={sizeOfDialog}
+            totalTokenAmount={totalTokenAmount}
+            mintableTokenAmount={mintableTokenAmount}
+            tokenPrice={tokenPrice}
           />
           <DialogTokenSaleForPartners
             dialogOpened={dialogTokenSaleForPartnersOpened}

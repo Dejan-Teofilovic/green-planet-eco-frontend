@@ -1,15 +1,13 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { Button, Dialog, DialogBody, DialogFooter, Progress } from "@material-tailwind/react";
-import { useContractReads, usePrepareContractWrite, useContractWrite, useAccount, useWaitForTransaction } from 'wagmi';
+import { usePrepareContractWrite, useContractWrite, useAccount, useWaitForTransaction } from 'wagmi';
 import { utils } from 'ethers';
-import { useRequest } from "alova";
 import { CONTRACT_ABI, REGEX_NUMBER_VALID } from "../../../utils/constants";
 import useLoading from "../../../hooks/useLoading";
 import { getVisibleAmount } from "../../../utils/functions";
 import Input from "../../../components/Input";
 import useAlertMessage from "../../../hooks/useAlertMessage";
-import { alovaInstanceForBackend } from "../../../utils/alovaInstances";
 import useAffiliate from "../../../hooks/useAffililate";
 import { TSizeOfDialog } from "../../../utils/types";
 import CustomDialogHeader from "../../../components/CustomDialogHeader";
@@ -23,63 +21,26 @@ interface IProps {
   dialogOpened: boolean;
   setDialogOpened: Function;
   sizeOfDialog: TSizeOfDialog;
+  totalTokenAmount: number;
+  mintableTokenAmount: number;
+  tokenPrice: number;
 }
 
 // ----------------------------------------------------------------------------
-
-const contract: {} = {
-  address: VITE_CONTRACT_ADDRESS,
-  abi: CONTRACT_ABI,
-  chainId: Number(VITE_CHAIN_ID)
-}
 
 let numberOfLoad = 0;
 
 // ----------------------------------------------------------------------------
 
-export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfDialog }: IProps) {
+export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfDialog, totalTokenAmount, mintableTokenAmount, tokenPrice }: IProps) {
   const { address } = useAccount()
   const { openLoading, closeLoading } = useLoading()
   const { openAlert } = useAlertMessage()
   const { affiliateToken } = useAffiliate()
 
-  const [totalTokenAmount, setTotalTokenAmount] = useState<number>(0)
-  const [mintableTokenAmount, setMintableTokenAmount] = useState<number>(0)
-  const [tokenPrice, setTokenPrice] = useState<number>(0)
   const [tokenAmount, setTokenAmount] = useState<string>('0')
   const [ethAmount, setEthAmount] = useState<string>('0')
   const [purchaseDisabled, setPurchaseDisabled] = useState<boolean>(false)
-
-  //  Get essential values from contract
-  const { isLoading: contractReadsLoading } = useContractReads({
-    contracts: [
-      {
-        ...contract,
-        functionName: 'INIT_TOTAL_SUPPLY'
-      },
-      {
-        ...contract,
-        functionName: 'SHARE_OF_PRIVATE_SALE'   //  Replace
-      },
-      {
-        ...contract,
-        functionName: 'mintableTokenAmountForPrivate' //  Replace
-      },
-      {
-        ...contract,
-        functionName: 'tokenPriceForPrivate'   // Replace
-      },
-    ],
-
-    watch: true,
-
-    onSuccess: (data: Array<any>) => {
-      const totalSupply = parseInt(data[0]._hex) / 1e18
-      setTotalTokenAmount(totalSupply * data[1] / 1000)
-      setMintableTokenAmount(parseInt(data[2]._hex) / 1e18)
-      setTokenPrice(parseInt(data[3]._hex) / 1e18)
-    }
-  })
 
   /**
    * Handle opening of this dialog
@@ -150,10 +111,10 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
   /* ----------------------------------------------------------- */
 
   useEffect(() => {
-    if (contractReadsLoading || transactionLoading) {
+    if (transactionLoading) {
       openLoading()
     }
-  }, [contractReadsLoading, transactionLoading])
+  }, [transactionLoading])
 
   useEffect(() => {
     if (transactionSuccess && numberOfLoad === 0) {
