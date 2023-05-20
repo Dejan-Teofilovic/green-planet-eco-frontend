@@ -481,20 +481,6 @@ export const PROFILES: Array<IProfileData> = [
     ]
   },
   {
-    id: 5,
-    name: "Erick Tomas Rojas",
-    position: "Marketing Manager",
-    bio: "",
-    imgSrc: "/assets/images/team_mm.jpg",
-    socialLinks: [
-      {
-        id: 1,
-        icon: "mdi:twitter",
-        url: "https://twitter.com/"
-      }
-    ]
-  },
-  {
     id: 3,
     name: "Luana Souza",
     position: "Marketing Developer",
@@ -519,6 +505,20 @@ export const PROFILES: Array<IProfileData> = [
         id: 1,
         icon: "mdi:twitter",
         url: "https://twitter.com/AtsuoKoizu50448"
+      }
+    ]
+  },
+  {
+    id: 5,
+    name: "Erick Tomas Rojas",
+    position: "Marketing Manager",
+    bio: "",
+    imgSrc: "/assets/images/team_mm.jpg",
+    socialLinks: [
+      {
+        id: 1,
+        icon: "mdi:twitter",
+        url: "https://twitter.com/"
       }
     ]
   }
