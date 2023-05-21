@@ -31,11 +31,23 @@ const TIMELINE: Array<ITimeData> = [
       },
       {
         id: 3,
-        task: 'KYC & Smart Contract Audit'
+        task: 'Smart Contract Development'
       },
       {
         id: 4,
+        task: 'KYC & Smart Contract Audit'
+      },
+      {
+        id: 5,
         task: 'Formulate Marketing'
+      },
+      {
+        id: 6,
+        task: 'Establish a Social Network Community'
+      },
+      {
+        id: 7,
+        task: 'Partnerships'
       }
     ]
   },
@@ -53,10 +65,6 @@ const TIMELINE: Array<ITimeData> = [
       },
       {
         id: 3,
-        task: 'NFT Development'
-      },
-      {
-        id: 4,
         task: 'Seed Round Sale'
       }
     ]
@@ -67,12 +75,20 @@ const TIMELINE: Array<ITimeData> = [
     tasks: [
       {
         id: 1,
-        task: 'Deploy Smart Contract'
+        task: 'Top 10 on Coin Listing Sites'
       },
       {
         id: 2,
-        task: 'Top 10 on Coin Listing Sites'
-      }
+        task: 'Phase 1: Presale Distribution of ECO 80,000,000'
+      },
+      {
+        id: 3,
+        task: 'Phase 2: Presale Distribution of ECO 50,000,000'
+      },
+      {
+        id: 4,
+        task: 'Phase 3: Presale Distribution of ECO 40,000,000'
+      },
     ]
   },
   {
@@ -123,7 +139,19 @@ const TIMELINE: Array<ITimeData> = [
       },
       {
         id: 5,
-        task: 'ECO AI App'
+        task: 'ECO App Development'
+      },
+      {
+        id: 6,
+        task: 'App Marketing Development'
+      },
+      {
+        id: 7,
+        task: 'Verra & The Gold Standards and others Certification'
+      },
+      {
+        id: 5,
+        task: 'Carbon Credit Project Developments'
       }
     ]
   },
