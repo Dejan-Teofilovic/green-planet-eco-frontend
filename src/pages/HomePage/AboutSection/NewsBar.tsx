@@ -18,8 +18,11 @@ export default function NewsBar() {
           <a href="https://medium.com/@giving_flirt_porcupine_407/green-planet-eco-the-future-is-calling-us-join-our-pre-sale-today-2c15414885ec" target="_blank">
             <img src="/assets/images/news_logo_medium.png" alt="medium" className="w-56" />
           </a>
-          <a href="https://steemit.com/cryptocurrency/@greenplaneteco/4xkdrs-green-planet-eco-the-future-is-calling-us-join-our-pre-sale-today" target="_blank" className="pr-16 md:pr-48">
+          <a href="https://steemit.com/cryptocurrency/@greenplaneteco/4xkdrs-green-planet-eco-the-future-is-calling-us-join-our-pre-sale-today" target="_blank">
             <img src="/assets/images/news_logo_steemit.png" alt="steemit" className="w-56" />
+          </a>
+          <a href="https://coinpedia.org/press-release/green-planet-eco-the-future-is-calling-us-join-our-pre-sale-today/" target="_blank" className="pr-16 md:pr-48">
+            <img src="/assets/images/news_logo_coinpedia.png" alt="coinpedia" className="w-48" />
           </a>
         </div>
       </Marquee>
