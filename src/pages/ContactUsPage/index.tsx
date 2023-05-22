@@ -3,13 +3,12 @@ import * as yup from 'yup';
 import { useFormik } from "formik";
 import { Icon } from '@iconify/react'
 import { Button } from '@material-tailwind/react';
-import { useRequest } from 'alova';
 import Container from '../../components/Container'
 import { MSG_REQUIRED_FIELD } from '../../utils/constants'
 import Input from '../../components/Input';
-import { alovaInstanceForBackend } from '../../utils/alovaInstances';
 import useAlertMessage from '../../hooks/useAlertMessage';
 import useLoading from '../../hooks/useLoading';
+import api from '../../utils/api';
 
 // ----------------------------------------------------------------------
 
@@ -37,18 +36,6 @@ const validationSchema = yup.object().shape({
 export default function ContactUsPage() {
   const { openAlert } = useAlertMessage()
   const { openLoading, closeLoading } = useLoading()
-  const { send: contactToAdmin } = useRequest(
-    reqData => alovaInstanceForBackend.Post(
-      '/contact/contact-to-admin',
-      reqData,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    ),
-    { immediate: false }
-  )
 
   const initialValues: IRequestData = {
     name: '',
@@ -62,7 +49,7 @@ export default function ContactUsPage() {
     validationSchema,
     onSubmit: (values) => {
       openLoading()
-      contactToAdmin(values)
+      api.post('/contact/contact-to-admin', values)
         .then((result: any) => {
           if (result.status === 200) {
             openAlert({

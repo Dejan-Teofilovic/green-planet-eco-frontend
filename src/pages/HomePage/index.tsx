@@ -1,7 +1,8 @@
-import React, { lazy, useEffect } from 'react'
+import React, { Suspense, lazy, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import useAffiliate from '../../hooks/useAffililate'
 import { QUERY_PARAM_NAME_OF_AFFILIATE_TOKEN } from '../../utils/constants'
+import Loading from '../../components/Loading'
 
 // --------------------------------------------------------------------------
 
@@ -31,15 +32,17 @@ export default function HomePage() {
   }, [searchParams])
 
   return (
-    <div className="flex flex-col gap-16 md:gap-36">
-      <HeroSection />
-      <AboutSection />
-      <ValuesSection />
-      <VisionSection />
-      <div>
-        <WhitepaperSection />
-        {/* <TestimonialsSection /> */}
+    <Suspense fallback={<Loading />}>
+      <div className="flex flex-col gap-16 md:gap-36">
+        <HeroSection />
+        <AboutSection />
+        <ValuesSection />
+        <VisionSection />
+        <div>
+          <WhitepaperSection />
+          {/* <TestimonialsSection /> */}
+        </div>
       </div>
-    </div>
+    </Suspense>
   )
 }

@@ -150,7 +150,7 @@ const TIMELINE: Array<ITimeData> = [
         task: 'Verra & The Gold Standards and others Certification'
       },
       {
-        id: 5,
+        id: 8,
         task: 'Carbon Credit Project Developments'
       }
     ]

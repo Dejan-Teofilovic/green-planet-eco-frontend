@@ -3,15 +3,14 @@ import * as yup from 'yup';
 import { useFormik } from "formik";
 import { Button } from "@material-tailwind/react";
 import { Icon } from "@iconify/react";
-import { useRequest } from 'alova';
 import Container from "../../../components/Container";
 // import { IFaqData } from "../../../utils/interfaces";
 import Input from "../../../components/Input";
 import { MSG_REQUIRED_FIELD } from "../../../utils/constants";
 import TinyDashedBar from "../../../components/TinyDashedBar";
-import { alovaInstanceForBackend } from "../../../utils/alovaInstances";
 import useAlertMessage from "../../../hooks/useAlertMessage";
 import useLoading from "../../../hooks/useLoading";
+import api from "../../../utils/api";
 
 // ---------------------------------------------------------------------
 
@@ -58,18 +57,6 @@ const validationSchema = yup.object().shape({
 export default function FaqPage() {
   const { openAlert } = useAlertMessage()
   const { openLoading, closeLoading } = useLoading()
-  const { send: askQuestion } = useRequest(
-    reqData => alovaInstanceForBackend.Post(
-      '/contact/ask-question',
-      reqData,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    ),
-    { immediate: false }
-  )
 
   // const [openedAccordions, setOpenedAccordions] = useState<Array<number>>([])
 
@@ -84,7 +71,7 @@ export default function FaqPage() {
     validationSchema,
     onSubmit: (values) => {
       openLoading()
-      askQuestion(values)
+      api.post('/contact/ask-question', values)
         .then((result: any) => {
           if (result.status === 200) {
             openAlert({
@@ -104,6 +91,7 @@ export default function FaqPage() {
           closeLoading()
         })
         .catch(error => {
+          console.log('>>>>>>> error => ', error)
           openAlert({
             title: 'Failed',
             color: 'red',
