@@ -26,23 +26,20 @@ export default function HomePage() {
         setAffiliateTokenAct(affiliateToken)
       }
     } catch (error) {
-      console.log('>>>>>>>> error => ', error)
     }
 
   }, [searchParams])
 
   return (
-    <Suspense fallback={<Loading />}>
-      <div className="flex flex-col gap-16 md:gap-36">
-        <HeroSection />
-        <AboutSection />
-        <ValuesSection />
-        <VisionSection />
-        <div>
-          <WhitepaperSection />
-          {/* <TestimonialsSection /> */}
-        </div>
+    <div className="flex flex-col gap-16 md:gap-36">
+      <HeroSection />
+      <AboutSection />
+      <ValuesSection />
+      <VisionSection />
+      <div>
+        <WhitepaperSection />
+        {/* <TestimonialsSection /> */}
       </div>
-    </Suspense>
+    </div>
   )
 }

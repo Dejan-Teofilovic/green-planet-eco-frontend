@@ -34,20 +34,22 @@ const ethereumClient = new EthereumClient(wagmiClient, chains);
 
 function App() {
   return (
-    <Suspense fallback={<Loading />}>
-      <BrowserRouter>
-        <WagmiConfig client={wagmiClient}>
-          <AlertMessageProvider>
-            <LoadingProvider>
-              <MobileMenuProvider>
-                <AffiliateProvider>
-                  <Routes />
-                </AffiliateProvider>
-              </MobileMenuProvider>
-            </LoadingProvider>
-          </AlertMessageProvider>
-        </WagmiConfig>
-      </BrowserRouter>
+    <>
+      <Suspense fallback={<Loading />}>
+        <BrowserRouter>
+          <WagmiConfig client={wagmiClient}>
+            <AlertMessageProvider>
+              <LoadingProvider>
+                <MobileMenuProvider>
+                  <AffiliateProvider>
+                    <Routes />
+                  </AffiliateProvider>
+                </MobileMenuProvider>
+              </LoadingProvider>
+            </AlertMessageProvider>
+          </WagmiConfig>
+        </BrowserRouter>
+      </Suspense>
       <Web3Modal
         projectId={projectId}
         ethereumClient={ethereumClient}
@@ -56,8 +58,7 @@ function App() {
           '4622a2b2d6af1c9844944291e5e7351a6aa24cd7b23099efac1b2fd875da31a0'
         ]}
       />
-    </Suspense>
-
+    </>
   )
 }
 

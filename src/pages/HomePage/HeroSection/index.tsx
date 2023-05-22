@@ -80,6 +80,7 @@ export default function HeroSection() {
       setTotalTokenAmount(totalSupply * data[1] / 1000)
       setMintableTokenAmount(parseInt(data[2]._hex) / 1e18)
       setTokenPrice(parseInt(data[3]._hex) / 1e18)
+      // closeLoading()
     }
   })
 
@@ -99,7 +100,7 @@ export default function HeroSection() {
 
   useEffect(() => {
     if (contractReadsLoading) {
-      openLoading()
+      // openLoading()
     }
   }, [contractReadsLoading])
 
