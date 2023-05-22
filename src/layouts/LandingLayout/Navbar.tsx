@@ -41,7 +41,12 @@ export default function Navbar() {
     }
   }
 
-  window.addEventListener('scroll', toggleShadow);
+  useEffect(() => {
+    window.addEventListener('scroll', toggleShadow);
+    return () => {
+      window.removeEventListener('scroll', toggleShadow);
+    }
+  }, [])
 
   return (
     <div className="sticky top-0 z-20">
