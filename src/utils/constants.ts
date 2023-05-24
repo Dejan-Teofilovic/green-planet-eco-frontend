@@ -26,7 +26,7 @@ export const SOCIAL_LINKS: Array<ISocialLink> = [
   {
     id: 4,
     icon: "ri:linkedin-fill",
-    url: "https://www.linkedin.com/in/green-planet-eco-5a25ab248/"
+    url: "https://www.linkedin.com/company/green-planet-eco"
   }
 ];
 

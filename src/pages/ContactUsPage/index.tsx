@@ -85,14 +85,26 @@ export default function ContactUsPage() {
       <PageTitle title="Contact Us" />
       <Container className="my-16 md:my-32">
         <div className="grid grid-cols-3 gap-24">
-          <div className="col-span-3 md:col-span-1">
-            <div className="flex gap-6">
+          <div className="col-span-3 md:col-span-1 flex flex-col gap-2">
+            {/* <div className="flex gap-6">
               <Icon icon="ic:outline-email" className="text-primary text-5xl mt-[-0.3rem]" />
               <div className="flex flex-col gap-4">
                 <span className="text-2xl font-bold">Email</span>
 
                 <a href="mailto:info@greenplaneteco.com">info@greenplaneteco.com</a>
               </div>
+            </div> */}
+            <div className="flex items-center gap-4">
+              <Icon icon="ic:round-email" className="text-primary text-2xl" />
+              <a href="mailto:info@greenplaneteco.com">info@greenplaneteco.com</a>
+            </div>
+            <div className="flex items-center gap-4">
+              <Icon icon="solar:phone-bold" className="text-primary text-2xl" />
+              <a href="tel:64223694776">+64223694776</a>
+            </div>
+            <div className="flex items-center gap-4">
+              <Icon icon="mdi:location" className="text-primary text-2xl" />
+              <span>Christchurch Central, New Zealand</span>
             </div>
           </div>
           <div className="col-span-3 md:col-span-2 bg-primary rounded-sm p-8 md:p-16 flex flex-col gap-8">
