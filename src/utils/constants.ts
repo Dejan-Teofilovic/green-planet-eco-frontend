@@ -1,3 +1,4 @@
+import { Variants } from "framer-motion";
 import {
   ILearnData,
   INavButton,
@@ -523,6 +524,62 @@ export const PROFILES: Array<IProfileData> = [
     ]
   }
 ];
+
+export const varFadeInUp: Variants = {
+  hidden: {
+    y: -30,
+    opacity: 0
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.4
+    }
+  }
+};
+
+export const varFadeInDown: Variants = {
+  hidden: {
+    y: 30,
+    opacity: 0
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.4
+    }
+  }
+};
+
+export const varFadeInLeft: Variants = {
+  hidden: {
+    x: -30,
+    opacity: 0
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.4
+    }
+  }
+};
+
+export const varFadeInRight: Variants = {
+  hidden: {
+    x: 30,
+    opacity: 0
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.4
+    }
+  }
+};
 
 export const MSG_REQUIRED_FIELD = "Required field.";
 

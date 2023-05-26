@@ -10,8 +10,9 @@ import TinyDashedBar from "../../../components/TinyDashedBar"
 import DialogAffiliate from "./DialogAffiliate";
 import useLoading from "../../../hooks/useLoading";
 import api from "../../../utils/api";
-import { CONTRACT_ABI } from "../../../utils/constants";
+import { CONTRACT_ABI, varFadeInDown, varFadeInLeft, varFadeInRight, varFadeInUp } from "../../../utils/constants";
 import { getVisibleAmount } from "../../../utils/functions";
+import MotionDiv from "../../../components/MotionDiv";
 
 // -----------------------------------------------------------------------------------
 
@@ -146,37 +147,55 @@ export default function HeroSection() {
                 href="https://skynet.certik.com/projects/green-planet-eco?utm_source=SkyEmblem&utm_campaign=green-planet-eco&utm_medium=link"
               >View project at certik.com</a>
             </div> */}
-            <a
-              href="https://skynet.certik.com/projects/green-planet-eco?utm_source=SkyEmblem&utm_campaign=green-planet-eco&utm_medium=link" target="_blank"
-            >
-              <img src="/assets/images/certificate.png" alt="certik" />
-            </a>
+            <MotionDiv variants={varFadeInUp}>
+              <a
+                href="https://skynet.certik.com/projects/green-planet-eco?utm_source=SkyEmblem&utm_campaign=green-planet-eco&utm_medium=link" target="_blank"
+              >
+                <img src="/assets/images/certificate.png" alt="certik" />
+              </a>
+            </MotionDiv>
 
-            <h1 className="text-primary uppercase font-extrabold text-4xl md:text-6xl text-center md:text-left">Save the World</h1>
-            <p className="text-white capitalize font-semibold text-xl md:text-2xl leading-8 md:leading-10 text-center md:text-left">
-              Green Planet Eco - the key to a sustainable future.
-            </p>
-            <TinyDashedBar />
+            <MotionDiv variants={varFadeInLeft}>
+              <h1 className="text-primary uppercase font-extrabold text-4xl md:text-6xl text-center md:text-left !leading-tight">
+                Green Planet Eco AI
+              </h1>
+            </MotionDiv>
+
+            <MotionDiv variants={varFadeInLeft}>
+              <p className="text-white capitalize font-semibold text-xl md:text-2xl leading-8 md:leading-10 text-center md:text-left">
+                The key to a sustainable future.
+              </p>
+            </MotionDiv>
+
+            <MotionDiv variants={varFadeInDown}>
+              <TinyDashedBar />
+            </MotionDiv>
 
             <div className="mt-8 flex items-center gap-3">
-              <Button className="bg-primary shadow-none text-base capitalize rounded-full px-6 md:px-12 hover:shadow-primary">
-                <Link to="/learn">
-                  Read More
-                </Link>
-              </Button>
+              <MotionDiv variants={varFadeInLeft}>
+                <Button className="bg-primary shadow-none text-base capitalize rounded-full px-6 md:px-12 hover:shadow-primary">
+                  <Link to="/learn">
+                    Read More
+                  </Link>
+                </Button>
+              </MotionDiv>
 
-              <Button
-                className="border-primary border-2 bg-transparent shadow-none text-base capitalize rounded-full px-5 md:px-10 hover:shadow-primary"
-                disabled={!isConnected}
-                onClick={openDialogAffiliate}
-              >
-                Affiliate Link
-              </Button>
+              <MotionDiv variants={varFadeInRight}>
+                <Button
+                  className="border-primary border-2 bg-transparent shadow-none text-base capitalize rounded-full px-5 md:px-10 hover:shadow-primary"
+                  disabled={!isConnected}
+                  onClick={openDialogAffiliate}
+                >
+                  Affiliate Link
+                </Button>
+              </MotionDiv>
             </div>
           </div>
 
           <div className="hidden md:block">
-            <img src="/assets/images/hero.jpg" alt="hero" />
+            <MotionDiv variants={varFadeInUp}>
+              <img src="/assets/images/hero.jpg" alt="hero" />
+            </MotionDiv>
           </div>
         </div>
       </Container>
