@@ -21,6 +21,9 @@ export default function NewsBar() {
           <a href="https://steemit.com/cryptocurrency/@greenplaneteco/4xkdrs-green-planet-eco-the-future-is-calling-us-join-our-pre-sale-today" target="_blank">
             <img src="/assets/images/news_logo_steemit.png" alt="steemit" className="w-56" />
           </a>
+          <a href="https://coincodex.com/ico/green-planet-eco" target="_blank">
+            <img src="/assets/images/news_logo_coincodex.png" alt="coincodex" className="w-56" />
+          </a>
           <a href="https://coinpedia.org/press-release/green-planet-eco-the-future-is-calling-us-join-our-pre-sale-today/" target="_blank" className="pr-16 md:pr-48">
             <img src="/assets/images/news_logo_coinpedia.png" alt="coinpedia" className="w-48" />
           </a>
