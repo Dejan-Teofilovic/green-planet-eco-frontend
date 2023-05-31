@@ -3,9 +3,7 @@ import { Button, IconButton } from '@material-tailwind/react';
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
 import { NAV_LINKS, SOCIAL_LINKS } from '../../utils/constants';
-import Input from '../../components/Input';
 import Container from '../../components/Container';
-import { INavLink } from '../../utils/interfaces';
 
 // -----------------------------------------------------------------------------------
 
@@ -17,7 +15,7 @@ interface IProps {
 
 export default function Footer({ className = '' }: IProps) {
   return (
-    <div className={className}>
+    <footer className={className}>
       <div className="bg-gray-900 py-10 md:py-20">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8">
@@ -102,6 +100,6 @@ export default function Footer({ className = '' }: IProps) {
           Copyrights © {new Date().getFullYear()} <span className="text-primary">Green Planet Eco</span>
         </p>
       </div>
-    </div>
+    </footer>
   )
 }

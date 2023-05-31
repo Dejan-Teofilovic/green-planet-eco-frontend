@@ -49,11 +49,11 @@ export default function Navbar() {
   }, [])
 
   return (
-    <div className="sticky top-0 z-20">
+    <nav className="sticky top-0 z-20">
       <div className={`relative ${isShadow && 'shadow-2xl'}`}>
         {/* Topbar */}
         <div className="bg-primary py-1 hidden lg:block">
-          <div className="container max-w-6xl mx-auto flex items-center justify-between">
+          <div className="container max-w-8xl mx-auto flex items-center justify-between">
             <span className="tracking-wider text-white text-sm font-semibold">
               {/* Providing awesome since 2001 years */}
             </span>
@@ -76,7 +76,7 @@ export default function Navbar() {
 
         {/* Navbar */}
         <div className="relative bg-white px-6 py-2 z-20">
-          <div className="container max-w-6xl mx-auto">
+          <div className="container max-w-8xl mx-auto">
             <div className="flex justify-between items-center">
               <Link to="/" className="flex items-center gap-4">
                 <img src="/assets/images/logo_white.png" alt="Logo" className="w-10" />
@@ -84,57 +84,58 @@ export default function Navbar() {
               </Link>
 
               {/* For Desktop */}
-              <div className="hidden lg:flex gap-1">
-                {NAV_LINKS.map(dataItem => {
-                  if (dataItem.children) {
-                    return (
-                      <Menu key={dataItem.id}>
-                        <MenuHandler>
-                          <Button
-                            variant="text"
-                            className="capitalize text-sm text-grey-800"
-                          >
+              <div className="hidden lg:flex lg: items-center gap-8">
+                <div className="flex">
+                  {NAV_LINKS.map(dataItem => {
+                    if (dataItem.children) {
+                      return (
+                        <Menu key={dataItem.id}>
+                          <MenuHandler>
+                            <Button
+                              variant="text"
+                              className="capitalize text-sm text-grey-800"
+                            >
+                              {dataItem.label}
+                            </Button>
+                          </MenuHandler>
+                          <MenuList className="border border-primary">
+                            {dataItem.children.map(childItem => (
+                              <MenuItem key={childItem.id} className={`text-sm ${pathname === childItem.path ? 'text-primary' : 'text-grey-800'}`}>
+                                <Link to={childItem.path || ''}>
+                                  {childItem.label}
+                                </Link>
+                              </MenuItem>
+                            ))}
+                          </MenuList>
+                        </Menu>
+                      )
+                    } else if (dataItem.isLinkToOutside) {
+                      return (
+                        <Button
+                          key={dataItem.id}
+                          variant="text"
+                          className={`capitalize text-sm ${pathname === dataItem.path ? 'text-primary' : 'text-grey-800'}`}
+                        >
+                          <a href={dataItem.path || ''} target="_blank">
                             {dataItem.label}
-                          </Button>
-                        </MenuHandler>
-                        <MenuList className="border border-primary">
-                          {dataItem.children.map(childItem => (
-                            <MenuItem key={childItem.id} className={`text-sm ${pathname === childItem.path ? 'text-primary' : 'text-grey-800'}`}>
-                              <Link to={childItem.path || ''}>
-                                {childItem.label}
-                              </Link>
-                            </MenuItem>
-                          ))}
-                        </MenuList>
-                      </Menu>
-                    )
-                  } else if (dataItem.isLinkToOutside) {
-                    return (
-                      <Button
-                        key={dataItem.id}
-                        variant="text"
-                        className={`capitalize text-sm ${pathname === dataItem.path ? 'text-primary' : 'text-grey-800'}`}
-                      >
-                        <a href={dataItem.path || ''} target="_blank">
-                          {dataItem.label}
-                        </a>
-                      </Button>
-                    )
-                  } else {
-                    return (
-                      <Button
-                        key={dataItem.id}
-                        variant="text"
-                        className={`capitalize text-sm ${pathname === dataItem.path ? 'text-primary' : 'text-grey-800'}`}
-                      >
-                        <Link to={dataItem.path || ''}>
-                          {dataItem.label}
-                        </Link>
-                      </Button>
-                    )
-                  }
-                })}
-                {/* {NAV_BUTTONS.map(dataItem => (
+                          </a>
+                        </Button>
+                      )
+                    } else {
+                      return (
+                        <Button
+                          key={dataItem.id}
+                          variant="text"
+                          className={`capitalize text-sm ${pathname === dataItem.path ? 'text-primary' : 'text-grey-800'}`}
+                        >
+                          <Link to={dataItem.path || ''}>
+                            {dataItem.label}
+                          </Link>
+                        </Button>
+                      )
+                    }
+                  })}
+                  {/* {NAV_BUTTONS.map(dataItem => (
                   <Button
                     key={dataItem.id}
                     variant="text"
@@ -145,7 +146,13 @@ export default function Navbar() {
                     </Link>
                   </Button>
                 ))} */}
+                </div>
+
+                <a target="_blank" href="https://app.companiesoffice.govt.nz/companies/app/ui/pages/companies/companyBadgeSnippet/8745289?utm_campaign=companiesdirectlinks&utm_medium=webpage&utm_source=thecompany">
+                  <img src="https://app.companiesoffice.govt.nz/companies/app/ui/themes/companies/images/CO_Details_light_optimal_WEB.png" alt="Company" />
+                </a>
               </div>
+
 
               {/* For Mobile */}
               <IconButton
@@ -208,6 +215,6 @@ export default function Navbar() {
           </div>
         )}
       </div>
-    </div>
+    </nav>
   )
 }

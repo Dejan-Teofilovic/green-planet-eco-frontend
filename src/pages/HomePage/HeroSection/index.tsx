@@ -138,10 +138,10 @@ export default function HeroSection() {
   /* --------------------------------------------------------------- */
 
   return (
-    <div className="relative bg-[#0F0F0F] md:pt-28 md:pb-28 pt-28 pb-0" id="hero">
+    <header className="relative bg-[#0F0F0F] md:pt-28 md:pb-28 pt-28 pb-0" id="hero">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center">
-          <div className="flex flex-col gap-4 items-center md:items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
+          <div className="flex flex-col gap-4 items-center lg:items-start">
             {/* <div className="certik-emble" data-id="d7c95667">
               <a 
                 href="https://skynet.certik.com/projects/green-planet-eco?utm_source=SkyEmblem&utm_campaign=green-planet-eco&utm_medium=link"
@@ -192,15 +192,26 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <MotionDiv variants={varFadeInUp}>
               <img src="/assets/images/hero.jpg" alt="hero" />
+            </MotionDiv>
+          </div>
+
+          <div className="flex justify-center lg:hidden my-12">
+            <MotionDiv variants={varFadeInUp}>
+              <a
+                target="_blank"
+                href="https://app.companiesoffice.govt.nz/companies/app/ui/pages/companies/companyBadgeSnippet/8745289?utm_campaign=companiesdirectlinks&utm_medium=webpage&utm_source=thecompany"
+              >
+                <img src="https://app.companiesoffice.govt.nz/companies/app/ui/themes/companies/images/CO_Details_light_optimal_WEB.png" alt="Company" />
+              </a>
             </MotionDiv>
           </div>
         </div>
       </Container>
 
-      <div className="md:absolute w-full mt-24 md:mt-0">
+      <div className="md:absolute w-full mt-12 md:mt-0">
         <Container className="px-0 md:px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 items-center">
             <div className="flex flex-col items-center gap-6 py-10 md:py-20 px-8 bg-white">
@@ -317,8 +328,6 @@ export default function HeroSection() {
           />
         </>
       )}
-
-
-    </div>
+    </header>
   )
 }

@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 // -----------------------------------------------------------------------------
 
@@ -13,11 +13,11 @@ interface IProps {
 
 export default function PageTitle({ className = '', children, title, ...others }: IProps) {
   return (
-    <div className={`bg_page_title py-10 md:py-28 ${className}`} {...others}>
+    <header className={`bg_page_title py-10 md:py-28 ${className}`} {...others}>
       {title && (
         <h1 className="text-3xl md:text-5xl text-center font-extrabold capitalize text-white">{title}</h1>
       )}
       {children}
-    </div>
+    </header>
   )
 }
