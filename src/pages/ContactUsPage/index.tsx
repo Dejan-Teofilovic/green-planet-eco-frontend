@@ -82,6 +82,10 @@ export default function ContactUsPage() {
 
   return (
     <div>
+      <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNTKG8C"
+          height="0" width="0" style={{ display: 'none', visibility: 'hidden' }} />
+      </noscript>
       <PageTitle title="Contact Us" />
       <Container className="my-16 md:my-32">
         <div className="grid grid-cols-3 gap-24">
@@ -106,6 +110,7 @@ export default function ContactUsPage() {
               <Icon icon="mdi:location" className="text-primary text-2xl" />
               <span>Christchurch Central, New Zealand</span>
             </div>
+
           </div>
           <div className="col-span-3 md:col-span-2 bg-primary rounded-sm p-8 md:p-16 flex flex-col gap-8">
             <h2 className="text-white text-2xl md:text-3xl lg:text-4xl font-extrabold">Want to talk? Let's do it!</h2>
