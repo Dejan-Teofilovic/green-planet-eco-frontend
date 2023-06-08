@@ -464,6 +464,11 @@ export const PROFILES: Array<IProfileData> = [
         id: 1,
         icon: "mdi:twitter",
         url: "https://twitter.com/WaldenirMoreira"
+      },
+      {
+        id: 2,
+        icon: "jam:linkedin",
+        url: "https://www.linkedin.com/in/waldenir-moreira-b6320290/"
       }
     ]
   },
@@ -492,6 +497,11 @@ export const PROFILES: Array<IProfileData> = [
         id: 1,
         icon: "mdi:twitter",
         url: "https://twitter.com/luanasouza_MK"
+      },
+      {
+        id: 2,
+        icon: "jam:linkedin",
+        url: "https://www.linkedin.com/in/luana-souza-080556279/"
       }
     ]
   },
@@ -506,6 +516,11 @@ export const PROFILES: Array<IProfileData> = [
         id: 1,
         icon: "mdi:twitter",
         url: "https://twitter.com/AtsuoKoizu50448"
+      },
+      {
+        id: 2,
+        icon: "jam:linkedin",
+        url: "https://www.linkedin.com/in/atsuo-koizumi/"
       }
     ]
   },
