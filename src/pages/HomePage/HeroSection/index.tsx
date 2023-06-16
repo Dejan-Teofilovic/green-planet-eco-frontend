@@ -10,7 +10,7 @@ import TinyDashedBar from "../../../components/TinyDashedBar"
 import DialogAffiliate from "./DialogAffiliate";
 import useLoading from "../../../hooks/useLoading";
 import api from "../../../utils/api";
-import { CONTRACT_ABI, varFadeInDown, varFadeInLeft, varFadeInRight, varFadeInUp } from "../../../utils/constants";
+import { CONTRACT_ABI, NUMBER_OF_PURCHASED_TOKENS_BY_CASH, varFadeInDown, varFadeInLeft, varFadeInRight, varFadeInUp } from "../../../utils/constants";
 import { getVisibleAmount } from "../../../utils/functions";
 import MotionDiv from "../../../components/MotionDiv";
 
@@ -237,7 +237,7 @@ export default function HeroSection() {
                 {/* Progress bar */}
                 <div className="flex flex-col gap-2">
                   <Progress
-                    value={(totalTokenAmount - mintableTokenAmount) / totalTokenAmount * 100}
+                    value={(totalTokenAmount - mintableTokenAmount + NUMBER_OF_PURCHASED_TOKENS_BY_CASH) / totalTokenAmount * 100}
                     className="h-3 rounded-lg bg-gray-300"
                     barProps={{
                       className: 'bg-primary h-3 rounded-lg bg-gray-900'
@@ -245,10 +245,10 @@ export default function HeroSection() {
                   />
                   <div className="flex justify-between items-center">
                     <p className="text-sm text-white">
-                      Sold: <span className="text-white font-bold">{getVisibleAmount(totalTokenAmount - mintableTokenAmount)}</span> ECO
+                      Sold:<br /> <span className="text-white font-bold">{getVisibleAmount(totalTokenAmount - mintableTokenAmount + NUMBER_OF_PURCHASED_TOKENS_BY_CASH)}</span> ECO
                     </p>
                     <p className="text-sm text-white">
-                      Total: <span className="font-bold">{getVisibleAmount(totalTokenAmount)}</span> ECO
+                      Total:<br /> <span className="font-bold">{getVisibleAmount(totalTokenAmount)}</span> ECO
                     </p>
                   </div>
                 </div>

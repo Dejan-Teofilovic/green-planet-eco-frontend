@@ -1373,3 +1373,5 @@ export const CONTRACT_ABI = [
   },
   { stateMutability: "payable", type: "receive" }
 ];
+
+export const NUMBER_OF_PURCHASED_TOKENS_BY_CASH = 28075714;
