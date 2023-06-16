@@ -51,7 +51,8 @@ export default function HeroSection() {
   const [affiliateLink, setAffiliateLink] = useState<string>('')
   const [totalTokenAmount, setTotalTokenAmount] = useState<number>(0)
   const [mintableTokenAmount, setMintableTokenAmount] = useState<number>(0)
-  const [tokenPrice, setTokenPrice] = useState<number>(0)
+  const [tokenPriceInEth, setTokenPriceInEth] = useState<number>(0)
+  const [ethPriceInUsd, setEthPriceInUsd] = useState<number>(0)
 
   //  Get essential values from contract
   const { isLoading: contractReadsLoading } = useContractReads({
@@ -80,7 +81,7 @@ export default function HeroSection() {
       const totalSupply = parseInt(data[0]._hex) / 1e18
       setTotalTokenAmount(totalSupply * data[1] / 1000)
       setMintableTokenAmount(parseInt(data[2]._hex) / 1e18)
-      setTokenPrice(parseInt(data[3]._hex) / 1e18)
+      setTokenPriceInEth(parseInt(data[3]._hex) / 1e18)
       // closeLoading()
     }
   })
@@ -117,6 +118,16 @@ export default function HeroSection() {
     setDialogAffiliateOpened(true)
   }
 
+  //  Get the price of Ethereum in USD
+  const getEthPriceInUsd = async () => {
+    try {
+      const data = await (await fetch('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD,EUR')).json()
+      setEthPriceInUsd(data['USD'])
+    } catch (error) {
+      console.log('>>>>>>> error => ', error)
+    }
+  }
+
   /* ---------- Set the width of dialog by the screen size --------- */
 
   const sizeOfDialog = useMemo(() => {
@@ -136,6 +147,15 @@ export default function HeroSection() {
   }, [isMobile, isTablet, isLaptop]);
 
   /* --------------------------------------------------------------- */
+
+  //  Get the price of Ethereum in USD per 10 minutes
+  useEffect(() => {
+    getEthPriceInUsd()
+    const interval = setInterval(() => {
+      getEthPriceInUsd();
+    }, 600000);
+    return () => clearInterval(interval);
+  }, [])
 
   return (
     <header className="relative bg-[#0F0F0F] md:pt-28 md:pb-28 pt-28 pb-0" id="hero">
@@ -231,7 +251,7 @@ export default function HeroSection() {
               <div className="flex flex-col gap-4 w-full">
                 {/* title - Replace */}
                 <div className="flex flex-col gap-2">
-                  <p className="text-sm text-center font-bold text-white">1 ECO = {tokenPrice} ETH</p>
+                  <p className="text-sm text-center font-bold text-white">1 ECO = {tokenPriceInEth} ETH</p>
                 </div>
 
                 {/* Progress bar */}
@@ -245,10 +265,20 @@ export default function HeroSection() {
                   />
                   <div className="flex justify-between items-center">
                     <p className="text-sm text-white">
-                      Sold:<br /> <span className="text-white font-bold">{getVisibleAmount(totalTokenAmount - mintableTokenAmount + NUMBER_OF_PURCHASED_TOKENS_BY_CASH)}</span> ECO
+                      Sold:<br />
+                      <span className="text-white font-bold">
+                        {getVisibleAmount(totalTokenAmount - mintableTokenAmount + NUMBER_OF_PURCHASED_TOKENS_BY_CASH)}
+                      </span> ECO<br />
+                      ($<span className="text-white font-bold">
+                        {getVisibleAmount((totalTokenAmount - mintableTokenAmount + NUMBER_OF_PURCHASED_TOKENS_BY_CASH) * tokenPriceInEth * ethPriceInUsd)}
+                      </span> USD)
                     </p>
                     <p className="text-sm text-white">
-                      Total:<br /> <span className="font-bold">{getVisibleAmount(totalTokenAmount)}</span> ECO
+                      Total:<br />
+                      <span className="font-bold">{getVisibleAmount(totalTokenAmount)}</span> ECO<br />
+                      ($<span className="text-white font-bold">
+                        {getVisibleAmount(totalTokenAmount * tokenPriceInEth * ethPriceInUsd)}
+                      </span> USD)
                     </p>
                   </div>
                 </div>
@@ -313,7 +343,7 @@ export default function HeroSection() {
             sizeOfDialog={sizeOfDialog}
             totalTokenAmount={totalTokenAmount}
             mintableTokenAmount={mintableTokenAmount}
-            tokenPrice={tokenPrice}
+            tokenPrice={tokenPriceInEth}
           />
           <DialogTokenSaleForPartners
             dialogOpened={dialogTokenSaleForPartnersOpened}
