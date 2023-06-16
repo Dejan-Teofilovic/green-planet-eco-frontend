@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 import { Button, Dialog, DialogBody, DialogFooter, Progress } from "@material-tailwind/react";
 import { usePrepareContractWrite, useContractWrite, useAccount, useWaitForTransaction } from 'wagmi';
 import { utils } from 'ethers';
-import { CONTRACT_ABI, REGEX_NUMBER_VALID } from "../../../utils/constants";
+import { CONTRACT_ABI, NUMBER_OF_PURCHASED_TOKENS_BY_CASH, REGEX_NUMBER_VALID } from "../../../utils/constants";
 import useLoading from "../../../hooks/useLoading";
 import { getVisibleAmount } from "../../../utils/functions";
 import Input from "../../../components/Input";
@@ -23,7 +23,8 @@ interface IProps {
   sizeOfDialog: TSizeOfDialog;
   totalTokenAmount: number;
   mintableTokenAmount: number;
-  tokenPrice: number;
+  tokenPriceInEth: number;
+  ethPriceInUsd: number;
 }
 
 // ----------------------------------------------------------------------------
@@ -32,7 +33,7 @@ let numberOfLoad = 0;
 
 // ----------------------------------------------------------------------------
 
-export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfDialog, totalTokenAmount, mintableTokenAmount, tokenPrice }: IProps) {
+export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfDialog, totalTokenAmount, mintableTokenAmount, tokenPriceInEth = 0, ethPriceInUsd = 0 }: IProps) {
   const { address } = useAccount()
   const { openLoading, closeLoading } = useLoading()
   const { openAlert } = useAlertMessage()
@@ -58,7 +59,7 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
 
     if (value.match(REGEX_NUMBER_VALID)) {
       setTokenAmount(value);
-      setEthAmount((Number(value) * tokenPrice).toFixed(5));
+      setEthAmount((Number(value) * tokenPriceInEth).toFixed(5));
     }
   }
 
@@ -71,7 +72,7 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
 
     if (value.match(REGEX_NUMBER_VALID)) {
       setEthAmount(value);
-      setTokenAmount((Number(value) / tokenPrice).toFixed(5));
+      setTokenAmount((Number(value) / tokenPriceInEth).toFixed(5));
     }
   }
 
@@ -172,21 +173,29 @@ export default function DialogTokenSale({ dialogOpened, setDialogOpened, sizeOfD
           {/* title - Replace */}
           <div className="flex flex-col gap-2">
             <h3 className="text-lg md:text-xl font-bold text-center">Pre-Sale</h3>
-            <p className="text-sm text-center font-bold">1 ECO = {tokenPrice} ETH</p>
+            <p className="text-sm text-center font-bold">1 ECO = {tokenPriceInEth} ETH</p>
           </div>
 
           {/* Progress bar */}
           <div className="flex flex-col gap-2">
             <Progress
-              value={(totalTokenAmount - mintableTokenAmount) / totalTokenAmount * 100}
+              value={(totalTokenAmount - mintableTokenAmount + NUMBER_OF_PURCHASED_TOKENS_BY_CASH) / totalTokenAmount * 100}
               className="h-3 rounded-lg bg-gray-300"
               barProps={{
                 className: 'bg-primary h-3 rounded-lg'
               }}
             />
             <div className="flex justify-between items-center">
-              <p className="text-sm">Sold: <span className="text-primary font-bold">{getVisibleAmount(totalTokenAmount - mintableTokenAmount)}</span> ECO</p>
-              <p className="text-sm">Total: <span className="font-bold">{getVisibleAmount(totalTokenAmount)}</span> ECO</p>
+              <p className="text-sm">
+                Sold:<br />
+                <span className="text-primary font-bold">{getVisibleAmount(totalTokenAmount - mintableTokenAmount + NUMBER_OF_PURCHASED_TOKENS_BY_CASH)}</span> ECO<br />
+                ($<span className="text-primary font-bold">{getVisibleAmount((totalTokenAmount - mintableTokenAmount + NUMBER_OF_PURCHASED_TOKENS_BY_CASH) * ethPriceInUsd * tokenPriceInEth)}</span> USD)
+              </p>
+              <p className="text-sm">
+                Total:<br />
+                <span className="font-bold">{getVisibleAmount(totalTokenAmount)}</span> ECO<br />
+                ($<span className="font-bold">{getVisibleAmount(totalTokenAmount * tokenPriceInEth * ethPriceInUsd)}</span> USD)
+              </p>
             </div>
           </div>
 

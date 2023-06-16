@@ -343,7 +343,8 @@ export default function HeroSection() {
             sizeOfDialog={sizeOfDialog}
             totalTokenAmount={totalTokenAmount}
             mintableTokenAmount={mintableTokenAmount}
-            tokenPrice={tokenPriceInEth}
+            tokenPriceInEth={tokenPriceInEth}
+            ethPriceInUsd={ethPriceInUsd}
           />
           <DialogTokenSaleForPartners
             dialogOpened={dialogTokenSaleForPartnersOpened}
