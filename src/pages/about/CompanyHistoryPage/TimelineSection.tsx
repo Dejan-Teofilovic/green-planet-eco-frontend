@@ -19,6 +19,58 @@ interface ITimeData {
 const TIMELINE: Array<ITimeData> = [
   {
     id: 1,
+    title: 'Project formation Phase',
+    tasks: [
+      {
+        id: 1,
+        task: 'Concept Gerneration'
+      },
+      {
+        id: 2,
+        task: 'Website Development'
+      },
+      {
+        id: 3,
+        task: 'Smart Contract Development'
+      },
+      {
+        id: 4,
+        task: 'KYC & Smart Contract Audit'
+      },
+      {
+        id: 5,
+        task: 'Formulate Marketing'
+      },
+      {
+        id: 6,
+        task: 'Establish a Social Network Community'
+      },
+      {
+        id: 7,
+        task: 'Partnerships'
+      }
+    ]
+  },
+  {
+    id: 2,
+    title: 'Starting Phase',
+    tasks: [
+      {
+        id: 1,
+        task: 'Initial Marketing Rollout'
+      },
+      {
+        id: 2,
+        task: 'Awareness on Coin Listing Sites'
+      },
+      {
+        id: 3,
+        task: 'Seed Round Sale'
+      }
+    ]
+  },
+  {
+    id: 3,
     title: 'Listing Phase',
     tasks: [
       {
@@ -40,7 +92,7 @@ const TIMELINE: Array<ITimeData> = [
     ]
   },
   {
-    id: 2,
+    id: 4,
     title: 'Developments',
     tasks: [
       {
@@ -66,7 +118,7 @@ const TIMELINE: Array<ITimeData> = [
     ]
   },
   {
-    id: 3,
+    id: 5,
     title: 'Launch Phase',
     tasks: [
       {
