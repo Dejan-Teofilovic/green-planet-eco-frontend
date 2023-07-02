@@ -19,76 +19,92 @@ interface ITimeData {
 const TIMELINE: Array<ITimeData> = [
   {
     id: 1,
-    title: 'Project formation Phase',
+    title: 'Listing Phase',
     tasks: [
       {
         id: 1,
-        task: 'Concept Generation'
+        task: 'Listing 1 - Listing distribution of 50,000,000 ECO Tokens'
       },
       {
         id: 2,
-        task: 'Website Development'
+        task: 'Listing 2 - Listing distribution of 60,000,000 ECO Tokens'
       },
       {
         id: 3,
-        task: 'Smart Contract Development'
+        task: 'Listing 3 - Listing distribution of 80,000,000 ECO Tokens'
       },
       {
         id: 4,
-        task: 'KYC & Smart Contract Audit'
-      },
-      {
-        id: 5,
-        task: 'Formulate Marketing'
-      },
-      {
-        id: 6,
-        task: 'Establish a Social Network Community'
-      },
-      {
-        id: 7,
-        task: 'Partnerships'
+        task: 'Listing 4 - Listing distribution of 105,000,000 ECO Tokens'
       }
     ]
   },
   {
     id: 2,
-    title: 'Starting Phase',
+    title: 'Developments',
     tasks: [
       {
         id: 1,
-        task: 'Initial Marketing Rollout'
+        task: 'Press Release & Media Drop'
       },
       {
         id: 2,
-        task: 'Awareness on Coin Listing Sites'
+        task: 'Digital Events'
       },
       {
         id: 3,
-        task: 'Seed Round Sale'
+        task: '1000+ Holders'
+      },
+      {
+        id: 4,
+        task: 'ECO App Development'
+      },
+      {
+        id: 5,
+        task: 'Partnership developments'
       }
     ]
   },
   {
     id: 3,
-    title: 'Presale Phase',
+    title: 'Launch Phase',
     tasks: [
       {
         id: 1,
-        task: 'Top 10 on Coin Listing Sites'
+        task: 'Investing on Campaign'
       },
       {
         id: 2,
-        task: 'Phase 1: Presale Distribution of ECO 80,000,000'
+        task: 'Development of Educational Projects'
       },
       {
         id: 3,
-        task: 'Phase 2: Presale Distribution of ECO 50,000,000'
+        task: 'Partnerships'
       },
       {
         id: 4,
-        task: 'Phase 3: Presale Distribution of ECO 40,000,000'
+        task: 'Aggressive Marketing'
       },
+      {
+        id: 5,
+        task: 'ECO App launch phase'
+      },
+      {
+        id: 6,
+        task: 'App Marketing release'
+      },
+      {
+        id: 7,
+        task: 'Verra & The Gold Standards and others'
+      },
+      {
+        id: 8,
+        task: 'Certification'
+      },
+      {
+        id: 9,
+        task: 'Carbon Credit Project Developments'
+      }
     ]
   },
   {
