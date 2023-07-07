@@ -321,14 +321,17 @@ export default function HeroSection() {
                 >Connect Wallet</Button>
               )}
             </div> */}
-            
-            <div className="flex flex-col items-center justify-center gap-6 h-96 bg-primary px-4">
+
+            <div className="flex flex-col items-center justify-center gap-6 py-20 md:py-32 lg:py-24 rounded-none md:rounded-xl bg-primary px-16 md:px-8 lg:px-16">
               <a href="https://p2pb2b.com/" target="_blank" className="uppercase text-white text-5xl text-center leading-normal font-bold">
-                Buy Eco Token
+                <img 
+                  src="/assets/images/buy_eco_token.png"
+                  alt="Buy Eco Token"
+                />
               </a>
             </div>
 
-            <div className="flex flex-col items-center gap-6 py-10 md:py-20 px-8 bg-white">
+            <div className="flex flex-col items-center gap-6 py-10 md:py-16 lg:py-20 px-8 bg-white">
               <img src="/assets/images/hero_donate.png" alt="" />
               <h2 className="font-extrabold text-center text-2xl">Buy Carbon Credit</h2>
               <p className="text-gray-400 text-center">
