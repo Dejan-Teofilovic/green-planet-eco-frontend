@@ -323,7 +323,7 @@ export default function HeroSection() {
             </div> */}
 
             <div className="flex flex-col items-center justify-center gap-6 h-80 bg-white px-8 rounded-lg">
-              <a href="https://p2bp2b.com" target="_blank" className="flex flex-col items-center gap-6 font-extrabold text-center text-2xl">
+              <a href="https://p2pb2b.com/trade/ECO_USDT/" target="_blank" className="flex flex-col items-center gap-6 font-extrabold text-center text-2xl">
                 <img
                   src="/assets/images/logo_white.png"
                   alt="logo"
