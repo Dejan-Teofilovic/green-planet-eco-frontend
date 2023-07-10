@@ -1,5 +1,5 @@
 import React, { lazy, useEffect, useMemo, useState } from "react"
-import { Button, Progress } from "@material-tailwind/react"
+import { Button, Progress, Typography } from "@material-tailwind/react"
 import { useWeb3Modal } from "@web3modal/react"
 import { useAccount, useDisconnect, useSwitchNetwork, useNetwork, useContractReads } from "wagmi"
 import { useMediaQuery } from 'react-responsive';
@@ -233,13 +233,13 @@ export default function HeroSection() {
 
       <div className="md:absolute w-full mt-12 md:mt-0">
         <Container className="px-0 md:px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 items-center">
-            <div className="flex flex-col items-center gap-6 py-10 md:py-20 px-8 bg-white">
+          <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8 mb-8 md:mb-0">
+            <div className="flex flex-col items-center justify-center gap-6 h-80 px-8 bg-white rounded-lg">
               <Link to="/about/campaigns">
                 <img src="/assets/images/who_we_are_donate.png" alt="" />
               </Link>
               <Link to="/about/campaigns" className="font-extrabold text-center text-2xl">Give Donation</Link>
-              <p className="text-gray-400 text-center">
+              <p className="text-gray-500 text-center">
                 Your contribution used locally to help charitable causes and support the organization, Support.
               </p>
             </div>
@@ -322,19 +322,24 @@ export default function HeroSection() {
               )}
             </div> */}
 
-            <div className="flex flex-col items-center justify-center gap-6 py-20 md:py-32 lg:py-24 rounded-none md:rounded-xl bg-primary px-16 md:px-8 lg:px-16">
-              <a href="https://p2pb2b.com/" target="_blank" className="uppercase text-white text-5xl text-center leading-normal font-bold">
-                <img 
-                  src="/assets/images/buy_eco_token.png"
-                  alt="Buy Eco Token"
+            <div className="flex flex-col items-center justify-center gap-6 h-80 bg-white px-8 rounded-lg">
+              <a href="https://p2bp2b.com" target="_blank" className="flex flex-col items-center gap-6 font-extrabold text-center text-2xl">
+                <img
+                  src="/assets/images/logo_white.png"
+                  alt="logo"
+                  className="w-16"
                 />
+                Buy ECO Tokens
               </a>
+              <p className="text-gray-500 text-center">
+                Shape the world you want to live in through ECO Crypto Investments
+              </p>
             </div>
 
-            <div className="flex flex-col items-center gap-6 py-10 md:py-16 lg:py-20 px-8 bg-white">
+            <div className="flex flex-col items-center justify-center h-80 gap-6 px-8 bg-white rounded-lg">
               <img src="/assets/images/hero_donate.png" alt="" />
               <h2 className="font-extrabold text-center text-2xl">Buy Carbon Credit</h2>
-              <p className="text-gray-400 text-center">
+              <p className="text-gray-500 text-center">
                 Buying carbon credits is a way for individuals or organizations to offset their carbon footprint.
               </p>
             </div>
