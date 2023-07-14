@@ -200,7 +200,7 @@ export default function HeroSection() {
                 </Button>
               </MotionDiv>
 
-              <MotionDiv variants={varFadeInRight}>
+              {/* <MotionDiv variants={varFadeInRight}>
                 <Button
                   className="border-primary border-2 bg-transparent shadow-none text-base capitalize rounded-full px-5 md:px-10 hover:shadow-primary"
                   disabled={!isConnected}
@@ -208,7 +208,7 @@ export default function HeroSection() {
                 >
                   Affiliate Link
                 </Button>
-              </MotionDiv>
+              </MotionDiv> */}
             </div>
           </div>
 
