@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { EffectFade, Navigation } from "swiper/modules";
+import { EffectFade, Navigation } from "swiper";
 
 //  ------------------------------------------------------------------------------------------------------------
 
@@ -18,10 +18,6 @@ export default function HeroSection() {
   return (
     <div className="relative">
       <Swiper
-        style={{
-          '--swiper-navigation-color': '#fff',
-          '--swiper-pagination-color': '#fff',
-        }}
         spaceBetween={30}
         effect="fade"
         navigation={true}

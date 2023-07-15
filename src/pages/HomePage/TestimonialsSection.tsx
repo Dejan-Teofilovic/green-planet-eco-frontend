@@ -2,7 +2,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
+import { Pagination } from 'swiper';
 import { Avatar } from "@material-tailwind/react";
 import Container from "../../components/Container";
 import TinyDashedBar from "../../components/TinyDashedBar";
@@ -56,8 +56,6 @@ export default function TestimonialsSection() {
 
             <div className="mt-8 md:mt-16">
               <Swiper
-                slidesPerView={1}
-                spaceBetween={30}
                 breakpoints={{
                   320: {
                     slidesPerView: 1,

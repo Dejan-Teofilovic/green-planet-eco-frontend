@@ -2,7 +2,7 @@ import React, { lazy } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination } from "swiper/modules";
+import { Pagination } from "swiper";
 import { Card, CardBody } from "@material-tailwind/react";
 import Container from "../../components/Container";
 import { IFaqData, IImage, INewsData } from "../../utils/interfaces";
@@ -125,8 +125,6 @@ export default function NewsPage() {
           </div>
 
           <Swiper
-            slidesPerView={1}
-            spaceBetween={30}
             breakpoints={{
               320: {
                 slidesPerView: 1,

@@ -1,6 +1,6 @@
 import React, { lazy } from 'react'
 // import { Swiper, SwiperSlide } from "swiper/react";
-// import { Pagination } from 'swiper/modules';
+// import { Pagination } from 'swiper';
 // import { ITestimonialData } from '../../../utils/interfaces'
 import Container from '../../../components/Container'
 // import TinyDashedBar from '../../../components/TinyDashedBar';
@@ -54,8 +54,6 @@ export default function TestimonialsPage() {
       {/* <div className="bg-white py-16 md:py-36">
         <Container>
           <Swiper
-            slidesPerView={1}
-            spaceBetween={30}
             breakpoints={{
               320: {
                 slidesPerView: 1,
