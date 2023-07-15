@@ -49,7 +49,7 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav className="sticky top-0 z-20">
+    <nav className="sticky top-0 z-30">
       <div className={`relative ${isShadow && 'shadow-2xl'}`}>
         {/* Topbar */}
         <div className="bg-primary py-1 hidden lg:block">

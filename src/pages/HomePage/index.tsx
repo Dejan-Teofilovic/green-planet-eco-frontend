@@ -1,8 +1,7 @@
-import React, { Suspense, lazy, useEffect } from 'react'
+import { lazy, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import useAffiliate from '../../hooks/useAffililate'
 import { QUERY_PARAM_NAME_OF_AFFILIATE_TOKEN } from '../../utils/constants'
-import Loading from '../../components/Loading'
 
 // --------------------------------------------------------------------------
 

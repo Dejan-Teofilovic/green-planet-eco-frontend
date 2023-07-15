@@ -7,7 +7,7 @@ const NewsBar = lazy(() => import('./NewsBar'))
 
 export default function AboutSection() {
   return (
-    <div className="md:mt-64 flex flex-col gap-16 md:gap-24">
+    <div className="md:mt-24 flex flex-col gap-16 md:gap-24">
       <NewsBar />
       <Container id="about">
         <div className="grid grid-cols-1 md:grid-cols-11 gap-16 items-center">

@@ -1,14 +1,14 @@
 import { lazy } from "react";
-import { Button } from "@material-tailwind/react"
-import { Link } from "react-router-dom"
-import Container from "../../../components/Container"
-import TinyDashedBar from "../../../components/TinyDashedBar"
-import { varFadeInDown, varFadeInLeft, varFadeInUp } from "../../../utils/constants";
+import { Button } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
+import Container from "../../../components/Container";
 import MotionDiv from "../../../components/MotionDiv";
+import TinyDashedBar from "../../../components/TinyDashedBar";
+import { varFadeInDown, varFadeInLeft, varFadeInUp } from "../../../utils/constants";
 
 //  ----------------------------------------------------------------------------------------------------------
 
-export default function Slider1() {
+export default function Slider2() {
   return (
     <header className="relative bg-[#0F0F0F] md:pt-28 md:pb-28 pt-28 pb-0" id="hero">
       <Container>
@@ -46,33 +46,30 @@ export default function Slider1() {
                   </Link>
                 </Button>
               </MotionDiv>
-
-              {/* <MotionDiv variants={varFadeInRight}>
-              <Button
-                className="border-primary border-2 bg-transparent shadow-none text-base capitalize rounded-full px-5 md:px-10 hover:shadow-primary"
-                disabled={!isConnected}
-                onClick={() => openDialogAffiliate()}
-              >
-                Affiliate Link
-              </Button>
-            </MotionDiv> */}
             </div>
           </div>
 
-          <div className="hidden lg:block">
-            <MotionDiv variants={varFadeInUp}>
-              <img src="/assets/images/hero.jpg" alt="hero" />
+          <div className="lg:grid hidden grid-cols-2">
+            <MotionDiv variants={varFadeInDown}>
+              <div className="relative">
+                <div className="relative z-20 w-[430px] ml-[10%]">
+                  <img src="/assets/images/fan.png" alt="fan" className="animate-spin" style={{ animationDuration: '6s' }} />
+                </div>
+                <div className="absolute top-[45%] right-[9%]">
+                  <img src="/assets/images/fan-base.png" alt="fanbase" />
+                </div>
+              </div>
             </MotionDiv>
-          </div>
 
-          <div className="flex justify-center lg:hidden my-12">
-            <MotionDiv variants={varFadeInUp}>
-              <a
-                target="_blank"
-                href="https://app.companiesoffice.govt.nz/companies/app/ui/pages/companies/companyBadgeSnippet/8745289?utm_campaign=companiesdirectlinks&utm_medium=webpage&utm_source=thecompany"
-              >
-                <img src="https://app.companiesoffice.govt.nz/companies/app/ui/themes/companies/images/CO_Details_light_optimal_WEB.png" alt="Company" />
-              </a>
+            <MotionDiv variants={varFadeInDown}>
+              <div className="relative">
+                <div className="relative z-20 w-[200px] ml-[58%] mt-[65%]">
+                  <img src="/assets/images/fan.png" alt="fan" className="animate-spin" style={{ animationDuration: '5s' }} />
+                </div>
+                <div className="absolute top-[45%] right-[4%] w-5">
+                  <img src="/assets/images/fan-base.png" alt="fanbase" />
+                </div>
+              </div>
             </MotionDiv>
           </div>
         </div>

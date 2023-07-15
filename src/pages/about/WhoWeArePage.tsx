@@ -1,6 +1,8 @@
 import React, { lazy } from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Pagination } from 'swiper/modules';
 import Container from '../../components/Container'
 import TinyDashedBar from '../../components/TinyDashedBar';
 import { PROFILES, SERVICES } from '../../utils/constants';
