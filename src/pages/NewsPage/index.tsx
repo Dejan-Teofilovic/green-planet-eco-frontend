@@ -125,6 +125,8 @@ export default function NewsPage() {
           </div>
 
           <Swiper
+            slidesPerView={1}
+            spaceBetween={30}
             breakpoints={{
               320: {
                 slidesPerView: 1,

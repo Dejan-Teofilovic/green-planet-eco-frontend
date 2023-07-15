@@ -1,4 +1,4 @@
-import React, { lazy } from 'react'
+import { lazy } from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -109,6 +109,8 @@ export default function WhoWeArePage() {
 
           <div className="mt-8 md:mt-16">
             <Swiper
+              slidesPerView={1}
+              spaceBetween={30}
               breakpoints={{
                 320: {
                   slidesPerView: 1,

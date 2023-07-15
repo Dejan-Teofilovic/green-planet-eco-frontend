@@ -56,6 +56,8 @@ export default function TestimonialsSection() {
 
             <div className="mt-8 md:mt-16">
               <Swiper
+                slidesPerView={1}
+                spaceBetween={30}
                 breakpoints={{
                   320: {
                     slidesPerView: 1,

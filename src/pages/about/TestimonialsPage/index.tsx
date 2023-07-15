@@ -54,6 +54,8 @@ export default function TestimonialsPage() {
       {/* <div className="bg-white py-16 md:py-36">
         <Container>
           <Swiper
+            slidesPerView={1}
+            spaceBetween={30}
             breakpoints={{
               320: {
                 slidesPerView: 1,
