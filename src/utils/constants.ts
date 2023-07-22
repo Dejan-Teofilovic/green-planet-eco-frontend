@@ -524,20 +524,20 @@ export const PROFILES: Array<IProfileData> = [
       }
     ]
   },
-  {
-    id: 5,
-    name: "Erick Tomas Rojas",
-    position: "Marketing Manager",
-    bio: "",
-    imgSrc: "/assets/images/team_mm.jpg",
-    socialLinks: [
-      {
-        id: 1,
-        icon: "mdi:twitter",
-        url: "https://twitter.com/"
-      }
-    ]
-  }
+  // {
+  //   id: 5,
+  //   name: "Erick Tomas Rojas",
+  //   position: "Marketing Manager",
+  //   bio: "",
+  //   imgSrc: "/assets/images/team_mm.jpg",
+  //   socialLinks: [
+  //     {
+  //       id: 1,
+  //       icon: "mdi:twitter",
+  //       url: "https://twitter.com/"
+  //     }
+  //   ]
+  // }
 ];
 
 export const varFadeInUp: Variants = {
