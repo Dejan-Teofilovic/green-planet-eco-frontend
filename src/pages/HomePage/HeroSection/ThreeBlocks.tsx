@@ -1,8 +1,14 @@
 import { lazy, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
-import { useWeb3Modal } from "@web3modal/react";
-import { useAccount, useContractReads, useDisconnect, useNetwork, useSwitchNetwork } from "wagmi";
+// import { useWeb3Modal } from "@web3modal/react";
+import { 
+  useAccount, 
+  useContractReads, 
+  // useDisconnect, 
+  // useNetwork, 
+  // useSwitchNetwork 
+} from "wagmi";
 import Container from "../../../components/Container";
 import useLoading from "../../../hooks/useLoading";
 import api from "../../../utils/api";
@@ -29,11 +35,11 @@ const contract: {} = {
 // -----------------------------------------------------------------------------------
 
 export default function ThreeBlocks() {
-  const { open } = useWeb3Modal()
+  // const { open } = useWeb3Modal()
   const { isConnected, address } = useAccount()
-  const { disconnect } = useDisconnect()
-  const { switchNetwork } = useSwitchNetwork()
-  const { chain } = useNetwork()
+  // const { disconnect } = useDisconnect()
+  // const { switchNetwork } = useSwitchNetwork()
+  // const { chain } = useNetwork()
   const isMobile = useMediaQuery({ maxWidth: 480 });
   const isTablet = useMediaQuery({ minWidth: 480, maxWidth: 768 });
   const isLaptop = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
@@ -101,17 +107,17 @@ export default function ThreeBlocks() {
     }
   }, [contractReadsLoading])
 
-  const openDialogTokenSale = () => {
-    setDialogTokenSaleOpened(true)
-  }
+  // const openDialogTokenSale = () => {
+  //   setDialogTokenSaleOpened(true)
+  // }
 
-  const openDialogTokenSaleForPartners = () => {
-    setDialogTokenSaleForPartnersOpened(true)
-  }
+  // const openDialogTokenSaleForPartners = () => {
+  //   setDialogTokenSaleForPartnersOpened(true)
+  // }
 
-  const openDialogAffiliate = () => {
-    setDialogAffiliateOpened(true)
-  }
+  // const openDialogAffiliate = () => {
+  //   setDialogAffiliateOpened(true)
+  // }
 
   //  Get the price of Ethereum in USD
   const getEthPriceInUsd = async () => {
@@ -122,8 +128,6 @@ export default function ThreeBlocks() {
       console.log('>>>>>>> error => ', error)
     }
   }
-
-
 
   //  Get the price of Ethereum in USD per 10 minutes
   useEffect(() => {
