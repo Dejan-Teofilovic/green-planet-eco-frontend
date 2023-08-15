@@ -508,7 +508,7 @@ export const PROFILES: Array<IProfileData> = [
   {
     id: 4,
     name: "Atsuo Koizumi",
-    position: "Software Developer",
+    position: "Software Engineer",
     bio: "",
     imgSrc: "/assets/images/team_sd.jpg",
     socialLinks: [
