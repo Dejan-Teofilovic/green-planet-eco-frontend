@@ -2,6 +2,10 @@
 
 The website of a New Zealand green technology company, Green Planet Eco.
 
+## Live site
+
+[![Live site](readme_images/guide-site.png)](https://greenplaneteco.com)
+
 ## Contact info
 
 - **Email:** atsuokoizumi@gmail.com
@@ -25,6 +29,3 @@ May 12, 2023
 
 1. Please open terminal window in the root directory.
 2. Please run command `npm run dev` in it.
-3. You can see a site like the following image if it is run correctly.
-
-![guide-site](readme_images/guide-site.png)
