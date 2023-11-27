@@ -19,7 +19,7 @@ May 12, 2023
 
 - `Node.js v18.12.1`
 
-## Stack
+## Stack    
 
 - **Framework:** `React.js v18.2.0`
 - **Theme:** `Material-Tailwind v1.4.2`
