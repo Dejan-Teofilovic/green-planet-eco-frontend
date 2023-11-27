@@ -1,6 +1,6 @@
 # The website of Green Planet Eco
 
-The website of a New Zealand green technology company, Green Planet Eco.
+The website of a New Zealand green technology company, Green Planet Eco.    
 
 ## Live site
 
