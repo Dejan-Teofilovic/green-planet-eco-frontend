@@ -6,7 +6,7 @@ The website of a New Zealand green technology company, Green Planet Eco.
 
 [![Live site](readme_images/guide-site.png)](https://greenplaneteco.com)
      
-## Contact info
+## Contact info    
 
 - **Email:** dejanteofilovic2@gmail.com
 - **Discord:** [dejan_teofilovic](https://discord.gg/PztT2r5U)
